@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy_Web", "AirCaddy_Web\AirCaddy_Web.csproj", "{1DEC3189-438A-4FA5-BBBA-9C98916536D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy_Web.Tests", "AirCaddy_Web.Tests\AirCaddy_Web.Tests.csproj", "{C705304A-F9B4-4F85-9621-2E04A84D02D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DEC3189-438A-4FA5-BBBA-9C98916536D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEC3189-438A-4FA5-BBBA-9C98916536D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEC3189-438A-4FA5-BBBA-9C98916536D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEC3189-438A-4FA5-BBBA-9C98916536D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C705304A-F9B4-4F85-9621-2E04A84D02D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C705304A-F9B4-4F85-9621-2E04A84D02D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C705304A-F9B4-4F85-9621-2E04A84D02D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C705304A-F9B4-4F85-9621-2E04A84D02D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE5A279B-411D-4591-8FE7-3978F1FCD693}
+	EndGlobalSection
+EndGlobal
