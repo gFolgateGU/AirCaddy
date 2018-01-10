@@ -1,0 +1,5 @@
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.pdb
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csproj.CoreCompileInputs.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.pdb

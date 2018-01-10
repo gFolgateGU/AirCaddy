@@ -1,0 +1,13 @@
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\AirCaddy.Tests.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\AirCaddy.Tests.pdb
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.csprojResolveAssemblyReference.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.csproj.CoreCompileInputs.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.pdb
