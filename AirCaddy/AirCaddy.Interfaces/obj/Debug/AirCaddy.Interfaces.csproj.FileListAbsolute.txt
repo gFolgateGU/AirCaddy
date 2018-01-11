@@ -1,6 +1,4 @@
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Interfaces\bin\Debug\AirCaddy.Interfaces.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Interfaces\bin\Debug\AirCaddy.Interfaces.pdb
-C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Interfaces\obj\Debug\AirCaddy.Interfaces.csprojResolveAssemblyReference.cache
-C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Interfaces\obj\Debug\AirCaddy.Interfaces.csproj.CoreCompileInputs.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Interfaces\obj\Debug\AirCaddy.Interfaces.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Interfaces\obj\Debug\AirCaddy.Interfaces.pdb

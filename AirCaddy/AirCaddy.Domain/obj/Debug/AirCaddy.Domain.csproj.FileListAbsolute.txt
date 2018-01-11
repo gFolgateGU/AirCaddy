@@ -1,6 +1,5 @@
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Domain.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Domain.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csprojResolveAssemblyReference.cache
-C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csproj.CoreCompileInputs.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.pdb

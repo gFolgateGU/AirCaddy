@@ -113,7 +113,13 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Microsoft.AI.DependencyCollector.x
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Microsoft.AI.WindowsServer.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Microsoft.AI.Web.xml
-C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\obj\Debug\AirCaddy.Web.csproj.CoreCompileInputs.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\obj\Debug\AirCaddy.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\obj\Debug\AirCaddy.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\obj\Debug\AirCaddy.Web.csprojResolveAssemblyReference.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Common.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Mvc.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\WebActivatorEx.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Common.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Mvc.xml
