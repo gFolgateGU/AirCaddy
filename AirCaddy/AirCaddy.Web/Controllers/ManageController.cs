@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AirCaddy.Root_Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AirCaddy.Controllers
 {

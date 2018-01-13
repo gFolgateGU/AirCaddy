@@ -2,9 +2,13 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.pdb
-C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csprojResolveAssemblyReference.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll.config
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csprojResolveAssemblyReference.cache

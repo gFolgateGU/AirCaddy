@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Web", "AirCaddy.Web\AirCaddy.Web.csproj", "{E833FB90-14A4-48BA-9A5A-AE265ABF9FF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Data", "AirCaddy.Data\AirCaddy.Data.csproj", "{A1A44749-6302-4834-BA89-AC2196F31621}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Domain", "AirCaddy.Domain\AirCaddy.Domain.csproj", "{D1F8E6D2-C3B9-474E-86D6-A285827BA147}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Interfaces", "AirCaddy.Interfaces\AirCaddy.Interfaces.csproj", "{8F6F5E3F-0525-42ED-B347-CCD2FF251F98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Tests", "AirCaddy.Tests\AirCaddy.Tests.csproj", "{9B8208C7-1702-46F6-901F-9C335A7053B1}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{D1F8E6D2-C3B9-474E-86D6-A285827BA147}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F8E6D2-C3B9-474E-86D6-A285827BA147}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1F8E6D2-C3B9-474E-86D6-A285827BA147}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F6F5E3F-0525-42ED-B347-CCD2FF251F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F6F5E3F-0525-42ED-B347-CCD2FF251F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F6F5E3F-0525-42ED-B347-CCD2FF251F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F6F5E3F-0525-42ED-B347-CCD2FF251F98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9B8208C7-1702-46F6-901F-9C335A7053B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B8208C7-1702-46F6-901F-9C335A7053B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8208C7-1702-46F6-901F-9C335A7053B1}.Release|Any CPU.ActiveCfg = Release|Any CPU

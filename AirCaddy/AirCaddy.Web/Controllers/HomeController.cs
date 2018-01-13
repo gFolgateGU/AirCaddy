@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AirCaddy.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,6 +15,7 @@ namespace AirCaddy.Controllers
             return View();
         }
 
+        [Authorize(Roles="User")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

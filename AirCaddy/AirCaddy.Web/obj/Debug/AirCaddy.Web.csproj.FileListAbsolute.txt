@@ -123,3 +123,6 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\WebActivatorEx.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Common.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Mvc.xml
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Data.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Data.pdb
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Data.dll.config
