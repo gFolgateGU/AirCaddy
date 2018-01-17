@@ -74,38 +74,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AirCaddy_DataEntities.Context.cs">
+    <Compile Include="AirCaddyDataEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AirCaddy_DataEntities.Context.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AirCaddy_DataEntities.cs">
+    <Compile Include="AirCaddyDataEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AirCaddy_DataEntities.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="AirCaddy_DataEntities.Designer.cs">
+    <Compile Include="AirCaddyDataEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AirCaddy_DataEntities.edmx</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="AspNetRole.cs">
-      <DependentUpon>AirCaddy_DataEntities.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>AirCaddy_DataEntities.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>AirCaddy_DataEntities.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>AirCaddy_DataEntities.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>AirCaddy_DataEntities.tt</DependentUpon>
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RolesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -123,28 +122,28 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AirCaddy_DataEntities.edmx">
+    <EntityDeploy Include="AirCaddyDataEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AirCaddy_DataEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>AirCaddyDataEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="AirCaddy_DataEntities.edmx.diagram">
-      <DependentUpon>AirCaddy_DataEntities.edmx</DependentUpon>
+    <None Include="AirCaddyDataEntities.edmx.diagram">
+      <DependentUpon>AirCaddyDataEntities.edmx</DependentUpon>
     </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AirCaddy_DataEntities.Context.tt">
+    <Content Include="AirCaddyDataEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AirCaddy_DataEntities.Context.cs</LastGenOutput>
-      <DependentUpon>AirCaddy_DataEntities.edmx</DependentUpon>
+      <LastGenOutput>AirCaddyDataEntities.Context.cs</LastGenOutput>
+      <DependentUpon>AirCaddyDataEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="AirCaddy_DataEntities.tt">
+    <Content Include="AirCaddyDataEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AirCaddy_DataEntities.edmx</DependentUpon>
-      <LastGenOutput>AirCaddy_DataEntities.cs</LastGenOutput>
+      <DependentUpon>AirCaddyDataEntities.edmx</DependentUpon>
+      <LastGenOutput>AirCaddyDataEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

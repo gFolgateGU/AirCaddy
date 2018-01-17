@@ -10,3 +10,4 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.VisualStudio.Tes
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.csprojResolveAssemblyReference.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.pdb
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.csproj.CoreCompileInputs.cache
