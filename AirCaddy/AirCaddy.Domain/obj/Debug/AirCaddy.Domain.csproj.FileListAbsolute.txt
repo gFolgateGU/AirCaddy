@@ -4,3 +4,8 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csproj.CoreCompileInputs.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csprojResolveAssemblyReference.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.pdb
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.dll.config
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.xml

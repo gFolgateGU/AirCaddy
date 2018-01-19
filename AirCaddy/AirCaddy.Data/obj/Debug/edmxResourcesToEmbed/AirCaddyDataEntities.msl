@@ -66,5 +66,18 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="PrivilegeRequests">
+      <EntityTypeMapping TypeName="AirCaddyDataModel.PrivilegeRequest">
+        <MappingFragment StoreEntitySet="PrivilegeRequests">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Verified" ColumnName="Verified" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="CoursePhoneNumber" ColumnName="CoursePhoneNumber" />
+          <ScalarProperty Name="GolfCourseAddress" ColumnName="GolfCourseAddress" />
+          <ScalarProperty Name="GolfCourseName" ColumnName="GolfCourseName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

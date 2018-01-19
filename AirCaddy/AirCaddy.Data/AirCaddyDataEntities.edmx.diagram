@@ -13,6 +13,8 @@
         <AssociationConnector Association="AirCaddyDataModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="AirCaddyDataModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="AirCaddyDataModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AirCaddyDataModel.PrivilegeRequest" Width="2.375" PointX="5.25" PointY="6.375" />
+        <AssociationConnector Association="AirCaddyDataModel.FK_PrivilegeRequests_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

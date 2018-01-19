@@ -205,6 +205,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PrivilegesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +272,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Privileges\MakeRequest.cshtml" />
+    <Content Include="Views\Privileges\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -292,6 +295,10 @@
     <ProjectReference Include="..\AirCaddy.Data\AirCaddy.Data.csproj">
       <Project>{A1A44749-6302-4834-BA89-AC2196F31621}</Project>
       <Name>AirCaddy.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirCaddy.Domain\AirCaddy.Domain.csproj">
+      <Project>{D1F8E6D2-C3B9-474E-86D6-A285827BA147}</Project>
+      <Name>AirCaddy.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

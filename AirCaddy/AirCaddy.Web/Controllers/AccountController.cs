@@ -81,6 +81,7 @@ namespace AirCaddy.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session["Username"] = model.Email;
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -398,6 +399,7 @@ namespace AirCaddy.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
