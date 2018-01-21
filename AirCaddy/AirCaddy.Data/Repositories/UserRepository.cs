@@ -12,18 +12,14 @@ namespace AirCaddy.Data.Repositories
         string GetUserIdFromUsername(string username);
     }
 
-    public class UserRepository : IUserRepository
-    {
-        private readonly AirCaddyDataEntities _dataEntities;
-
-        public UserRepository()
-        {
-            _dataEntities = new AirCaddyDataEntities();
-        }
+    public class UserRepository : BaseRepository, IUserRepository
+    { 
+        public UserRepository() : base() { }
 
         public string GetUserIdFromUsername(string username)
         {
             var user = _dataEntities.AspNetUsers.FirstOrDefault(u => u.UserName.Contains(username));
+
             return user.Id;
         }
     }

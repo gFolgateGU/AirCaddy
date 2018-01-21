@@ -14,6 +14,8 @@ namespace AirCaddy.Domain.ViewModels.Privileges
 
         public string CoursePhoneNumber { get; set; }
 
+        public string CourseType { get; set; }
+
         public string Reason { get; set; }
     }
 }

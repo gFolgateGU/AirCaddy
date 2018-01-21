@@ -104,10 +104,16 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GolfCourse.cs">
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="PrivilegeRequest.cs">
       <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\GolfCourseRepository.cs" />
+    <Compile Include="Repositories\PrivilegeRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

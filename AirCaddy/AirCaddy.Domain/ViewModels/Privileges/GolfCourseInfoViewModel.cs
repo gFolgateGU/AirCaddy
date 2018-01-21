@@ -13,5 +13,7 @@ namespace AirCaddy.Domain.ViewModels.Privileges
         public string CourseAddress { get; set; }
 
         public string PrimaryContact { get; set; }
+
+        public string CourseType { get; set; }
     }
 }

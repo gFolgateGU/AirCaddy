@@ -21,6 +21,7 @@ namespace AirCaddy.Data
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
             this.AspNetRoles = new HashSet<AspNetRole>();
             this.PrivilegeRequests = new HashSet<PrivilegeRequest>();
+            this.GolfCourses = new HashSet<GolfCourse>();
         }
     
         public string Id { get; set; }
@@ -46,5 +47,7 @@ namespace AirCaddy.Data
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PrivilegeRequest> PrivilegeRequests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GolfCourse> GolfCourses { get; set; }
     }
 }

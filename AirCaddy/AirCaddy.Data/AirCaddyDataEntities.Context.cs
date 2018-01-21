@@ -31,5 +31,6 @@ namespace AirCaddy.Data
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<PrivilegeRequest> PrivilegeRequests { get; set; }
+        public virtual DbSet<GolfCourse> GolfCourses { get; set; }
     }
 }

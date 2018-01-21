@@ -1,5 +1,6 @@
 using AirCaddy.Data.Repositories;
 using AirCaddy.Domain.Services;
+using AirCaddy.Domain.Services.Privileges;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AirCaddy.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AirCaddy.App_Start.NinjectWebCommon), "Stop")]
@@ -71,11 +72,14 @@ namespace AirCaddy.App_Start
         private static void BindDomainServices(IKernel kernel)
         {
             kernel.Bind<ISessionMapperService>().To<SessionMapperService>();
+            kernel.Bind<IPrivilegeRequestHandlerService>().To<PrivilegeRequestHandlerService>();
         }
 
         private static void BindDataRepositories(IKernel kernel)
         {
             kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<IGolfCourseRepository>().To<GolfCourseRepository>();
+            kernel.Bind<IPrivilegeRepository>().To<PrivilegeRepository>();
         }
     }
 }
