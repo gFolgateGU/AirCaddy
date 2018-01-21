@@ -1,0 +1,16 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arvo';
+    color: #006400;
+}
+
+button {
+    font-family: 'Arvo';
+    color: #006400;
+}
+
+body {
+    font-family: 'Arvo';
+    color: #006400;
+}
