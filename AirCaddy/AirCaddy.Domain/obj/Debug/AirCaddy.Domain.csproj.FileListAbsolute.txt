@@ -9,3 +9,5 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.dll.config
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csproj.CoreCompileInputs.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.pdb

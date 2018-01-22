@@ -43,10 +43,16 @@ namespace AirCaddy.Controllers
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             if (await _privilegeRequestHandlerService.IsDuplicateEntryAsync(privilegeData))
             {
-                return Json(false);
+                //course is duplicate entry
+                return Json(1);
+            }
+            if (!_privilegeRequestHandlerService.ValidateGolfCourseAddress(privilegeData))
+            {
+                //course address is not valid
+                return Json(2);
             }
             await _privilegeRequestHandlerService.MakeCoursePrivilegeRequestAsync(privilegeData, userId);
-            return Json(true);
+            return Json(3);
         }
     }
 }

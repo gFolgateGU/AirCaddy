@@ -90,12 +90,17 @@
   <ItemGroup>
     <Compile Include="ControllerTests\PrivilegesControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceTests\PrivilegeRequestHandlerServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirCaddy.Data\AirCaddy.Data.csproj">
+      <Project>{A1A44749-6302-4834-BA89-AC2196F31621}</Project>
+      <Name>AirCaddy.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirCaddy.Domain\AirCaddy.Domain.csproj">
       <Project>{D1F8E6D2-C3B9-474E-86D6-A285827BA147}</Project>
       <Name>AirCaddy.Domain</Name>

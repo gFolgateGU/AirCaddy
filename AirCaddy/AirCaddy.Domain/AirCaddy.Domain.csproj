@@ -55,6 +55,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\MAX.USPS.csproj">
+      <Project>{bab21eb2-2a87-4076-a029-96abc7eece2f}</Project>
+      <Name>MAX.USPS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirCaddy.Data\AirCaddy.Data.csproj">
       <Project>{A1A44749-6302-4834-BA89-AC2196F31621}</Project>
       <Name>AirCaddy.Data</Name>

@@ -5,16 +5,29 @@
     //used to help prevent cross side scripting.
     vm.requestToken = antiForgeryRequestToken;
 
-    vm.eventName = ko.observable("");
-    vm.eventDescription = ko.observable("");
-    vm.startDateTime = ko.observable("");
-    vm.numberOfHours = ko.observable("");
+    var stateCodes = [
+        '--', 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO',
+        'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN',
+        'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MI', 'MN', 'MS', 'MO', 'MT',
+        'NE', 'NV', 'NH', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW',
+        'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'
+    ];
+
+    vm.courseName = ko.observable("");
+    vm.coursePrimaryContact = ko.observable("");
+    vm.courseReason = ko.observable("");
+    vm.states = ko.observableArray(stateCodes);
+    vm.selectedState = ko.observable();
 
     //Error Messages
-    vm. = ko.observable("");
-    vm.eventDescriptionErrorMssg = ko.observable("");
-    vm.startDateTimeErrorMssg = ko.observable("");
-    vm.numberOfHoursErrorMssg = ko.observable("");
+    vm.courseNameErrorMssg = ko.observable("");
+    vm.coursePrimaryContactErrorMssg = ko.observable("");
+    vm.courseAddressLineErrorMssg = ko.observable("");
+    vm.courseCityErrorMssg = ko.observable("");
+    vm.courseStateCodeErrorMssg = ko.observable("");
+    vm.courseZipErrorMssg = ko.observable("");
+    vm.courseTypeErrorMssg = ko.observable("");
+    vm.courseReasonErrorMssg = ko.observable("");
 
     //Pop Ups
     vm.successPopUpMessage = ko.observable("Your golf course owner request has been submitted successfully.");
@@ -93,20 +106,15 @@
         return false;
     }
 
-    function validateDateExpression() {
-        var dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
-        if (!(dateRegex.test(vm.startDateTime()))) {
-            vm.startDateTimeErrorMssg("The date must be in form of MM/DD/YYYY");
-            return false;
-        }
-        return true;
-    }
-
     function resetErrorMessages() {
-        vm.eventNameErrorMssg("");
-        vm.eventDescriptionErrorMssg("");
-        vm.numberOfHoursErrorMssg("");
-        vm.startDateTimeErrorMssg("");
+        vm.courseNameErrorMssg = ko.observable("");
+        vm.coursePrimaryContactErrorMssg = ko.observable("");
+        vm.courseAddressLineErrorMssg = ko.observable("");
+        vm.courseCityErrorMssg = ko.observable("");
+        vm.courseStateCodeErrorMssg = ko.observable("");
+        vm.courseZipErrorMssg = ko.observable("");
+        vm.courseTypeErrorMssg = ko.observable("");
+        vm.courseReasonErrorMssg = ko.observable("");
     }
 
     function resetFields() {
@@ -115,4 +123,6 @@
         vm.startDateTime("");
         vm.numberOfHours("");
     }
+
+    
 }

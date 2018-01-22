@@ -12,6 +12,12 @@ namespace AirCaddy.Domain.ViewModels.Privileges
 
         public string CourseAddress { get; set; }
 
+        public string City { get; set; }
+
+        public string StateCode { get; set; }
+
+        public string Zip { get; set; }
+
         public string CoursePhoneNumber { get; set; }
 
         public string CourseType { get; set; }

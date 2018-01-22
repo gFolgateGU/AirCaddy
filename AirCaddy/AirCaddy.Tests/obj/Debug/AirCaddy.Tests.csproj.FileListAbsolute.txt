@@ -68,3 +68,5 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\obj\Debug\AirCaddy.Tests.csproj.CoreCompileInputs.cache
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\MAX.USPS.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\MAX.USPS.pdb
