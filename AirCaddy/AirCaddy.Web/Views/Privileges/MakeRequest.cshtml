@@ -29,42 +29,48 @@
         <strong>Success! </strong><span data-bind="text: successPopUpMessage"></span>
     </div>
 
-    <div>
+    <div class="col-xs-12 container">
         <div class="form-group">
-            <p>
-                Destination country:
-                <select data-bind="options: states, value: selectedState"></select>
-            </p>
-            
-            <p data-bind="text: selectedState"></p>
-            <!--<div class="col-xs-12">
-                <label>Course Name</label>
-                <p class="text-danger" data-bind="text: eventNameErrorMssg"></p>
-                <input data-bind="value: eventName" class="form-control" id="EventName" name="EventName" type="text" value=""/>
+            <label>Course Name</label>
+            <p class="text-danger" data-bind="text: courseNameErrorMssg"></p>
+            <input data-bind="value: courseName" class="form-control" id="CourseName" name="CourseName" type="text" value=""/>
+        </div>
+        <div class="form-group">
+            <label>Course Primary Contact Number (- No dashses -)</label>
+            <p class="text-danger" data-bind="text: coursePrimaryContactErrorMssg"></p>
+            <input data-bind="value: coursePrimaryContact" class="form-control" id="CoursePrimaryContact" name="CoursePrimaryContact" type="text" maxlength="10"/>
+        </div>
+        <div class="form-group">
+            <label>Course Address</label>
+            <p class="text-danger" data-bind="text: courseAddressLineErrorMssg"></p>
+            <input data-bind="value: addressLine" class="form-control course-address" id="CourseAddress" name="CourseAddress" type="text"/>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-2 col-lg-2">
+                <label class="inline-location-ele">City</label>
+                <p class="text-danger inline-location-ele" data-bind="text: courseCityErrorMssg"></p>
+                <input class="form-control inline-location-ele" type="text" id="test" name="test"/>
             </div>
-            <br/>
-            <div class="col-xs-12">
-                <label>Event Description</label>
-                <p class="text-danger" data-bind="text: eventDescriptionErrorMssg"></p>
-                <textarea data-bind="value: eventDescription" class="form-control" id="EventDescription" name="EventDescription" type="" value=""></textarea>
+            <div class="col-md-2 col-lg-2">
+                <label class="inline-location-ele">ZIP Code</label>
+                <p class="text-danger inline-location-ele" data-bind="text: courseZipErrorMssg"></p>
+                <input class="form-control inline-location-ele"type="text" id="tester" name="tester"/>   
             </div>
-            <br/>
-            <div class="col-xs-12">
-                <label>Date</label>
-                <p class="text-danger" data-bind="text: startDateTimeErrorMssg"></p>
-                <input data-bind="value: startDateTime" class="form-control" type="text" id="datepicker" name="StartDateTime" value=""/>
-            </div>
-            <br/>
-            <div class="col-xs-12">
-                <label>Number of Hours</label>
-                <p class="text-danger" data-bind="text: numberOfHoursErrorMssg"></p>
-                <input data-bind="value: numberOfHours" class="form-control" id="NumberOfHours" name="NumberOfHours" type="number" value=""/>
-            </div>-->
+            <div class="col-md-2 col-lg-2">
+                <label class="inline-location-ele">State</label>
+                <p class="text-danger inline-location-ele" data-bind="text: courseStateCodeErrorMssg"></p>
+                <select class="form-control inline-location-ele"data-bind="options: states, value: selectedState"></select>
+            </div>                
+        </div>
+        <div class="form-group row col-lg-4 col-xs-12">
+            <label>Reason</label>
+            <p class="text-danger" data-bind="text: courseReasonErrorMssg"></p>
+            <textarea data-bind="value: addressLine" class="form-control course-reason" id="CourseReason" name="CourseReason" type="text"></textarea>
         </div>
     </div>
     <br />
-    <div class="col-xs-12 text-center">
-        <input data-bind="click: submit" style="width: 25%" class="btn btn-success" type="submit" name="Submit" />
+    <div class="col-xs-12 col-lg-12 text-center row">
+        <input data-bind="click: submit" class="btn btn-lg btn-success" type="submit" name="Submit" />
     </div>
 </div>
 

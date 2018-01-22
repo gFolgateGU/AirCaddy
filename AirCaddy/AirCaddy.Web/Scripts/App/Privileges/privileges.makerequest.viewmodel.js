@@ -13,13 +13,19 @@
         'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'
     ];
 
+    //Fields
     vm.courseName = ko.observable("");
     vm.coursePrimaryContact = ko.observable("");
     vm.courseReason = ko.observable("");
     vm.states = ko.observableArray(stateCodes);
+    vm.addressLine = ko.observable("");
     vm.selectedState = ko.observable();
+    vm.city = ko.observable("");
+    vm.zip = ko.observable("");
+    vm.reason = ko.observable("");
 
     //Error Messages
+    vm.badField = false;
     vm.courseNameErrorMssg = ko.observable("");
     vm.coursePrimaryContactErrorMssg = ko.observable("");
     vm.courseAddressLineErrorMssg = ko.observable("");
@@ -38,7 +44,8 @@
 
 
     vm.submit = function () {
-        if (validateEventDetails()) {
+        alert("hi there");
+        if (validateReasonDetails()) {
             //ajax submit to server.
             var serviceEventModel = {
                 EventName: vm.eventName(),
@@ -54,14 +61,16 @@
                         __RequestVerificationToken: vm.requestToken,
                         serviceEvent: serviceEventModel
                     },
-                    success: function () {
+                    success: function() {
                         resetFields();
                         vm.successShow(true);
                     },
-                    error: function () {
+                    error: function() {
                         vm.errorShow(true);
                     }
                 });
+        } else {
+            vm.errorShow(true);
         }
     }
 
@@ -73,56 +82,69 @@
         vm.successShow(false);
     }
 
-    function validateEventDetails() {
+    function validateReasonDetails() {
         resetErrorMessages();
         if (existsNonCompletedFields()) {
             return false;
         }
-        else if (!validateDateExpression()) {
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
 
     function existsNonCompletedFields() {
-        if (vm.eventName() === "") {
-            vm.eventNameErrorMssg("Event Name is a required field");
+        if (vm.courseName() === "") {
+            vm.courseNameErrorMssg("A course name is required.");
+            vm.badField = true;
+        }
+        if (vm.coursePrimaryContact() === "") {
+            vm.coursePrimaryContactErrorMssg("A primary contact is required.");
+            vm.badField = true;
+        }
+        if (vm.addressLine() === "") {
+            vm.courseAddressLineErrorMssg("You must enter the course address.");
+            vm.badField = true;
+        }
+        if (vm.city() === "") {
+            vm.courseCityErrorMssg("You must enter a city.");
+            vm.badField = true;
+        }
+        if (vm.zip() === "") {
+            vm.courseZipErrorMssg("You must enter a zip code.");
+            vm.badField = true;
+        }
+        if (vm.selectedState() === "" || vm.selectedState() === "--") {
+            vm.courseStateCodeErrorMssg("You must select a state.");
+            vm.badField = true;
+        }
+        if (vm.reason().length < 20) {
+            vm.courseReasonErrorMssg("The reason must be at least 20 characters long.");
+            vm.badField = true;
+        }
+        if (vm.badField) {
             return true;
         }
-        else if (vm.eventDescription() === "") {
-            vm.eventDescriptionErrorMssg("Event Description is a required field");
-            return true;
-        }
-        else if (vm.startDateTime() === "") {
-            vm.startDateTimeErrorMssg("A Date is required.");
-            return true;
-        }
-        else if (vm.numberOfHours() === "") {
-            vm.numberOfHoursErrorMssg("The Number of Hours is a required field");
-            return true;
-        }
-
         return false;
     }
 
     function resetErrorMessages() {
-        vm.courseNameErrorMssg = ko.observable("");
-        vm.coursePrimaryContactErrorMssg = ko.observable("");
-        vm.courseAddressLineErrorMssg = ko.observable("");
-        vm.courseCityErrorMssg = ko.observable("");
-        vm.courseStateCodeErrorMssg = ko.observable("");
-        vm.courseZipErrorMssg = ko.observable("");
-        vm.courseTypeErrorMssg = ko.observable("");
-        vm.courseReasonErrorMssg = ko.observable("");
+        vm.badField = false;
+        vm.courseNameErrorMssg("");
+        vm.coursePrimaryContactErrorMssg("");
+        vm.courseAddressLineErrorMssg("");
+        vm.courseCityErrorMssg("");
+        vm.courseStateCodeErrorMssg("");
+        vm.courseZipErrorMssg("");
+        vm.courseTypeErrorMssg("");
+        vm.courseReasonErrorMssg("");
     }
 
     function resetFields() {
-        vm.eventName("");
-        vm.eventDescription("");
-        vm.startDateTime("");
-        vm.numberOfHours("");
-    }
-
-    
+        vm.courseName("");
+        vm.coursePrimaryContact("");
+        vm.courseReason("");
+        vm.addressLine("");
+        vm.selectedState();
+        vm.city("");
+        vm.zip("");
+        vm.reason("");
+    }   
 }
