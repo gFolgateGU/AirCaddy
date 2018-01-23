@@ -38,7 +38,7 @@
         <div class="form-group">
             <label>Course Primary Contact Number (- No dashses -)</label>
             <p class="text-danger" data-bind="text: coursePrimaryContactErrorMssg"></p>
-            <input data-bind="value: coursePrimaryContact" class="form-control" id="CoursePrimaryContact" name="CoursePrimaryContact" type="text" maxlength="10"/>
+            <input data-bind="value: coursePrimaryContact" class="form-control" id="CoursePrimaryContact" name="CoursePrimaryContact" type="number" maxlength="10"/>
         </div>
         <div class="form-group">
             <label>Course Address</label>
@@ -49,12 +49,12 @@
             <div class="col-md-2 col-lg-2">
                 <label class="inline-location-ele">City</label>
                 <p class="text-danger inline-location-ele" data-bind="text: courseCityErrorMssg"></p>
-                <input class="form-control inline-location-ele" type="text" id="test" name="test"/>
+                <input data-bind="value: city" class="form-control inline-location-ele" type="text" id="test" name="test"/>
             </div>
             <div class="col-md-2 col-lg-2">
                 <label class="inline-location-ele">ZIP Code</label>
                 <p class="text-danger inline-location-ele" data-bind="text: courseZipErrorMssg"></p>
-                <input class="form-control inline-location-ele"type="text" id="tester" name="tester"/>   
+                <input data-bind="value: zip" class="form-control inline-location-ele" type="number" id="tester" name="tester" maxlength="5"/>   
             </div>
             <div class="col-md-2 col-lg-2">
                 <label class="inline-location-ele">State</label>
@@ -62,10 +62,21 @@
                 <select class="form-control inline-location-ele"data-bind="options: states, value: selectedState"></select>
             </div>                
         </div>
+        <div class="form-group row">
+            <div class="col-md-2 col-lg-2">
+                <label><input type="radio" value="Public" data-bind="checked: courseType"/>  Public  </label>                
+            </div>
+            <div class="col-md-2 col-lg-2">
+                <label><input type="radio" value="Private" data-bind="checked: courseType"/>  Private  </label>       
+            </div>
+            <div class="col-md-2 col-lg-2">   
+                <label><input type="radio" value="Both" data-bind="checked: courseType"/>  Both  </label> 
+            </div>
+        </div>
         <div class="form-group row col-lg-4 col-xs-12">
             <label>Reason</label>
             <p class="text-danger" data-bind="text: courseReasonErrorMssg"></p>
-            <textarea data-bind="value: addressLine" class="form-control course-reason" id="CourseReason" name="CourseReason" type="text"></textarea>
+            <textarea data-bind="value: reason" class="form-control course-reason" id="CourseReason" name="CourseReason" type="text"></textarea>
         </div>
     </div>
     <br />

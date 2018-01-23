@@ -22,6 +22,7 @@
     vm.selectedState = ko.observable();
     vm.city = ko.observable("");
     vm.zip = ko.observable("");
+    vm.courseType = ko.observable("Alpha");
     vm.reason = ko.observable("");
 
     //Error Messages
@@ -38,28 +39,31 @@
     //Pop Ups
     vm.successPopUpMessage = ko.observable("Your golf course owner request has been submitted successfully.");
     vm.errorPopUpMessage = ko.observable("There was an unexpected error submitting your request to the server.");
+    vm.badAddressPopUpMessage = ko.observable("The Address provided is not valid.  Please double check for any mistakes.")
     vm.successShow = ko.observable(false);
     vm.errorShow = ko.observable(false);
-
-
+    vm.badAddressShow = ko.observable(false);
 
     vm.submit = function () {
-        alert("hi there");
         if (validateReasonDetails()) {
             //ajax submit to server.
-            var serviceEventModel = {
-                EventName: vm.eventName(),
-                EventDescription: vm.eventDescription(),
-                StartDateTime: vm.startDateTime(),
-                NumberOfHours: vm.numberOfHours()
+            var privilegeRequestModel = {
+                CourseName: vm.courseName(),
+                CourseAddress: vm.addressLine(),
+                City: vm.city(),
+                StateCode: vm.selectedState(),
+                Zip: vm.zip(),
+                CoursePhoneNumber: vm.coursePrimaryContact(),
+                CourseType: vm.courseType(),
+                Reason: vm.reason()
             };
 
-            $.ajax("/Service/SubmitServiceEventAsync",
+            $.ajax("/Privileges/MakeRequest",
                 {
                     type: "post",
                     data: {
                         __RequestVerificationToken: vm.requestToken,
-                        serviceEvent: serviceEventModel
+                        privilegeData: privilegeRequestModel
                     },
                     success: function() {
                         resetFields();
@@ -69,8 +73,6 @@
                         vm.errorShow(true);
                     }
                 });
-        } else {
-            vm.errorShow(true);
         }
     }
 
