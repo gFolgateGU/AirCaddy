@@ -22,7 +22,7 @@
     vm.selectedState = ko.observable();
     vm.city = ko.observable("");
     vm.zip = ko.observable("");
-    vm.courseType = ko.observable("Alpha");
+    vm.courseType = ko.observable("Public");
     vm.reason = ko.observable("");
 
     //Error Messages
@@ -39,10 +39,13 @@
     //Pop Ups
     vm.successPopUpMessage = ko.observable("Your golf course owner request has been submitted successfully.");
     vm.errorPopUpMessage = ko.observable("There was an unexpected error submitting your request to the server.");
-    vm.badAddressPopUpMessage = ko.observable("The Address provided is not valid.  Please double check for any mistakes.")
+    vm.badAddressPopUpMessage =
+        ko.observable("The Address provided is not valid.  Please double check for any mistakes.");
+    vm.duplicateEntryPopUpMessage = ko.observable("This course has already been added to the system.");
     vm.successShow = ko.observable(false);
     vm.errorShow = ko.observable(false);
     vm.badAddressShow = ko.observable(false);
+    vm.duplicateEntryShow = ko.observable(false);
 
     vm.submit = function () {
         if (validateReasonDetails()) {
@@ -65,9 +68,19 @@
                         __RequestVerificationToken: vm.requestToken,
                         privilegeData: privilegeRequestModel
                     },
-                    success: function() {
-                        resetFields();
-                        vm.successShow(true);
+                    success: function (data) {
+                        if (data === 1) {
+                            //course is a duplicate entry
+                            vm.duplicateEntryShow(true);
+                            resetFields();
+                        }
+                        else if (data === 2) {
+                            vm.badAddressPopUpMessage("The Address provided is not valid.  Please double check for any mistakes.");
+                            vm.badAddressShow(true);
+                        } else {
+                            resetFields();
+                            vm.successShow(true);
+                        }
                     },
                     error: function() {
                         vm.errorShow(true);
@@ -83,6 +96,15 @@
     vm.successClose = function () {
         vm.successShow(false);
     }
+
+    vm.badAddressClose = function() {
+        vm.badAddressShow(false);
+    }
+
+    vm.duplicateEntryClose = function () {
+        vm.duplicateEntryShow(false);
+    }
+
 
     function validateReasonDetails() {
         resetErrorMessages();

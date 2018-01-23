@@ -29,6 +29,13 @@ namespace AirCaddy.Controllers
             return View();
         }
 
+        // GET: ManageRequests
+        [HttpGet]
+        public ActionResult ManageRequests()
+        {
+            return View();
+        }
+
         // GET: MakeRequest
         [HttpGet]
         public ActionResult MakeRequest()

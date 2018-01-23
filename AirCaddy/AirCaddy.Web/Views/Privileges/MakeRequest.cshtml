@@ -28,6 +28,18 @@
         <a href="#" class="close" data-bind="click: successClose" data-dismiss="alert">&times;</a>
         <strong>Success! </strong><span data-bind="text: successPopUpMessage"></span>
     </div>
+    
+    <div data-bind="visible: badAddressShow" class="alert alert-danger fade in">
+        <a href="#" class="close" data-bind="click: badAddressClose" data-dismiss="alert">&times;</a>
+        <strong>Error! </strong><span data-bind="text: badAddressPopUpMessage"></span>
+    </div>   
+    
+    <div data-bind="visible: duplicateEntryShow" class="alert alert-danger fade in">
+        <a href="#" class="close" data-bind="click: duplicateEntryClose" data-dismiss="alert">&times;</a>
+        <strong>Error! </strong><span data-bind="text: duplicateEntryPopUpMessage"></span>
+    </div>
+    
+
 
     <div class="col-xs-12 container">
         <div class="form-group">

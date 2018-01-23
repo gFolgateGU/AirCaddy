@@ -12,6 +12,8 @@ namespace AirCaddy.Data.Repositories
         Task<bool> ExistsCourseRequestAsync(string courseName, string courseAddress);
 
         Task AddCourseRequestAsync(PrivilegeRequest privilegeRequest);
+
+        Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequests();
     }
 
     public class PrivilegeRepository : BaseRepository, IPrivilegeRepository
@@ -30,6 +32,21 @@ namespace AirCaddy.Data.Repositories
         {
             _dataEntities.PrivilegeRequests.Add(privilegeRequest);
             await _dataEntities.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequests()
+        {
+            const string query = "SELECT * FROM PrivilegeRequests WHERE Verified = false";
+            const string query2 =
+                @"SELECT AspNetUsers.UserName, PrivilegeRequests.GolfCourseName, PrivilegeRequests.GolfCourseAddress, PrivilegeRequests.CoursePhoneNumber,
+	                     PrivilegeRequests.GolfCourseType, PrivilegeRequests.Reason, PrivilegeRequests.Verified
+	                     FROM AspNetUsers
+	                     INNER JOIN PrivilegeRequests on AspNetUsers.Id = PrivilegeRequests.UserId
+	                     WHERE PrivilegeRequests.Verified = 0
+	                     GROUP BY AspNetUsers.Id, AspNetUsers.UserName, PrivilegeRequests.GolfCourseName, PrivilegeRequests.GolfCourseAddress, PrivilegeRequests.CoursePhoneNumber,
+	                     PrivilegeRequests.GolfCourseType, PrivilegeRequests.Reason, PrivilegeRequests.Verified";
+            var pendingRequests = await _dataEntities.Database.SqlQuery<PrivilegeRequest>(query).ToListAsync();
+            return pendingRequests;
         }
  
     }

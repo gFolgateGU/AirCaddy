@@ -17,19 +17,23 @@ namespace AirCaddy.Domain.Services.Privileges
         Task MakeCoursePrivilegeRequestAsync(PrivilegeRequestViewModel privilegeRequestVm, string userId);
 
         bool ValidateGolfCourseAddress(PrivilegeRequestViewModel privilegeRequestVm);
+
+        Task<IEnumerable<PendingRequestViewModel>> RetrievePendingPrivilegeRequests();
     }
 
     public class PrivilegeRequestHandlerService : IPrivilegeRequestHandlerService
     {
         private readonly IPrivilegeRepository _privilegeRepository;
         private readonly IGolfCourseRepository _golfCourseRepository;
+        private readonly IUserRepository _userRepository;
         private readonly string _uspsUserId;
 
         public PrivilegeRequestHandlerService(IPrivilegeRepository privilegeRepository,
-            IGolfCourseRepository golfCourseRepository, string uspsUserId)
+            IGolfCourseRepository golfCourseRepository, IUserRepository userRepository, string uspsUserId)
         {
             _privilegeRepository = privilegeRepository;
             _golfCourseRepository = golfCourseRepository;
+            _userRepository = userRepository;
             _uspsUserId = uspsUserId;
         }
 
@@ -82,6 +86,13 @@ namespace AirCaddy.Domain.Services.Privileges
             }
             return true;
         }
+
+        public async Task<IEnumerable<PendingRequestViewModel>> RetrievePendingPrivilegeRequests()
+        {
+            var pendingRequestData = await _privilegeRepository.GetAllPendingRequests();
+
+            return null;
+        } 
 
         private string ConcatGolfCourseAddressInformation(string address, string city, string stateCode, string zip)
         {
