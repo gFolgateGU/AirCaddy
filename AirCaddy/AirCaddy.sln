@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Domain", "AirCaddy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCaddy.Tests", "AirCaddy.Tests\AirCaddy.Tests.csproj", "{9B8208C7-1702-46F6-901F-9C335A7053B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAX.USPS", "..\..\..\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\MAX.USPS.csproj", "{BAB21EB2-2A87-4076-A029-96ABC7EECE2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAX.USPS", "USPS_Web_Tools_Wrapper_src\MAX.USPS.csproj", "{BAB21EB2-2A87-4076-A029-96ABC7EECE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
