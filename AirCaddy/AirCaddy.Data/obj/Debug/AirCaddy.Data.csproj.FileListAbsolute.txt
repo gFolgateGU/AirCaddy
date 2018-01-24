@@ -12,4 +12,3 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.E
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csprojResolveAssemblyReference.cache
-C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csproj.CoreCompileInputs.cache

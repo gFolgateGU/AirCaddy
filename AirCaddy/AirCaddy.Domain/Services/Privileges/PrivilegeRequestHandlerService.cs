@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirCaddy.Data;
+using AirCaddy.Data.CustomDataModels;
 using AirCaddy.Data.Repositories;
 using AirCaddy.Domain.ViewModels.Privileges;
 using MAX.USPS;
@@ -18,22 +19,22 @@ namespace AirCaddy.Domain.Services.Privileges
 
         bool ValidateGolfCourseAddress(PrivilegeRequestViewModel privilegeRequestVm);
 
-        Task<IEnumerable<PendingRequestViewModel>> RetrievePendingPrivilegeRequests();
+        Task<IEnumerable<UserPrivilegeRequest>> RetrievePendingPrivilegeRequestsAsync();
+
+        Task<PrivilegesSummaryViewModel> GetPrivilegesSummaryForUserAsync(string userId);
     }
 
     public class PrivilegeRequestHandlerService : IPrivilegeRequestHandlerService
     {
         private readonly IPrivilegeRepository _privilegeRepository;
         private readonly IGolfCourseRepository _golfCourseRepository;
-        private readonly IUserRepository _userRepository;
         private readonly string _uspsUserId;
 
         public PrivilegeRequestHandlerService(IPrivilegeRepository privilegeRepository,
-            IGolfCourseRepository golfCourseRepository, IUserRepository userRepository, string uspsUserId)
+            IGolfCourseRepository golfCourseRepository, string uspsUserId)
         {
             _privilegeRepository = privilegeRepository;
             _golfCourseRepository = golfCourseRepository;
-            _userRepository = userRepository;
             _uspsUserId = uspsUserId;
         }
 
@@ -87,17 +88,60 @@ namespace AirCaddy.Domain.Services.Privileges
             return true;
         }
 
-        public async Task<IEnumerable<PendingRequestViewModel>> RetrievePendingPrivilegeRequests()
+        public async Task<IEnumerable<UserPrivilegeRequest>> RetrievePendingPrivilegeRequestsAsync()
         {
-            var pendingRequestData = await _privilegeRepository.GetAllPendingRequests();
+            var pendingRequestData = await _privilegeRepository.GetAllPendingRequestsAsync();
+            return pendingRequestData;
+        }
 
-            return null;
-        } 
+        public async Task<PrivilegesSummaryViewModel> GetPrivilegesSummaryForUserAsync(string userId)
+        {
+            var golfCoursesOwnedByUser = await _golfCourseRepository.GetGolfCoursesOwnedByUserAsync(userId);
+            var pendingRequests = await _privilegeRepository.GetAllPendingRequestsForUserAsync(userId);
+            var privilegesSummary =
+                MapUserCoursesAndRequestsToSummaryViewModel(golfCoursesOwnedByUser, pendingRequests);
+            return privilegesSummary;
+        }
 
         private string ConcatGolfCourseAddressInformation(string address, string city, string stateCode, string zip)
         {
             var courseAddressConcat = address + ", " + city + ", " + stateCode + " " + zip;
             return courseAddressConcat;
+        }
+
+        private PrivilegesSummaryViewModel MapUserCoursesAndRequestsToSummaryViewModel(
+            IEnumerable<GolfCourse> userGolfCourses, IEnumerable<PrivilegeRequest> userPendingRequests)
+        {
+            var privilegeSummaryVm = new PrivilegesSummaryViewModel
+            {
+                MyCourses = new List<GolfCourseInfoViewModel>(),
+                MyPendingCourses = new List<GolfCourseInfoViewModel>()
+            };
+
+            foreach (var userGolfCourse in userGolfCourses)
+            {
+                var golfCourseInfoVm = new GolfCourseInfoViewModel
+                {
+                    CourseName = userGolfCourse.Name,
+                    CourseAddress = userGolfCourse.Address,
+                    CourseType = userGolfCourse.Type,
+                    PrimaryContact = userGolfCourse.PhoneNumber
+                };
+                privilegeSummaryVm.MyCourses.Add(golfCourseInfoVm);
+            }
+            foreach (var userPendingRequest in userPendingRequests)
+            {
+                var golfCourseInfoVm = new GolfCourseInfoViewModel
+                {
+                    CourseName = userPendingRequest.GolfCourseName,
+                    CourseAddress = userPendingRequest.GolfCourseAddress,
+                    CourseType = userPendingRequest.GolfCourseType,
+                    PrimaryContact = userPendingRequest.CoursePhoneNumber
+                };
+                privilegeSummaryVm.MyPendingCourses.Add(golfCourseInfoVm);
+            }
+
+            return privilegeSummaryVm;
         }
     }
 }

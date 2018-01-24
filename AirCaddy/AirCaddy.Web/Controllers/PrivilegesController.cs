@@ -24,20 +24,26 @@ namespace AirCaddy.Controllers
         }
 
         // GET: Index
-        public ActionResult Index()
+        [HttpGet]
+        [Authorize(Roles = "User, GolfCourseOwner, Admin")]
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+            var vm = await _privilegeRequestHandlerService.GetPrivilegesSummaryForUserAsync(userId);
+            return View(vm);
         }
 
         // GET: ManageRequests
         [HttpGet]
-        public ActionResult ManageRequests()
+        public async Task<ActionResult> ManageRequests()
         {
-            return View();
+            var vm = await _privilegeRequestHandlerService.RetrievePendingPrivilegeRequestsAsync();
+            return View(vm);
         }
 
         // GET: MakeRequest
         [HttpGet]
+        [Authorize(Roles = "User, GolfCourseOwner, Admin")]
         public ActionResult MakeRequest()
         {
             return View();
@@ -45,6 +51,7 @@ namespace AirCaddy.Controllers
 
         // POST: MakeRquest
         [HttpPost]
+        [Authorize(Roles="User, GolfCourseOwner, Admin")]
         public async Task<ActionResult> MakeRequest(PrivilegeRequestViewModel privilegeData)
         {
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());

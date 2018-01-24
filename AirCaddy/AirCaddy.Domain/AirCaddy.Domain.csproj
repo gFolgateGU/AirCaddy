@@ -47,7 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Privileges\PrivilegeRequestHandlerService.cs" />
     <Compile Include="Services\Utility\SessionMapperService.cs" />
-    <Compile Include="ViewModels\Privileges\PendingRequestViewModel.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegeRequestViewModel.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegesSummaryViewModel.cs" />
     <Compile Include="ViewModels\Privileges\GolfCourseInfoViewModel.cs" />

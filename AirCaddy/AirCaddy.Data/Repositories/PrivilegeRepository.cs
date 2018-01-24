@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirCaddy.Data.CustomDataModels;
 
 namespace AirCaddy.Data.Repositories
 {
@@ -13,7 +14,9 @@ namespace AirCaddy.Data.Repositories
 
         Task AddCourseRequestAsync(PrivilegeRequest privilegeRequest);
 
-        Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequests();
+        Task<IEnumerable<UserPrivilegeRequest>> GetAllPendingRequestsAsync();
+
+        Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequestsForUserAsync(string userId);
     }
 
     public class PrivilegeRepository : BaseRepository, IPrivilegeRepository
@@ -34,20 +37,26 @@ namespace AirCaddy.Data.Repositories
             await _dataEntities.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequests()
+        public async Task<IEnumerable<UserPrivilegeRequest>> GetAllPendingRequestsAsync()
         {
-            const string query = "SELECT * FROM PrivilegeRequests WHERE Verified = false";
-            const string query2 =
-                @"SELECT AspNetUsers.UserName, PrivilegeRequests.GolfCourseName, PrivilegeRequests.GolfCourseAddress, PrivilegeRequests.CoursePhoneNumber,
+            const string query =
+                @"SELECT AspNetUsers.UserName, PrivilegeRequests.Id, PrivilegeRequests.GolfCourseName, PrivilegeRequests.GolfCourseAddress, PrivilegeRequests.CoursePhoneNumber,
 	                     PrivilegeRequests.GolfCourseType, PrivilegeRequests.Reason, PrivilegeRequests.Verified
 	                     FROM AspNetUsers
 	                     INNER JOIN PrivilegeRequests on AspNetUsers.Id = PrivilegeRequests.UserId
 	                     WHERE PrivilegeRequests.Verified = 0
-	                     GROUP BY AspNetUsers.Id, AspNetUsers.UserName, PrivilegeRequests.GolfCourseName, PrivilegeRequests.GolfCourseAddress, PrivilegeRequests.CoursePhoneNumber,
+	                     GROUP BY AspNetUsers.Id, AspNetUsers.UserName, PrivilegeRequests.Id, PrivilegeRequests.GolfCourseName, PrivilegeRequests.GolfCourseAddress, PrivilegeRequests.CoursePhoneNumber,
 	                     PrivilegeRequests.GolfCourseType, PrivilegeRequests.Reason, PrivilegeRequests.Verified";
-            var pendingRequests = await _dataEntities.Database.SqlQuery<PrivilegeRequest>(query).ToListAsync();
+
+            var pendingRequests = await _dataEntities.Database.SqlQuery<UserPrivilegeRequest>(query).ToListAsync();
             return pendingRequests;
         }
- 
+
+        public async Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequestsForUserAsync(string userId)
+        {
+            var userPendingRequests =
+                await _dataEntities.PrivilegeRequests.Where(pr => pr.UserId.Contains(userId) && pr.Verified == false).ToListAsync();
+            return userPendingRequests;
+        }
     }
 }
