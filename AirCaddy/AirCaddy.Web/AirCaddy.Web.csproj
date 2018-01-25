@@ -225,6 +225,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\Privileges\privileges.makerequest.viewmodel.js" />
+    <Content Include="Scripts\App\Privileges\privileges.managerequests.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.request.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
