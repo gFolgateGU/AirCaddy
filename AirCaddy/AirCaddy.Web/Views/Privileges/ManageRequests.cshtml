@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AirCaddy.Data.CustomDataModels.UserPrivilegeRequest>
+
+<section id="standingsView">
+    <!--<div data-bind="foreach: requestsList">
+        <p data-bind="text: id"></p>
+        <p data-bind="text: username"></p>
+        <p data-bind="text: courseName"></p>
+        <p data-bind="text: courseAddress"></p>
+    </div>-->
+    <table class="table table-striped" id="requestsTable">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Course Name</th>
+            <th>Course Address</th>
+            <th>Course Phone</th>
+            <th>Reason</th>
+            <th>Type</th>
+            <th class="text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: requestsList">
+        <tr>
+            <td data-bind="text: username"></td>
+            <td data-bind="text: courseName"></td>
+            <td data-bind="text: courseAddress"></td>
+            <td data-bind="text: phoneNumber"></td>
+            <td><a href="#">Reason</a></td>
+            <td data-bind="text: courseType"></td>  
+            <td><button class="btn btn-success">Accept</button>&nbsp;&nbsp;<button class="btn btn-danger">Deny</button></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<script src="~/Scripts/App/Privileges/privileges.request.js"></script>
+<script src="~/Scripts/App/Privileges/privileges.managerequests.viewmodel.js"></script>
+<script>
+    $(document).ready(function () {
+        var model = @Html.Raw(Json.Encode(Model));
+        var requestsViewModel = new manageRequestsViewModel(model);
+        ko.applyBindings(requestsViewModel, document.getElementById("standingsView"));
+    });
+</script>

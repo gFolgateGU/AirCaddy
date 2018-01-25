@@ -205,6 +205,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PrivilegesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,12 +216,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\aircaddy-main-overrides.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\App\Privileges\privileges.makerequest.viewmodel.js" />
+    <Content Include="Scripts\App\Privileges\privileges.managerequests.viewmodel.js" />
+    <Content Include="Scripts\App\Privileges\privileges.request.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -234,6 +240,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -271,6 +279,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Privileges\MakeRequest.cshtml" />
+    <Content Include="Views\Privileges\Index.cshtml" />
+    <Content Include="Views\Privileges\ManageRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -292,6 +303,10 @@
     <ProjectReference Include="..\AirCaddy.Data\AirCaddy.Data.csproj">
       <Project>{A1A44749-6302-4834-BA89-AC2196F31621}</Project>
       <Name>AirCaddy.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirCaddy.Domain\AirCaddy.Domain.csproj">
+      <Project>{D1F8E6D2-C3B9-474E-86D6-A285827BA147}</Project>
+      <Name>AirCaddy.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

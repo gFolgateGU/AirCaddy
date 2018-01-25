@@ -1,3 +1,7 @@
+using AirCaddy.Data.Repositories;
+using AirCaddy.Domain.Services;
+using AirCaddy.Domain.Services.Privileges;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AirCaddy.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AirCaddy.App_Start.NinjectWebCommon), "Stop")]
 
@@ -10,6 +14,7 @@ namespace AirCaddy.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using System.Configuration;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +66,22 @@ namespace AirCaddy.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            BindDomainServices(kernel);
+            BindDataRepositories(kernel);
+        }
+
+        private static void BindDomainServices(IKernel kernel)
+        {
+            kernel.Bind<ISessionMapperService>().To<SessionMapperService>();
+            kernel.Bind<IPrivilegeRequestHandlerService>().To<PrivilegeRequestHandlerService>()
+                .WithConstructorArgument("uspsUserId", ConfigurationManager.AppSettings["USPS_User_ID"].ToString());
+        }
+
+        private static void BindDataRepositories(IKernel kernel)
+        {
+            kernel.Bind<IUserRepository>().To<UserRepository>();
+            kernel.Bind<IGolfCourseRepository>().To<GolfCourseRepository>();
+            kernel.Bind<IPrivilegeRepository>().To<PrivilegeRepository>();
+        }
     }
 }

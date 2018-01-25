@@ -45,9 +45,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Privileges\PrivilegeRequestHandlerService.cs" />
+    <Compile Include="Services\Utility\SessionMapperService.cs" />
+    <Compile Include="ViewModels\Privileges\PrivilegeRequestViewModel.cs" />
+    <Compile Include="ViewModels\Privileges\PrivilegesSummaryViewModel.cs" />
+    <Compile Include="ViewModels\Privileges\GolfCourseInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AirCaddy.Data\AirCaddy.Data.csproj">
+      <Project>{A1A44749-6302-4834-BA89-AC2196F31621}</Project>
+      <Name>AirCaddy.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\USPS_Web_Tools_Wrapper_src\MAX.USPS.csproj">
+      <Project>{bab21eb2-2a87-4076-a029-96abc7eece2f}</Project>
+      <Name>MAX.USPS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\GolfCourses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -126,4 +126,8 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\Ninject.Web.Mvc.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Data.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Data.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Data.dll.config
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Domain.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\AirCaddy.Domain.pdb
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\MAX.USPS.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\bin\MAX.USPS.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\obj\Debug\AirCaddy.Web.csproj.CoreCompileInputs.cache

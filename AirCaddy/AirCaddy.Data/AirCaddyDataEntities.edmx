@@ -68,6 +68,30 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="GolfCourses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PrivilegeRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GolfCourseName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="GolfCourseAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CoursePhoneNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="GolfCourseType" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Verified" Type="bit" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -124,6 +148,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_GolfCourses_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="GolfCourses" Type="Self.GolfCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GolfCourses">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrivilegeRequests_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="PrivilegeRequests" Type="Self.PrivilegeRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrivilegeRequests">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AirCaddyDataModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -131,6 +179,8 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GolfCourses" EntityType="Self.GolfCourses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrivilegeRequests" EntityType="Self.PrivilegeRequests" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -146,6 +196,14 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GolfCourses_AspNetUsers" Association="Self.FK_GolfCourses_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="GolfCourses" EntitySet="GolfCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrivilegeRequests_AspNetUsers" Association="Self.FK_PrivilegeRequests_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PrivilegeRequests" EntitySet="PrivilegeRequests" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -212,6 +270,8 @@
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PrivilegeRequests" Relationship="AirCaddyDataModel.FK_PrivilegeRequests_AspNetUsers" FromRole="AspNetUser" ToRole="PrivilegeRequest" />
+          <NavigationProperty Name="GolfCourses" Relationship="AirCaddyDataModel.FK_GolfCourses_AspNetUsers" FromRole="AspNetUser" ToRole="GolfCours" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -263,7 +323,67 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="PrivilegeRequests" EntityType="AirCaddyDataModel.PrivilegeRequest" />
+          <AssociationSet Name="FK_PrivilegeRequests_AspNetUsers" Association="AirCaddyDataModel.FK_PrivilegeRequests_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="PrivilegeRequest" EntitySet="PrivilegeRequests" />
+          </AssociationSet>
+          <EntitySet Name="GolfCourses" EntityType="AirCaddyDataModel.GolfCourse" />
+          <AssociationSet Name="FK_GolfCourses_AspNetUsers" Association="AirCaddyDataModel.FK_GolfCourses_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="GolfCours" EntitySet="GolfCourses" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="PrivilegeRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GolfCourseName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GolfCourseAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CoursePhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Verified" Type="Boolean" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="AirCaddyDataModel.FK_PrivilegeRequests_AspNetUsers" FromRole="PrivilegeRequest" ToRole="AspNetUser" />
+          <Property Name="GolfCourseType" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_PrivilegeRequests_AspNetUsers">
+          <End Type="AirCaddyDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="AirCaddyDataModel.PrivilegeRequest" Role="PrivilegeRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrivilegeRequest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GolfCourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="AirCaddyDataModel.FK_GolfCourses_AspNetUsers" FromRole="GolfCours" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_GolfCourses_AspNetUsers">
+          <End Type="AirCaddyDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="AirCaddyDataModel.GolfCourse" Role="GolfCours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GolfCours">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -335,6 +455,32 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="PrivilegeRequests">
+            <EntityTypeMapping TypeName="AirCaddyDataModel.PrivilegeRequest">
+              <MappingFragment StoreEntitySet="PrivilegeRequests">
+                <ScalarProperty Name="GolfCourseType" ColumnName="GolfCourseType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Verified" ColumnName="Verified" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="CoursePhoneNumber" ColumnName="CoursePhoneNumber" />
+                <ScalarProperty Name="GolfCourseAddress" ColumnName="GolfCourseAddress" />
+                <ScalarProperty Name="GolfCourseName" ColumnName="GolfCourseName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GolfCourses">
+            <EntityTypeMapping TypeName="AirCaddyDataModel.GolfCourse">
+              <MappingFragment StoreEntitySet="GolfCourses">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
