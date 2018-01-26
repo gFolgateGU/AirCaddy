@@ -5,14 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AirCaddy.Domain.Services.GolfCourses;
 
 namespace AirCaddy.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IGolfCourseService _golfCourseService;
+
+        public HomeController(IGolfCourseService golfCourseService)
         {
-            return View();
+            _golfCourseService = golfCourseService;
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            var golfCourseViewModel = await _golfCourseService.GetExistingGolfCoursesAsync();
+            return View(golfCourseViewModel);
         }
 
         [Authorize(Roles="User")]

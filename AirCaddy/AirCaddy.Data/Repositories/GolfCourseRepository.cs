@@ -12,6 +12,10 @@ namespace AirCaddy.Data.Repositories
         Task<bool> ExistsGolfCourseEntryAsync(string courseName, string courseAddress);
 
         Task<IEnumerable<GolfCourse>> GetGolfCoursesOwnedByUserAsync(string userId);
+
+        Task AddNewGolfCourse(GolfCourse golfCourse);
+
+        Task<IEnumerable<GolfCourse>> GetVerifiedGolfCoursesAsync();
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -30,6 +34,18 @@ namespace AirCaddy.Data.Repositories
             var userGolfCourses = await _dataEntities.GolfCourses
                                                      .Where(gc => gc.UserId.Contains(userId)).ToListAsync();
             return userGolfCourses;
+        }
+
+        public async Task AddNewGolfCourse(GolfCourse golfCourse)
+        {
+            _dataEntities.GolfCourses.Add(golfCourse);
+            await _dataEntities.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<GolfCourse>> GetVerifiedGolfCoursesAsync()
+        {
+            var golfCourses = await _dataEntities.GolfCourses.ToListAsync();
+            return golfCourses;
         }
     }
 }

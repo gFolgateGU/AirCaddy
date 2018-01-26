@@ -15,6 +15,7 @@ namespace AirCaddy.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Configuration;
+    using AirCaddy.Domain.Services.GolfCourses;
 
     public static class NinjectWebCommon 
     {
@@ -75,6 +76,7 @@ namespace AirCaddy.App_Start
             kernel.Bind<ISessionMapperService>().To<SessionMapperService>();
             kernel.Bind<IPrivilegeRequestHandlerService>().To<PrivilegeRequestHandlerService>()
                 .WithConstructorArgument("uspsUserId", ConfigurationManager.AppSettings["USPS_User_ID"].ToString());
+            kernel.Bind<IGolfCourseService>().To<GolfCourseService>();
         }
 
         private static void BindDataRepositories(IKernel kernel)

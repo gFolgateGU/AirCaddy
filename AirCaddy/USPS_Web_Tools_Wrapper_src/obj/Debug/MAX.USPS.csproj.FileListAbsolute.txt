@@ -9,3 +9,4 @@ C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.pdb
 C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.csprojResolveAssemblyReference.cache
 C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.dll
 C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.pdb
+C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.csproj.CoreCompileInputs.cache
