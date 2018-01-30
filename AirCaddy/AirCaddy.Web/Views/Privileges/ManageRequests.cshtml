@@ -1,6 +1,26 @@
 ﻿@model IEnumerable<AirCaddy.Data.CustomDataModels.UserPrivilegeRequest>
 
 <section id="standingsView">
+    <div class="modal fade" id="reasonPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <span data-bind="text: courseNameInFocus"></span> Reason
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <span data-bind="text: reasonInFocus"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--<div data-bind="foreach: requestsList">
         <p data-bind="text: id"></p>
         <p data-bind="text: username"></p>
@@ -25,8 +45,8 @@
             <td data-bind="text: courseName"></td>
             <td data-bind="text: courseAddress"></td>
             <td data-bind="text: phoneNumber"></td>
-            <td><a href="#">Reason</a></td>
-            <td data-bind="text: courseType"></td>  
+            <td><a data-bind="click: $parent.showReason.bind($data, reason, courseName)" href="#">Reason</a></td>
+            <td data-bind="text: courseType"></td>
             <td><button class="btn btn-success">Accept</button>&nbsp;&nbsp;<button class="btn btn-danger">Deny</button></td>
         </tr>
         </tbody>

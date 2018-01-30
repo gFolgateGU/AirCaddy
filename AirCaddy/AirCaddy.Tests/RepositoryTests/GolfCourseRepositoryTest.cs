@@ -25,9 +25,9 @@ namespace AirCaddy.Tests.RepositoryTests
         {
             var testGolfCourse = new GolfCourse
             {
-                Name = "Country Club of Rochester",
-                Address = "2935 East Ave, Rochester, NY 14610",
-                PhoneNumber = "5151239812",
+                Name = "Irondequoit Country Club",
+                Address = "4045 East Ave, Rochester, NY 14618",
+                PhoneNumber = "5151234422",
                 Type = "Private",
                 UserId = "19a5ff6e-632f-409a-be75-19528d6408f4"
             };

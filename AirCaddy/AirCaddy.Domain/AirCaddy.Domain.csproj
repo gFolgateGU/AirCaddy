@@ -48,6 +48,7 @@
     <Compile Include="Services\GolfCourses\GolfCourseService.cs" />
     <Compile Include="Services\Privileges\PrivilegeRequestHandlerService.cs" />
     <Compile Include="Services\Utility\SessionMapperService.cs" />
+    <Compile Include="ViewModels\GolfCourses\GolfCourseViewModel.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegeRequestViewModel.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegesSummaryViewModel.cs" />
     <Compile Include="ViewModels\Privileges\GolfCourseInfoViewModel.cs" />
@@ -65,9 +66,7 @@
       <Name>MAX.USPS</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\GolfCourses\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

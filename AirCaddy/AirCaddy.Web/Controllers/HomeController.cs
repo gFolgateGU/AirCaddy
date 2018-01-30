@@ -20,7 +20,7 @@ namespace AirCaddy.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var golfCourseViewModel = await _golfCourseService.GetExistingGolfCoursesAsync();
+            var golfCourseViewModel = await _golfCourseService.GetExistingGolfCoursesViewModelAsync();
             return View(golfCourseViewModel);
         }
 

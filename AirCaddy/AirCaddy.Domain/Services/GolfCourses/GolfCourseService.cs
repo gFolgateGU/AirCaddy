@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using AirCaddy.Data;
 using AirCaddy.Data.Repositories;
+using AirCaddy.Domain.ViewModels.GolfCourses;
 
 namespace AirCaddy.Domain.Services.GolfCourses
 {
     public interface IGolfCourseService
     {
-        Task<IEnumerable<GolfCourse>> GetExistingGolfCoursesAsync();
+        Task<IEnumerable<GolfCourseViewModel>> GetExistingGolfCoursesViewModelAsync();
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -22,10 +23,28 @@ namespace AirCaddy.Domain.Services.GolfCourses
             _golfCourseRepository = golfCourseRepository;
         }
 
-        public async Task<IEnumerable<GolfCourse>> GetExistingGolfCoursesAsync()
+        public async Task<IEnumerable<GolfCourseViewModel>> GetExistingGolfCoursesViewModelAsync()
         {
             var existingCourses = await _golfCourseRepository.GetVerifiedGolfCoursesAsync();
-            return existingCourses;
+            var coursesViewModel = MapGolfEntityModelToGolfViewModel(existingCourses);
+            return coursesViewModel;
+        }
+
+        private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(
+            IEnumerable<GolfCourse> golfCourseEntities)
+        {
+            var golfCoursesVm = golfCourseEntities.Select(golfCourse => new GolfCourseViewModel
+                {
+                    Id = golfCourse.Id,
+                    CourseName = golfCourse.Name,
+                    CourseAddress = golfCourse.Address,
+                    CoursePrimaryContact = golfCourse.PhoneNumber,
+                    CourseType = golfCourse.Type,
+                    CourseOwnerId = golfCourse.UserId
+                })
+                .ToList();
+
+            return golfCoursesVm;
         }
     }
 }
