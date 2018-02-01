@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<AirCaddy.Data.CustomDataModels.UserPrivilegeRequest>
 
 <section id="standingsView">
+    @Html.AntiForgeryToken()
+    <!--Reason Modal-->
     <div class="modal fade" id="reasonPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -21,12 +23,30 @@
             </div>
         </div>
     </div>
-    <!--<div data-bind="foreach: requestsList">
-        <p data-bind="text: id"></p>
-        <p data-bind="text: username"></p>
-        <p data-bind="text: courseName"></p>
-        <p data-bind="text: courseAddress"></p>
-    </div>-->
+    <!--End Request Modal-->
+    <!--Accept and Deny Modal-->
+    <div class="modal fade" id="acceptDenyPopUp" tabindex="-1" role="dialog" aria-labelledby="acceptDenyPopUpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="acceptDenyPopUpLabel">
+                        <strong>Confirm Decion</strong>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong><span data-bind="text: requestType"></span></strong>&nbsp;<i><span data-bind="text: courseNameInFocus"></span></i></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button data-bind="click: denyRequest($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>s
+    </div>
+    <!--End Accept and Deny Modal-->
     <table class="table table-striped" id="requestsTable">
         <thead>
         <tr>
@@ -47,7 +67,7 @@
             <td data-bind="text: phoneNumber"></td>
             <td><a data-bind="click: $parent.showReason.bind($data, reason, courseName)" href="#">Reason</a></td>
             <td data-bind="text: courseType"></td>
-            <td><button class="btn btn-success">Accept</button>&nbsp;&nbsp;<button class="btn btn-danger">Deny</button></td>
+            <td><button data-bind="click: $parent.showAcceptDeny.bind($data, id, courseName, 'accept')" class="btn btn-success">Accept</button>&nbsp;&nbsp;<button data-bind="click: $parent.showAcceptDeny.bind($data, id, courseName, 'deny')" class="btn btn-danger">Deny</button></td>
         </tr>
         </tbody>
     </table>
@@ -57,8 +77,9 @@
 <script src="~/Scripts/App/Privileges/privileges.managerequests.viewmodel.js"></script>
 <script>
     $(document).ready(function () {
+        var tokenHeaderValue = $('[name=__RequestVerificationToken]').val();
         var model = @Html.Raw(Json.Encode(Model));
-        var requestsViewModel = new manageRequestsViewModel(model);
+        var requestsViewModel = new manageRequestsViewModel(model, tokenHeaderValue);
         ko.applyBindings(requestsViewModel, document.getElementById("standingsView"));
     });
 </script>
