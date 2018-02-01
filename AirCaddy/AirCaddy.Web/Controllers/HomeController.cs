@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using AirCaddy.Domain.Services.GolfCourses;
 
+using Newtonsoft.Json.Linq;
+
 namespace AirCaddy.Controllers
 {
     public class HomeController : Controller
@@ -32,9 +34,12 @@ namespace AirCaddy.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public async Task<ActionResult> Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
+            var obj = new YelpGolfCourseReviewService("yqCRRvNvxvLQi1f_EBTlaHXC7LURwVTt80PXTUxabfYPxvmsfQJXw6lFxyizBwCdaYsFxTkiy9fPGzdv_2C2Li6MfCAv1LFBL-HwrZTQjR1KUwZu1_GEgwO6LvUFWnYx");
+            var c = await obj.FindGolfCourseGivenSearchName("7085 Van Camp Rd, Girard, PA 16417", "Elk Valley Golf Course");
+            var y = c.ToString();
 
             return View();
         }

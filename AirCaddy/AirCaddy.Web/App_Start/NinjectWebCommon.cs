@@ -77,6 +77,8 @@ namespace AirCaddy.App_Start
             kernel.Bind<IPrivilegeRequestHandlerService>().To<PrivilegeRequestHandlerService>()
                 .WithConstructorArgument("uspsUserId", ConfigurationManager.AppSettings["USPS_User_ID"].ToString());
             kernel.Bind<IGolfCourseService>().To<GolfCourseService>();
+            kernel.Bind<IYelpGolfCourseReviewService>().To<YelpGolfCourseReviewService>()
+                .WithConstructorArgument("yelpApiKey", ConfigurationManager.AppSettings["Yelp_API_Key"].ToString());
         }
 
         private static void BindDataRepositories(IKernel kernel)

@@ -77,3 +77,5 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Mono.Cecil.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Tests\bin\Debug\Newtonsoft.Json.xml
