@@ -11,3 +11,14 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.pdb
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Domain.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Domain.pdb
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.pdb
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.pdb
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.xml
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csprojResolveAssemblyReference.cache
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.pdb

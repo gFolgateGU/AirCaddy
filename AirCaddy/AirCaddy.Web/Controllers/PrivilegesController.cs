@@ -68,5 +68,17 @@ namespace AirCaddy.Controllers
             await _privilegeRequestHandlerService.MakeCoursePrivilegeRequestAsync(privilegeData, userId);
             return Json(3);
         }
+
+        [HttpPost]
+        public ActionResult AcceptRequest(int id)
+        {
+            return Json(1);
+        }
+
+        [HttpPost]
+        public ActionResult DenyRequest(int id)
+        {
+            return Json(1);
+        }
     }
 }
