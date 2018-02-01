@@ -12,6 +12,7 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.E
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csproj.CoreCompileInputs.cache
+<<<<<<< Updated upstream
 C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll.config
 C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll
 C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.pdb
@@ -26,3 +27,20 @@ C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Micros
 C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csprojResolveAssemblyReference.cache
 C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.dll
 C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.pdb
+=======
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll.config
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.dll
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\AirCaddy.Data.pdb
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.dll
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.xml
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csprojResolveAssemblyReference.cache
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.csproj.CoreCompileInputs.cache
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.dll
+C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Data\obj\Debug\AirCaddy.Data.pdb
+>>>>>>> Stashed changes
