@@ -1,0 +1,16 @@
+C:\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.dll
+C:\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.pdb
+C:\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.csprojResolveAssemblyReference.cache
+C:\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.csproj.CoreCompileInputs.cache
+C:\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.dll
+C:\Users\gfolg\Desktop\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.pdb
+C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.dll
+C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.pdb
+C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.dll
+C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.pdb
+C:\Sandbox\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.csproj.CoreCompileInputs.cache
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\bin\Debug\MAX.USPS.pdb
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.csprojResolveAssemblyReference.cache
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.dll
+C:\Users\ryana\Desktop\AirCaddy\AirCaddy\AirCaddy\USPS_Web_Tools_Wrapper_src\obj\Debug\MAX.USPS.pdb

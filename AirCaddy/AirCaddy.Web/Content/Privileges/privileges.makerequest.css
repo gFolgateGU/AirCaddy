@@ -1,0 +1,18 @@
+﻿#requestTitle {
+    padding-bottom: 5%;
+    border-bottom: 1px black;
+}
+
+.inline-location-ele {
+    display: block;
+}
+
+.course-address {
+    max-width: 500px;
+    width: 100%;
+}
+
+.course-reason {
+    max-width: 550px;
+    width: 100%;
+}
