@@ -11,21 +11,5 @@ C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\Newtonsoft.Json.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.xml
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csprojResolveAssemblyReference.cache
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csproj.CoreCompileInputs.cache
-<<<<<<< Updated upstream
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.dll
 C:\Sandbox\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.pdb
-=======
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Domain.dll
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Domain.pdb
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.dll
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.dll
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.dll
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.pdb
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\AirCaddy.Data.dll.config
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\MAX.USPS.pdb
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\bin\Debug\EntityFramework.xml
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csprojResolveAssemblyReference.cache
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.csproj.CoreCompileInputs.cache
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.dll
-C:\sandbox\AirCaddy\AirCaddy\AirCaddy\AirCaddy.Domain\obj\Debug\AirCaddy.Domain.pdb
->>>>>>> Stashed changes
