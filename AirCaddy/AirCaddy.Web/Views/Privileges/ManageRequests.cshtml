@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AirCaddy.Data.CustomDataModels.UserPrivilegeRequest>
+
+<section id="standingsView">
+    @Html.AntiForgeryToken()
+    <!--Reason Modal-->
+    <div class="modal fade" id="reasonPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <span data-bind="text: courseNameInFocus"></span> Reason
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <span data-bind="text: reasonInFocus"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Request Modal-->
+    <!--Accept and Deny Modal-->
+    <div class="modal fade" id="acceptDenyPopUp" tabindex="-1" role="dialog" aria-labelledby="acceptDenyPopUpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="acceptDenyPopUpLabel">
+                        <strong>Confirm Decion</strong>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong><span data-bind="text: requestType"></span></strong>&nbsp;<i><span data-bind="text: courseNameInFocus"></span></i></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button data-bind="click: denyRequest($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>s
+    </div>
+    <!--End Accept and Deny Modal-->
+    <table class="table table-striped" id="requestsTable">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Course Name</th>
+            <th>Course Address</th>
+            <th>Course Phone</th>
+            <th>Reason</th>
+            <th>Type</th>
+            <th class="text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: requestsList">
+        <tr>
+            <td data-bind="text: username"></td>
+            <td data-bind="text: courseName"></td>
+            <td data-bind="text: courseAddress"></td>
+            <td data-bind="text: phoneNumber"></td>
+            <td><a data-bind="click: $parent.showReason.bind($data, reason, courseName)" href="#">Reason</a></td>
+            <td data-bind="text: courseType"></td>
+            <td><button data-bind="click: $parent.showAcceptDeny.bind($data, id, courseName, 'accept')" class="btn btn-success">Accept</button>&nbsp;&nbsp;<button data-bind="click: $parent.showAcceptDeny.bind($data, id, courseName, 'deny')" class="btn btn-danger">Deny</button></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<script src="~/Scripts/App/Privileges/privileges.request.js"></script>
+<script src="~/Scripts/App/Privileges/privileges.managerequests.viewmodel.js"></script>
+<script>
+    $(document).ready(function () {
+        var tokenHeaderValue = $('[name=__RequestVerificationToken]').val();
+        var model = @Html.Raw(Json.Encode(Model));
+        var requestsViewModel = new manageRequestsViewModel(model, tokenHeaderValue);
+        ko.applyBindings(requestsViewModel, document.getElementById("standingsView"));
+    });
+</script>
