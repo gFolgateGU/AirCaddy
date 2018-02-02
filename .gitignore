@@ -6,10 +6,3 @@ obj
 packages
 
 AirCaddy\AirCaddy.Web\Web.Config
-
-AirCaddy\AirCaddy.Data\obj\*
-AirCaddy\AirCaddy.Web\obj\*
-AirCaddy\AirCaddy.Tests\obj\*
-AirCaddy\AirCaddy.Domain\obj\*
-AirCaddy\AirCaddy.Interfaces\obj\*
-AirCaddy\USPS_Web_Tools_Wrapper_src\obj\*
