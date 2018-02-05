@@ -27,7 +27,7 @@
 <div class="container col-xs-12">
     <div data-bind="foreach: coursesDisplayList" class="col-xs-12 col-lg-12 col-md-12 row">
         <div class="col-xs-12 col-md-6 col-lg-6">
-            <div class="course_container">
+            <div data-bind="click: exploreCourse" class="course_container">
                 <div class="header_container">
                     <div class="row text-center">
                         <h4 data-bind="text: name"></h4>

@@ -20,6 +20,7 @@ namespace AirCaddy.Data
         public string PhoneNumber { get; set; }
         public string Type { get; set; }
         public string UserId { get; set; }
+        public string YelpApiCourseId { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }

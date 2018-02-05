@@ -37,9 +37,9 @@ namespace AirCaddy.Controllers
         public async Task<ActionResult> Contact()
         {
             //ViewBag.Message = "Your contact page.";
-            var obj = new YelpGolfCourseReviewService("yqCRRvNvxvLQi1f_EBTlaHXC7LURwVTt80PXTUxabfYPxvmsfQJXw6lFxyizBwCdaYsFxTkiy9fPGzdv_2C2Li6MfCAv1LFBL-HwrZTQjR1KUwZu1_GEgwO6LvUFWnYx");
-            var c = await obj.FindGolfCourseGivenSearchName("7085 Van Camp Rd, Girard, PA 16417", "Elk Valley Golf Course");
-            var y = c.ToString();
+            var obj = new YelpGolfCourseReviewservice("yqCRRvNvxvLQi1f_EBTlaHXC7LURwVTt80PXTUxabfYPxvmsfQJXw6lFxyizBwCdaYsFxTkiy9fPGzdv_2C2Li6MfCAv1LFBL-HwrZTQjR1KUwZu1_GEgwO6LvUFWnYx");
+            var x = await obj.GetGolfCourseReviewData("elk-valley-golf-course-girard");
+            var y = x;
 
             return View();
         }

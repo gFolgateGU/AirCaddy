@@ -8,4 +8,9 @@
     self.phoneNumber = data.CoursePrimaryContact;
     self.type = data.CourseType;
     self.userId = data.CourseOwnerId;
+
+    self.exploreCourse = function ()
+    {
+        window.location.href = '/GolfCourses/Explore/?golfCourseId=' + self.id;
+    }
 }
