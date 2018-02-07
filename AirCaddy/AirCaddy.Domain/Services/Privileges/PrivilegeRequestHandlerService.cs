@@ -22,6 +22,8 @@ namespace AirCaddy.Domain.Services.Privileges
         Task<IEnumerable<UserPrivilegeRequest>> RetrievePendingPrivilegeRequestsAsync();
 
         Task<PrivilegesSummaryViewModel> GetPrivilegesSummaryForUserAsync(string userId);
+        
+        Task RequestDeleteAsync(int id);
     }
 
     public class PrivilegeRequestHandlerService : IPrivilegeRequestHandlerService
@@ -142,6 +144,11 @@ namespace AirCaddy.Domain.Services.Privileges
             }
 
             return privilegeSummaryVm;
+        }
+
+        public async Task RequestDeleteAsync(int id)
+        {
+            await _privilegeRepository.DeleteRequestAsync(id);
         }
     }
 }

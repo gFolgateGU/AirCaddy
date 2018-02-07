@@ -76,8 +76,11 @@ namespace AirCaddy.Controllers
         }
 
         [HttpPost]
-        public ActionResult DenyRequest(int id)
+        public async Task<ActionResult> DenyRequest(int id)
         {
+
+            await _privilegeRequestHandlerService.RequestDeleteAsync(id);
+            
             return Json(1);
         }
     }
