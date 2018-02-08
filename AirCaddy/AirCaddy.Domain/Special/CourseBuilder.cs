@@ -12,6 +12,8 @@ namespace AirCaddy.Domain.Special
     public abstract class CourseBuilder
     {
         protected GolfCourse _golfCourse;
+        protected IYelpGolfCourseReviewService _yelpGolfCourseReviewService;
+        protected IPrivilegeRepository _privilegeRepository;
 
         protected CourseBuilder()
         {
