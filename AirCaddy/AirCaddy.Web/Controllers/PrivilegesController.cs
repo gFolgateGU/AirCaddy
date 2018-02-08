@@ -70,8 +70,10 @@ namespace AirCaddy.Controllers
         }
 
         [HttpPost]
-        public ActionResult AcceptRequest(int id)
+        public async Task<ActionResult> AcceptRequest(int id)
         {
+            await _privilegeRequestHandlerService.RequestAcceptAsync(id);
+            
             return Json(1);
         }
 

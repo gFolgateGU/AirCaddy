@@ -47,6 +47,29 @@
         </div>s
     </div>
     <!--End Deny Modal-->
+    <!--Accept Modal-->
+    <div class="modal fade" id="acceptPopUp" tabindex="-1" role="dialog" aria-labelledby="acceptPopUpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="acceptPopUpLabel">
+                        <strong>Confirm Decion</strong>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong><span data-bind="text: requestType"></span></strong>&nbsp;<i><span data-bind="text: courseNameInFocus"></span></i></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button data-bind="click: acceptRequest($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>s
+    </div>
+    <!--End Accept Modal-->
     <table class="table table-striped" id="requestsTable">
         <thead>
         <tr>
