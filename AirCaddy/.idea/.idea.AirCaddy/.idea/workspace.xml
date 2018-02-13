@@ -23,24 +23,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PrivilegesController.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PrivilegesController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="84" column="72" lean-forward="true" selection-start-line="84" selection-start-column="72" selection-end-line="84" selection-end-column="72" />
               <folding>
-                <marker date="1518121433058" expanded="false" signature="6:290" ph="..." />
-                <marker date="1518121433058" expanded="true" signature="322:3011" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="375:3009" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="699:855" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="1004:1263" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="1370:1519" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="1668:1715" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="1914:2570" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="2125:2229" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="2320:2426" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="2652:2787" ph="{...}" />
-                <marker date="1518121433058" expanded="true" signature="2867:3003" ph="{...}" />
+                <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+                <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+                <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GolfCourseService.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/GolfCourses/GolfCourseService.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <marker date="1518557420692" expanded="false" signature="6:255" ph="..." />
+                <marker date="1518557420692" expanded="true" signature="303:1974" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="345:510" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="567:1972" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="721:799" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="899:1136" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="1277:1809" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="1400:1736" ph="{...}" />
+                <marker date="1518557420692" expanded="true" signature="1882:1966" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GolfCourseRepository.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/GolfCourseRepository.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding>
+                <marker date="1517593865404" expanded="false" signature="6:141" ph="..." />
+                <marker date="1517593865404" expanded="true" signature="179:1790" ph="{...}" />
+                <marker date="1517593865404" expanded="true" signature="224:535" ph="{...}" />
+                <marker date="1517593865404" expanded="true" signature="614:1788" ph="{...}" />
+                <marker date="1517593865404" expanded="true" signature="772:1048" ph="{...}" />
+                <marker date="1517593865404" expanded="true" signature="1146:1377" ph="{...}" />
+                <marker date="1517593865404" expanded="true" signature="1444:1571" ph="{...}" />
+                <marker date="1517593865404" expanded="true" signature="1653:1782" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GolfCourseBuilder.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Special/GolfCourseBuilder.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <folding>
+                <marker date="1518555628658" expanded="false" signature="6:214" ph="..." />
+                <marker date="1518555628658" expanded="true" signature="249:1757" ph="{...}" />
+                <marker date="1518555628658" expanded="true" signature="302:1755" ph="{...}" />
+                <marker date="1518555628658" expanded="true" signature="615:763" ph="{...}" />
+                <marker date="1518555628658" expanded="true" signature="826:967" ph="{...}" />
+                <marker date="1518555628658" expanded="true" signature="1046:1466" ph="{...}" />
+                <marker date="1518555628658" expanded="true" signature="1530:1749" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseBuilder.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Special/CourseBuilder.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <folding>
+                <marker date="1518555628650" expanded="false" signature="6:214" ph="..." />
+                <marker date="1518555628650" expanded="true" signature="249:609" ph="{...}" />
+                <marker date="1518555628650" expanded="true" signature="308:607" ph="{...}" />
+                <marker date="1518555628650" expanded="true" signature="390:453" ph="{...}" />
+                <marker date="1518555628650" expanded="true" signature="550:601" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -49,7 +122,7 @@
       <file leaf-file-name="PrivilegeRequestHandlerService.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/Privileges/PrivilegeRequestHandlerService.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
+            <state relative-caret-position="418">
               <caret line="156" column="9" lean-forward="false" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
               <folding>
                 <marker date="1518121335155" expanded="false" signature="6:269" ph="..." />
@@ -80,22 +153,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrivilegeRepository.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PrivilegeRepository.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/PrivilegeRepository.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+            <state relative-caret-position="435">
+              <caret line="86" column="9" lean-forward="false" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
               <folding>
-                <marker date="1518121331788" expanded="false" signature="6:198" ph="..." />
-                <marker date="1518121331788" expanded="true" signature="236:3582" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="280:716" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="793:3580" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="949:1294" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="1378:1517" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="1608:2604" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="2711:2942" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="2996:3254" ph="{...}" />
-                <marker date="1518121331788" expanded="true" signature="3316:3574" ph="{...}" />
+                <marker date="1518555628634" expanded="false" signature="6:198" ph="..." />
+                <marker date="1518555628634" expanded="true" signature="236:3889" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="280:777" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="854:3887" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="1010:1355" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="1439:1578" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="1669:2665" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="2772:3003" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="3057:3315" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="3377:3635" ph="{...}" />
+                <marker date="1518555628634" expanded="true" signature="3708:3881" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -104,7 +178,7 @@
       <file leaf-file-name="AirCaddyDataEntities.Context.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Data/AirCaddyDataEntities.Context.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-156">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <marker date="1516913195484" expanded="true" signature="0:422" ph="/* ------------------------------------------------------------------------------ ... */" />
@@ -121,7 +195,7 @@
       <file leaf-file-name="ManageRequests.cshtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Privileges/ManageRequests.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
+            <state relative-caret-position="1065">
               <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
               <folding>
                 <marker date="1518120992458" expanded="true" signature="18:5222" ph="&lt;AirCaddy.Data.CustomDataModels.UserPrivilegeRequest.../&gt;" />
@@ -165,8 +239,8 @@
       <file leaf-file-name="privileges.managerequests.viewmodel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Scripts/App/Privileges/privileges.managerequests.viewmodel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-194">
-              <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="36" />
+            <state relative-caret-position="720">
+              <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -175,16 +249,20 @@
     </leaf>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/AirCaddy.Data/AirCaddyDataEntities.Context.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/GolfCoursesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Web.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Domain/Special/CourseBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Domain/Special/GolfCourseBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/GolfCourseRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/PrivilegeRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Data/AirCaddyDataEntities.Context.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/GolfCoursesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Privileges/ManageRequests.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Privileges/MakeRequest.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Data/PrivilegeRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/Privileges/PrivilegeRequestHandlerService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/PrivilegeRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/GolfCourses/GolfCourseService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -194,6 +272,7 @@
         <option value="$PROJECT_DIR$/AirCaddy.Web/Views/Privileges/ManageRequests.cshtml" />
         <option value="$PROJECT_DIR$/AirCaddy.Domain/Services/Privileges/PrivilegeRequestHandlerService.cs" />
         <option value="$PROJECT_DIR$/AirCaddy.Data/Repositories/PrivilegeRepository.cs" />
+        <option value="$PROJECT_DIR$/AirCaddy.Domain/Services/GolfCourses/GolfCourseService.cs" />
         <option value="$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs" />
       </list>
     </option>
@@ -224,7 +303,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -235,13 +313,48 @@
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Data" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Data" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Properties" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Data" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Repositories" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Domain" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Domain" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Services" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Domain" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Services" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="GolfCourses" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="AirCaddy.Domain" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Special" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Content" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
@@ -249,32 +362,13 @@
               <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Controllers" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Views" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Views" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Manage" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Views" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Privileges" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,11 +425,12 @@
       <workItem from="1517963713852" duration="2503000" />
       <workItem from="1518023773977" duration="4963000" />
       <workItem from="1518120477021" duration="1801000" />
+      <workItem from="1518555675433" duration="1734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15997000" />
+    <option name="totallyTimeSpent" value="17731000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -355,7 +450,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22861843" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22861843" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -389,21 +484,159 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+            <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/Privileges/PrivilegeRequestHandlerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="156" column="9" lean-forward="false" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
+          <folding>
+            <marker date="1518121335155" expanded="false" signature="6:269" ph="..." />
+            <marker date="1518121335155" expanded="true" signature="316:6517" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="371:935" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="1018:6515" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="1371:1543" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="1640:2040" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="2160:2936" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="2456:2848" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="3029:3652" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="3090:3314" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="3392:3497" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="3559:3617" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="3754:3907" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="4010:4419" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="4537:4689" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="4882:6227" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="4973:5124" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="5186:5618" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="5284:5535" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="5686:6177" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="5784:6087" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="6281:6364" ph="{...}" />
+            <marker date="1518121335155" expanded="true" signature="6426:6509" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Data/AirCaddyDataEntities.Context.cs">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518121433058" expanded="false" signature="6:290" ph="..." />
-            <marker date="1518121433058" expanded="true" signature="322:3011" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="375:3009" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="699:855" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1004:1263" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1370:1519" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1668:1715" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1914:2570" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2125:2229" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2320:2426" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2652:2787" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2867:3003" ph="{...}" />
+            <marker date="1516913195484" expanded="true" signature="0:422" ph="/* ------------------------------------------------------------------------------ ... */" />
+            <marker date="1516913195484" expanded="true" signature="447:1407" ph="{...}" />
+            <marker date="1516913195484" expanded="false" signature="460:542" ph="..." />
+            <marker date="1516913195484" expanded="true" signature="605:1405" ph="{...}" />
+            <marker date="1516913195484" expanded="true" signature="697:717" ph="{...}" />
+            <marker date="1516913195484" expanded="true" signature="799:876" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Privileges/ManageRequests.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+          <folding>
+            <marker date="1518120992458" expanded="true" signature="18:5222" ph="&lt;AirCaddy.Data.CustomDataModels.UserPrivilegeRequest.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="73:4698" ph="&lt;section.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="159:1088" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="287:1077" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="326:1062" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="370:748" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="417:555" ph="&lt;button.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="576:725" ph="&lt;h4.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="765:878" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="895:1043" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1144:2317" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1272:2305" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1311:2290" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1355:1710" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1402:1540" ph="&lt;button.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1561:1687" ph="&lt;h4.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1727:1949" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="1966:2271" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2372:3553" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2504:3541" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2543:3526" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2587:2944" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2634:2772" ph="&lt;button.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2793:2921" ph="&lt;h4.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="2961:3183" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="3200:3507" ph="&lt;div.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="3586:4687" ph="&lt;table.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="3649:3936" ph="&lt;thead.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="3665:3919" ph="&lt;tr.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="3945:4674" ph="&lt;tbody.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="3995:4657" ph="&lt;tr.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="4859:5222" ph="&lt;script.../&gt;" />
+            <marker date="1518120992458" expanded="true" signature="4902:5210" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Scripts/App/Privileges/privileges.managerequests.viewmodel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/PrivilegeRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+          <folding>
+            <marker date="1518555628634" expanded="false" signature="6:198" ph="..." />
+            <marker date="1518555628634" expanded="true" signature="236:3889" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="280:777" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="854:3887" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1010:1355" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1439:1578" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1669:2665" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="2772:3003" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3057:3315" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3377:3635" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3708:3881" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+            <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -445,16 +678,17 @@
         <state relative-caret-position="210">
           <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="40" />
           <folding>
-            <marker date="1518121331788" expanded="false" signature="6:198" ph="..." />
-            <marker date="1518121331788" expanded="true" signature="236:3582" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="280:716" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="793:3580" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="949:1294" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="1378:1517" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="1608:2604" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="2711:2942" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="2996:3254" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="3316:3574" ph="{...}" />
+            <marker date="1518555628634" expanded="false" signature="6:198" ph="..." />
+            <marker date="1518555628634" expanded="true" signature="236:3889" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="280:777" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="854:3887" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1010:1355" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1439:1578" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1669:2665" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="2772:3003" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3057:3315" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3377:3635" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3708:3881" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -478,12 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1517431507728" expanded="true" signature="0:422" ph="/* ------------------------------------------------------------------------------ ... */" />
-            <marker date="1517431507728" expanded="true" signature="447:1005" ph="{...}" />
-            <marker date="1517431507728" expanded="false" signature="460:505" ph="..." />
-            <marker date="1517431507728" expanded="true" signature="552:1003" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -542,18 +770,18 @@
         <state relative-caret-position="1095">
           <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding>
-            <marker date="1518121433058" expanded="false" signature="6:290" ph="..." />
-            <marker date="1518121433058" expanded="true" signature="322:3011" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="375:3009" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="699:855" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1004:1263" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1370:1519" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1668:1715" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1914:2570" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2125:2229" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2320:2426" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2652:2787" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2867:3003" ph="{...}" />
+            <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+            <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -634,18 +862,18 @@
         <state relative-caret-position="1230">
           <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding>
-            <marker date="1518121433058" expanded="false" signature="6:290" ph="..." />
-            <marker date="1518121433058" expanded="true" signature="322:3011" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="375:3009" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="699:855" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1004:1263" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1370:1519" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1668:1715" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1914:2570" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2125:2229" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2320:2426" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2652:2787" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2867:3003" ph="{...}" />
+            <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+            <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -726,18 +954,18 @@
         <state relative-caret-position="1230">
           <caret line="82" column="5" lean-forward="false" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding>
-            <marker date="1518121433058" expanded="false" signature="6:290" ph="..." />
-            <marker date="1518121433058" expanded="true" signature="322:3011" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="375:3009" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="699:855" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1004:1263" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1370:1519" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1668:1715" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1914:2570" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2125:2229" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2320:2426" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2652:2787" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2867:3003" ph="{...}" />
+            <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+            <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -852,27 +1080,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1517593866568" expanded="false" signature="6:150" ph="..." />
-            <marker date="1517593866568" expanded="true" signature="182:633" ph="{...}" />
-            <marker date="1517593866568" expanded="true" signature="236:631" ph="{...}" />
-            <marker date="1517593866568" expanded="true" signature="422:514" ph="{...}" />
-            <marker date="1517593866568" expanded="true" signature="578:625" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Scripts/App/Privileges/privileges.managerequests.viewmodel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194">
-          <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="36" />
+        <state relative-caret-position="720">
+          <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Privileges/ManageRequests.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
+        <state relative-caret-position="1065">
           <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
           <folding>
             <marker date="1518120992458" expanded="true" signature="18:5222" ph="&lt;AirCaddy.Data.CustomDataModels.UserPrivilegeRequest.../&gt;" />
@@ -916,18 +1137,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Data/AirCaddyDataEntities.Context.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1517431507728" expanded="true" signature="0:422" ph="/* ------------------------------------------------------------------------------ ... */" />
-            <marker date="1517431507728" expanded="true" signature="447:1005" ph="{...}" />
-            <marker date="1517431507728" expanded="false" signature="460:505" ph="..." />
-            <marker date="1517431507728" expanded="true" signature="552:1003" ph="{...}" />
+            <marker date="1516913195484" expanded="true" signature="0:422" ph="/* ------------------------------------------------------------------------------ ... */" />
+            <marker date="1516913195484" expanded="true" signature="447:1407" ph="{...}" />
+            <marker date="1516913195484" expanded="false" signature="460:542" ph="..." />
+            <marker date="1516913195484" expanded="true" signature="605:1405" ph="{...}" />
+            <marker date="1516913195484" expanded="true" signature="697:717" ph="{...}" />
+            <marker date="1516913195484" expanded="true" signature="799:876" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/Privileges/PrivilegeRequestHandlerService.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="418">
           <caret line="156" column="9" lean-forward="false" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
           <folding>
             <marker date="1518121335155" expanded="false" signature="6:269" ph="..." />
@@ -957,57 +1187,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <marker date="1518121433058" expanded="false" signature="6:290" ph="..." />
-            <marker date="1518121433058" expanded="true" signature="322:3011" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="375:3009" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="699:855" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1004:1263" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1370:1519" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1668:1715" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="1914:2570" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2125:2229" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2320:2426" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2652:2787" ph="{...}" />
-            <marker date="1518121433058" expanded="true" signature="2867:3003" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AirCaddy.Data/AirCaddyDataEntities.Context.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1516913195484" expanded="true" signature="0:422" ph="/* ------------------------------------------------------------------------------ ... */" />
-            <marker date="1516913195484" expanded="true" signature="447:1407" ph="{...}" />
-            <marker date="1516913195484" expanded="false" signature="460:542" ph="..." />
-            <marker date="1516913195484" expanded="true" signature="605:1405" ph="{...}" />
-            <marker date="1516913195484" expanded="true" signature="697:717" ph="{...}" />
-            <marker date="1516913195484" expanded="true" signature="799:876" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/PrivilegeRepository.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+        <state relative-caret-position="435">
+          <caret line="86" column="9" lean-forward="false" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
           <folding>
-            <marker date="1518121331788" expanded="false" signature="6:198" ph="..." />
-            <marker date="1518121331788" expanded="true" signature="236:3582" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="280:716" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="793:3580" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="949:1294" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="1378:1517" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="1608:2604" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="2711:2942" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="2996:3254" ph="{...}" />
-            <marker date="1518121331788" expanded="true" signature="3316:3574" ph="{...}" />
+            <marker date="1518555628634" expanded="false" signature="6:198" ph="..." />
+            <marker date="1518555628634" expanded="true" signature="236:3889" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="280:777" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="854:3887" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1010:1355" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1439:1578" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="1669:2665" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="2772:3003" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3057:3315" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3377:3635" ph="{...}" />
+            <marker date="1518555628634" expanded="true" signature="3708:3881" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Special/GolfCourseBuilder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <marker date="1518555628658" expanded="false" signature="6:214" ph="..." />
+            <marker date="1518555628658" expanded="true" signature="249:1757" ph="{...}" />
+            <marker date="1518555628658" expanded="true" signature="302:1755" ph="{...}" />
+            <marker date="1518555628658" expanded="true" signature="615:763" ph="{...}" />
+            <marker date="1518555628658" expanded="true" signature="826:967" ph="{...}" />
+            <marker date="1518555628658" expanded="true" signature="1046:1466" ph="{...}" />
+            <marker date="1518555628658" expanded="true" signature="1530:1749" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Special/CourseBuilder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <marker date="1518555628650" expanded="false" signature="6:214" ph="..." />
+            <marker date="1518555628650" expanded="true" signature="249:609" ph="{...}" />
+            <marker date="1518555628650" expanded="true" signature="308:607" ph="{...}" />
+            <marker date="1518555628650" expanded="true" signature="390:453" ph="{...}" />
+            <marker date="1518555628650" expanded="true" signature="550:601" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Data/Repositories/GolfCourseRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1517593865404" expanded="false" signature="6:141" ph="..." />
+            <marker date="1517593865404" expanded="true" signature="179:1790" ph="{...}" />
+            <marker date="1517593865404" expanded="true" signature="224:535" ph="{...}" />
+            <marker date="1517593865404" expanded="true" signature="614:1788" ph="{...}" />
+            <marker date="1517593865404" expanded="true" signature="772:1048" ph="{...}" />
+            <marker date="1517593865404" expanded="true" signature="1146:1377" ph="{...}" />
+            <marker date="1517593865404" expanded="true" signature="1444:1571" ph="{...}" />
+            <marker date="1517593865404" expanded="true" signature="1653:1782" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Domain/Services/GolfCourses/GolfCourseService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1518557420692" expanded="false" signature="6:255" ph="..." />
+            <marker date="1518557420692" expanded="true" signature="303:1974" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="345:510" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="567:1972" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="721:799" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="899:1136" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="1277:1809" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="1400:1736" ph="{...}" />
+            <marker date="1518557420692" expanded="true" signature="1882:1966" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Controllers/PrivilegesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="84" column="72" lean-forward="true" selection-start-line="84" selection-start-column="72" selection-end-line="84" selection-end-column="72" />
+          <folding>
+            <marker date="1518557393393" expanded="false" signature="6:365" ph="..." />
+            <marker date="1518557393393" expanded="true" signature="397:3563" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="450:3561" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="974:1227" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1376:1635" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="1742:1891" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2040:2087" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2286:2942" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2497:2601" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="2692:2798" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3024:3339" ph="{...}" />
+            <marker date="1518557393393" expanded="true" signature="3419:3555" ph="{...}" />
           </folding>
         </state>
       </provider>

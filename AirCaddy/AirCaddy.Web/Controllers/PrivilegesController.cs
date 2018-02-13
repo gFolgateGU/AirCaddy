@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AirCaddy.Domain.Services.GolfCourses;
 using AirCaddy.Domain.Services.Privileges;
+using AirCaddy.Domain.Special;
 using AirCaddy.Domain.ViewModels;
 using AirCaddy.Domain.ViewModels.Privileges;
 
@@ -15,12 +17,18 @@ namespace AirCaddy.Controllers
     {
         private readonly ISessionMapperService _sessionMapperService;
         private readonly IPrivilegeRequestHandlerService _privilegeRequestHandlerService;
+        private readonly ICourseBuilder _courseBuilder;
+        private readonly IGolfCourseService _golfCourseService;
 
         public PrivilegesController(ISessionMapperService sessionMapperService, 
-            IPrivilegeRequestHandlerService privilegeRequestHandlerService)
+            IPrivilegeRequestHandlerService privilegeRequestHandlerService,
+            ICourseBuilder courseBuilder, IGolfCourseService golfCourseService)
         {
             _sessionMapperService = sessionMapperService;
             _privilegeRequestHandlerService = privilegeRequestHandlerService;
+            _courseBuilder = courseBuilder;
+            _golfCourseService = golfCourseService;
+
         }
 
         // GET: Index
@@ -72,6 +80,9 @@ namespace AirCaddy.Controllers
         [HttpPost]
         public async Task<ActionResult> AcceptRequest(int id)
         {
+            await _courseBuilder.BuildCourse(id);
+            var golfCourse = _courseBuilder.GetCourse();
+            _golfCourseService.RequestAddGolfCourseToSystem(golfCourse);
             await _privilegeRequestHandlerService.RequestAcceptAsync(id);
             
             return Json(1);

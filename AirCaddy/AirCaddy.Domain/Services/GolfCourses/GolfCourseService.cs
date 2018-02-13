@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using AirCaddy.Data;
@@ -12,6 +13,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
     public interface IGolfCourseService
     {
         Task<IEnumerable<GolfCourseViewModel>> GetExistingGolfCoursesViewModelAsync();
+        void RequestAddGolfCourseToSystem(GolfCourse golfCourse);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -45,6 +47,11 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 .ToList();
 
             return golfCoursesVm;
+        }
+
+        public void RequestAddGolfCourseToSystem(GolfCourse golfCourse)
+        {
+            _golfCourseRepository.AddNewGolfCourse(golfCourse);
         }
     }
 }
