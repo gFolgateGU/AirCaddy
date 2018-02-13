@@ -22,6 +22,8 @@ namespace AirCaddy.Data.Repositories
         Task DeleteRequestAsync(int id);
         
         Task AcceptRequestAsync(int id);
+
+        Task<PrivilegeRequest> GetPrivilegeRequest(int id);
     }
 
     public class PrivilegeRepository : BaseRepository, IPrivilegeRepository
@@ -76,6 +78,12 @@ namespace AirCaddy.Data.Repositories
             var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(id)).FirstOrDefaultAsync();
             _dataEntities.PrivilegeRequests.Remove(privRequest);
             await _dataEntities.SaveChangesAsync();
+        }
+
+        public async Task<PrivilegeRequest> GetPrivilegeRequest(int id)
+        {
+            var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(id)).FirstOrDefaultAsync();
+            return privRequest;
         }
     }
 }

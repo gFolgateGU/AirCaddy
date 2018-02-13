@@ -9,23 +9,20 @@ using AirCaddy.Domain.Services.GolfCourses;
 
 namespace AirCaddy.Domain.Special
 {
-    public abstract class CourseBuilder
+    public abstract class CourseBuilder : ICourseBuilder
     {
-        protected GolfCourse _golfCourse;
-        protected IYelpGolfCourseReviewService _yelpGolfCourseReviewService;
-        protected IPrivilegeRepository _privilegeRepository;
+        protected GolfCourse GolfCourse;
 
         protected CourseBuilder()
         {
-            _golfCourse = new GolfCourse();
+            GolfCourse = new GolfCourse();
         }
 
-        protected abstract void BuildCourse(int requestId);
+        public abstract Task BuildCourse(int requestId);
 
-        protected GolfCourse GetCourse()
+        public GolfCourse GetCourse()
         {
-            return _golfCourse;
+            return GolfCourse;
         }
-
     }
 }

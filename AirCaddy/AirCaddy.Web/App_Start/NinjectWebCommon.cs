@@ -16,6 +16,7 @@ namespace AirCaddy.App_Start
     using Ninject.Web.Common;
     using System.Configuration;
     using AirCaddy.Domain.Services.GolfCourses;
+    using AirCaddy.Domain.Special;
 
     public static class NinjectWebCommon 
     {
@@ -79,6 +80,7 @@ namespace AirCaddy.App_Start
             kernel.Bind<IGolfCourseService>().To<GolfCourseService>();
             kernel.Bind<IYelpGolfCourseReviewService>().To<YelpGolfCourseReviewService>()
                 .WithConstructorArgument("yelpApiKey", ConfigurationManager.AppSettings["Yelp_API_Key"].ToString());
+            kernel.Bind<ICourseBuilder>().To<GolfCourseBuilder>();
         }
 
         private static void BindDataRepositories(IKernel kernel)
