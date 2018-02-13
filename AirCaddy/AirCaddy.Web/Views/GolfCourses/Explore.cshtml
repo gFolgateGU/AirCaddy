@@ -1,0 +1,47 @@
+﻿@model AirCaddy.Domain.ViewModels.GolfCourses.CourseOverviewViewModel
+
+@{
+    ViewBag.Title = "Explore";
+}
+
+<link href="~/Content/GolfCourses/golfcourses.explore.css" rel="stylesheet"/>
+
+<div class="text-center">
+    <h2><span data-bind="text: courseName"></span> <strong>(<span data-bind="text: averageRating"></span> / 5)</strong></h2>   
+</div>
+
+<div data-bind="foreach: courseYelpReviews"class="container col-xs-12">
+    <div>
+        <p data-bind="text: reviewText"></p>
+        <p data-bind="text: rating"></p>
+        <p data-bind="text: user"></p>
+        <p data-bind="text: reviewDate"></p>
+    </div>
+</div>
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script src="~/Scripts/App/GolfCourses/golfcourses.yelpreview.js"></script>
+<script src="~/Scripts/App/GolfCourses/golfcourses.explore.viewmodel.js"></script>
+<script src="~/Scripts/accordion.js"></script>
+<script>
+
+    $(document).ready(function() {
+        var model = @Html.Raw(Json.Encode(Model));
+        var viewModel = new golfCoursesExploreViewModel(model);
+        ko.applyBindings(viewModel);
+    });
+</script>

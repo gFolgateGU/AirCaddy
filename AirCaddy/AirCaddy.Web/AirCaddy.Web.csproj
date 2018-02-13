@@ -220,12 +220,16 @@
     <Content Include="Content\aircaddy-main-overrides.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\GolfCourses\golfcourses.explore.css" />
     <Content Include="Content\Home\home.coursegallery.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\accordion.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.explore.viewmodel.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.yelpreview.js" />
     <Content Include="Scripts\App\Home\home.course.js" />
     <Content Include="Scripts\App\Home\home.coursegallery.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.makerequest.viewmodel.js" />
@@ -286,10 +290,10 @@
     <Content Include="Views\Privileges\MakeRequest.cshtml" />
     <Content Include="Views\Privileges\Index.cshtml" />
     <Content Include="Views\Privileges\ManageRequests.cshtml" />
+    <Content Include="Views\GolfCourses\Explore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GolfCourses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

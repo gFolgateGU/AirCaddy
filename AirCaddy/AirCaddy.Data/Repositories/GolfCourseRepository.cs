@@ -16,6 +16,10 @@ namespace AirCaddy.Data.Repositories
         Task AddNewGolfCourse(GolfCourse golfCourse);
 
         Task<IEnumerable<GolfCourse>> GetVerifiedGolfCoursesAsync();
+
+        string GetGolfCourseName(int courseId);
+
+        string GetExistingGolfCourseYelpApiKey(int courseId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -46,6 +50,18 @@ namespace AirCaddy.Data.Repositories
         {
             var golfCourses = await _dataEntities.GolfCourses.ToListAsync();
             return golfCourses;
+        }
+
+        public string GetGolfCourseName(int courseId)
+        {
+            var golfCourse = _dataEntities.GolfCourses.FirstOrDefault(gc => gc.Id.Equals(courseId));
+            return golfCourse.Name;
+        }
+
+        public string GetExistingGolfCourseYelpApiKey(int courseId)
+        {
+            var golfCourse = _dataEntities.GolfCourses.FirstOrDefault(gc => gc.Id.Equals(courseId));
+            return golfCourse.YelpApiCourseId;
         }
     }
 }

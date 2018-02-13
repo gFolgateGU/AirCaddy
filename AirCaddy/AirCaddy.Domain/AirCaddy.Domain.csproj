@@ -54,7 +54,9 @@
     <Compile Include="Services\Privileges\PrivilegeRequestHandlerService.cs" />
     <Compile Include="Services\Utility\SessionMapperService.cs" />
     <Compile Include="Utilities\WebApiBaseUtilities.cs" />
+    <Compile Include="ViewModels\GolfCourses\CourseOverviewViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\GolfCourseViewModel.cs" />
+    <Compile Include="ViewModels\GolfCourses\YelpGolfCourseReview.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegeRequestViewModel.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegesSummaryViewModel.cs" />
     <Compile Include="ViewModels\Privileges\GolfCourseInfoViewModel.cs" />

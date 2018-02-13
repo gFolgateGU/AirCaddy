@@ -78,6 +78,7 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="YelpApiCourseId" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="PrivilegeRequests">
           <Key>
@@ -371,6 +372,7 @@
           <Property Name="Type" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUser" Relationship="AirCaddyDataModel.FK_GolfCourses_AspNetUsers" FromRole="GolfCours" ToRole="AspNetUser" />
+          <Property Name="YelpApiCourseId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_GolfCourses_AspNetUsers">
           <End Type="AirCaddyDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -472,6 +474,7 @@
           <EntitySetMapping Name="GolfCourses">
             <EntityTypeMapping TypeName="AirCaddyDataModel.GolfCourse">
               <MappingFragment StoreEntitySet="GolfCourses">
+                <ScalarProperty Name="YelpApiCourseId" ColumnName="YelpApiCourseId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />

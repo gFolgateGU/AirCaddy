@@ -12,15 +12,20 @@ namespace AirCaddy.Domain.Services.GolfCourses
     public interface IGolfCourseService
     {
         Task<IEnumerable<GolfCourseViewModel>> GetExistingGolfCoursesViewModelAsync();
+
+        Task<CourseOverviewViewModel> GetCourseOverviewViewModel(int courseId);
+
     }
 
     public class GolfCourseService : IGolfCourseService
     {
         private readonly IGolfCourseRepository _golfCourseRepository;
+        private readonly IYelpGolfCourseReviewservice _yelpGolfCourseReviewservice;
 
-        public GolfCourseService(IGolfCourseRepository golfCourseRepository)
+        public GolfCourseService(IGolfCourseRepository golfCourseRepository, IYelpGolfCourseReviewservice yelpGolfCourseReviewservice)
         {
             _golfCourseRepository = golfCourseRepository;
+            _yelpGolfCourseReviewservice = yelpGolfCourseReviewservice;
         }
 
         public async Task<IEnumerable<GolfCourseViewModel>> GetExistingGolfCoursesViewModelAsync()
@@ -28,6 +33,20 @@ namespace AirCaddy.Domain.Services.GolfCourses
             var existingCourses = await _golfCourseRepository.GetVerifiedGolfCoursesAsync();
             var coursesViewModel = MapGolfEntityModelToGolfViewModel(existingCourses);
             return coursesViewModel;
+        }
+
+        public async Task<CourseOverviewViewModel> GetCourseOverviewViewModel(int courseId)
+        {
+            var viewModel = new CourseOverviewViewModel
+            {
+                CourseReviews = new List<YelpGolfCourseReview>()
+            };
+            var courseName = _golfCourseRepository.GetGolfCourseName(courseId);
+            var yelpCourseApiKey = _golfCourseRepository.GetExistingGolfCourseYelpApiKey(courseId);
+            var reviews = await _yelpGolfCourseReviewservice.GetGolfCourseReviewData(yelpCourseApiKey);
+            viewModel.CourseName = courseName;
+            viewModel.CourseReviews = reviews;
+            return viewModel;
         }
 
         private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(
