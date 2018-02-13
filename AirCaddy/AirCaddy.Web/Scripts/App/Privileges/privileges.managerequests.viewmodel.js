@@ -26,15 +26,18 @@
         $("#reasonPopUp").modal('show');
     }
 
-    vm.showAcceptDeny = function (id, courseName, typeOfRequest) {
+    vm.showDeny = function (id, courseName, typeOfRequest) {
         vm.requestType(typeOfRequest);
         vm.idInFocus(id);
         vm.courseNameInFocus(courseName);
-        $("#acceptDenyPopUp").modal('show');
+        $("#denyPopUp").modal('show');
     }
 
-    vm.acceptRequest = function (id) {
-
+    vm.showAccept = function (id, courseName, typeOfRequest) {
+        vm.requestType(typeOfRequest);
+        vm.idInFocus(id);
+        vm.courseNameInFocus(courseName);
+        $("#acceptPopUp").modal('show');
     }
 
     vm.denyRequest = function (id) {
@@ -83,3 +86,5 @@
 
         }
     }
+}
+    

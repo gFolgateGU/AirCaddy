@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,12 @@ namespace AirCaddy.Data.Repositories
         Task<IEnumerable<UserPrivilegeRequest>> GetAllPendingRequestsAsync();
 
         Task<IEnumerable<PrivilegeRequest>> GetAllPendingRequestsForUserAsync(string userId);
+
+        Task DeleteRequestAsync(int id);
+        
+        Task AcceptRequestAsync(int id);
+
+        Task<PrivilegeRequest> GetPrivilegeRequest(int id);
     }
 
     public class PrivilegeRepository : BaseRepository, IPrivilegeRepository
@@ -57,6 +64,26 @@ namespace AirCaddy.Data.Repositories
             var userPendingRequests =
                 await _dataEntities.PrivilegeRequests.Where(pr => pr.UserId.Contains(userId) && pr.Verified == false).ToListAsync();
             return userPendingRequests;
+        }
+
+        public async Task DeleteRequestAsync(int id)
+        {
+            var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(id)).FirstOrDefaultAsync();
+            _dataEntities.PrivilegeRequests.Remove(privRequest);
+            await _dataEntities.SaveChangesAsync();
+        }
+        
+        public async Task AcceptRequestAsync(int id)
+        {
+            var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(id)).FirstOrDefaultAsync();
+            _dataEntities.PrivilegeRequests.Remove(privRequest);
+            await _dataEntities.SaveChangesAsync();
+        }
+
+        public async Task<PrivilegeRequest> GetPrivilegeRequest(int id)
+        {
+            var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(id)).FirstOrDefaultAsync();
+            return privRequest;
         }
     }
 }

@@ -53,6 +53,9 @@
     <Compile Include="Services\GolfCourses\YelpGolfCourseReviewService.cs" />
     <Compile Include="Services\Privileges\PrivilegeRequestHandlerService.cs" />
     <Compile Include="Services\Utility\SessionMapperService.cs" />
+    <Compile Include="Special\CourseBuilder.cs" />
+    <Compile Include="Special\GolfCourseBuilder.cs" />
+    <Compile Include="Special\ICourseBuilder.cs" />
     <Compile Include="Utilities\WebApiBaseUtilities.cs" />
     <Compile Include="ViewModels\GolfCourses\CourseOverviewViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\GolfCourseViewModel.cs" />
