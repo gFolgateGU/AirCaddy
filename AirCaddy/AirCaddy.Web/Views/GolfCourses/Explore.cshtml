@@ -6,39 +6,40 @@
 
 <link href="~/Content/GolfCourses/golfcourses.explore.css" rel="stylesheet"/>
 
-<div class="text-center">
-    <h2><span data-bind="text: courseName"></span> <strong>(<span data-bind="text: averageRating"></span> / 5)</strong></h2>   
-</div>
-
-<div data-bind="foreach: courseYelpReviews"class="container col-xs-12">
-    <div>
-        <p data-bind="text: reviewText"></p>
-        <p data-bind="text: rating"></p>
-        <p data-bind="text: user"></p>
-        <p data-bind="text: reviewDate"></p>
+<div class="container bg-overlay">
+    <div class="row text-center">
+        <div class="container">
+            <h1 class="overlay-cover-main"><span data-bind="text: courseName"></span>
+            </h1>
+            <hr/>           
+        </div>
+        <h2 class="overlay-cover-sub virt-tour">Yelp Average Score: (<span data-bind="text: averageRating"></span> / 5)</h2>
+        <button class="btn btn-lg btn-primary">Take Virtual Tour!</button>
     </div>
 </div>
 
-<button class="accordion">Section 1</button>
-<div class="panel">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<div class="text-center">
+    <h2>What People Have to Say About... <strong><span data-bind="text: courseName"></span></strong></h2>   
+    <hr/>
 </div>
 
-<button class="accordion">Section 2</button>
-<div class="panel">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<button class="accordion">Section 3</button>
-<div class="panel">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<div data-bind="foreach: courseYelpReviews" class="container col-xs-12">
+    <button data-bind="click: toggleReview" class="accordion"><strong><span data-bind="text: user"></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span data-bind="text: rating"></span> / 5)</button>
+    <div data-bind="visible: reviewVisibleFlag" class="container panel col-xs-12">
+        <div class="row panel-cover">
+            <div class="col-xs-1">
+                <p><strong>Review: </strong></p>
+            </div>
+            <div class="col-xs-11">
+                <p data-bind="text: reviewText"></p>
+            </div>
+        </div>
+    </div>  
 </div>
 
 <script src="~/Scripts/App/GolfCourses/golfcourses.yelpreview.js"></script>
 <script src="~/Scripts/App/GolfCourses/golfcourses.explore.viewmodel.js"></script>
-<script src="~/Scripts/accordion.js"></script>
 <script>
-
     $(document).ready(function() {
         var model = @Html.Raw(Json.Encode(Model));
         var viewModel = new golfCoursesExploreViewModel(model);

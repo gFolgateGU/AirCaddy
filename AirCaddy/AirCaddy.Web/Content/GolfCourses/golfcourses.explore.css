@@ -1,6 +1,5 @@
 ﻿.accordion {
     background-color: #eee;
-    color: #444;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -11,13 +10,43 @@
     transition: 0.4s;
 }
 
-    .active, .accordion:hover {
-        background-color: #ccc;
-    }
+.active, .accordion:hover {
+    background-color: #ccc;
+}
 
 .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
+    background-color: #fffff0;
+}
+
+.bg-overlay {
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url("golfcourses.defaultbackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 450px;
+    padding-top: 50px;
+}
+
+.panel-cover {
+    padding: 1%;
+}
+
+.overlay-cover-main {
+    color: white;
+    font-weight: bold;
+}
+
+.overlay-cover-sub {
+    color: gold;
+    font-weight: bolder;
+}
+
+.mid-title {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.virt-tour {
+    padding-bottom: 2%;
 }
