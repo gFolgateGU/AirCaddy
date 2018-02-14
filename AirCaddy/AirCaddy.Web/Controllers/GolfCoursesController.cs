@@ -10,10 +10,10 @@ namespace AirCaddy.Controllers
 {
     public class GolfCoursesController : Controller
     {
-        private readonly IYelpGolfCourseReviewservice _yelpGolfCourseReviewservice;
+        private readonly IYelpGolfCourseReviewService _yelpGolfCourseReviewservice;
         private readonly IGolfCourseService _golfCourseService;
 
-        public GolfCoursesController(IYelpGolfCourseReviewservice yelpGolfCourseReviewservice, IGolfCourseService golfCourseService)
+        public GolfCoursesController(IYelpGolfCourseReviewService yelpGolfCourseReviewservice, IGolfCourseService golfCourseService)
         {
             _yelpGolfCourseReviewservice = yelpGolfCourseReviewservice;
             _golfCourseService = golfCourseService;

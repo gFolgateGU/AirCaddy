@@ -22,9 +22,9 @@ namespace AirCaddy.Domain.Services.GolfCourses
     public class GolfCourseService : IGolfCourseService
     {
         private readonly IGolfCourseRepository _golfCourseRepository;
-        private readonly IYelpGolfCourseReviewservice _yelpGolfCourseReviewservice;
+        private readonly IYelpGolfCourseReviewService _yelpGolfCourseReviewservice;
 
-        public GolfCourseService(IGolfCourseRepository golfCourseRepository, IYelpGolfCourseReviewservice yelpGolfCourseReviewservice)
+        public GolfCourseService(IGolfCourseRepository golfCourseRepository, IYelpGolfCourseReviewService yelpGolfCourseReviewservice)
         {
             _golfCourseRepository = golfCourseRepository;
             _yelpGolfCourseReviewservice = yelpGolfCourseReviewservice;

@@ -10,14 +10,14 @@ using Newtonsoft.Json.Linq;
 
 namespace AirCaddy.Domain.Services.GolfCourses
 {
-    public interface IYelpGolfCourseReviewservice
+    public interface IYelpGolfCourseReviewService
     {
         Task<string> FindGolfCourseGivenSearchName(string searchLocation, string searchName);
 
         Task<List<YelpGolfCourseReview>> GetGolfCourseReviewData(string yelpCourseId);
     }
 
-    public class YelpGolfCourseReviewservice : WebApiBaseUtilities, IYelpGolfCourseReviewservice
+    public class YelpGolfCourseReviewservice : WebApiBaseUtilities, IYelpGolfCourseReviewService
     {
         private string _yelpApiKey;
         private const string YelpApiSearchEndpointBase = "https://api.yelp.com/v3/businesses/search?";

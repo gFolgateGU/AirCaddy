@@ -7,6 +7,7 @@ using AirCaddy.Data;
 using AirCaddy.Data.Repositories;
 using AirCaddy.Domain.Services.GolfCourses;
 
+
 namespace AirCaddy.Domain.Special
 {
     public class GolfCourseBuilder : CourseBuilder

@@ -9,6 +9,8 @@ using Moq;
 using AirCaddy.Domain.Services;
 using AirCaddy.Domain.Services.Privileges;
 using AirCaddy.Controllers;
+using AirCaddy.Domain.Services.GolfCourses;
+using AirCaddy.Domain.Special;
 
 namespace AirCaddy.Tests.ControllerTests
 {
@@ -17,6 +19,8 @@ namespace AirCaddy.Tests.ControllerTests
     {
         private Mock<ISessionMapperService> _mockSessionMapperService;
         private Mock<IPrivilegeRequestHandlerService> _mockPrivilegeRequestHandlerService;
+        private Mock<IGolfCourseService> _mockGolfCourseService;
+        private Mock<ICourseBuilder> _mockCourseBuilder;
         private PrivilegesController _privilegesController;
 
         [SetUp]
@@ -24,7 +28,10 @@ namespace AirCaddy.Tests.ControllerTests
         {
             _mockSessionMapperService = new Mock<ISessionMapperService>();
             _mockPrivilegeRequestHandlerService = new Mock<IPrivilegeRequestHandlerService>();
-            _privilegesController = new PrivilegesController(_mockSessionMapperService.Object, _mockPrivilegeRequestHandlerService.Object);
+            _mockGolfCourseService = new Mock<IGolfCourseService>();
+            _mockCourseBuilder = new Mock<ICourseBuilder>();
+            _privilegesController = new PrivilegesController(_mockSessionMapperService.Object, _mockPrivilegeRequestHandlerService.Object,
+                _mockCourseBuilder.Object, _mockGolfCourseService.Object);
             var controllerContext = new Mock<ControllerContext>();
             controllerContext.SetupGet(p => p.HttpContext.Session["email"]).Returns("test@test.com");
             _privilegesController.ControllerContext = controllerContext.Object;
