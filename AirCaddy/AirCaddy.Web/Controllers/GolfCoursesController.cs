@@ -31,5 +31,11 @@ namespace AirCaddy.Controllers
             var vm = await _golfCourseService.GetCourseOverviewViewModel(golfCourseId);
             return View(vm);
         }
+
+        public ActionResult VirtualTour()
+        {
+            return View();
+        }
     }
+    
 }
