@@ -80,6 +80,15 @@
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="YelpApiCourseId" Type="nvarchar" MaxLength="128" />
         </EntityType>
+        <EntityType Name="GolfCourseVideos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoleNumber" Type="int" Nullable="false" />
+          <Property Name="YoutubeHoleVideoId" Type="nvarchar" MaxLength="128" />
+          <Property Name="GolfCourseId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="PrivilegeRequests">
           <Key>
             <PropertyRef Name="Id" />
@@ -161,6 +170,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_GolfCourseVideos_GolfCourses">
+          <End Role="GolfCourses" Type="Self.GolfCourses" Multiplicity="1" />
+          <End Role="GolfCourseVideos" Type="Self.GolfCourseVideos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GolfCourses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GolfCourseVideos">
+              <PropertyRef Name="GolfCourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PrivilegeRequests_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="PrivilegeRequests" Type="Self.PrivilegeRequests" Multiplicity="*" />
@@ -181,6 +202,7 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GolfCourses" EntityType="Self.GolfCourses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GolfCourseVideos" EntityType="Self.GolfCourseVideos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PrivilegeRequests" EntityType="Self.PrivilegeRequests" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -201,6 +223,10 @@
           <AssociationSet Name="FK_GolfCourses_AspNetUsers" Association="Self.FK_GolfCourses_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="GolfCourses" EntitySet="GolfCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GolfCourseVideos_GolfCourses" Association="Self.FK_GolfCourseVideos_GolfCourses">
+            <End Role="GolfCourses" EntitySet="GolfCourses" />
+            <End Role="GolfCourseVideos" EntitySet="GolfCourseVideos" />
           </AssociationSet>
           <AssociationSet Name="FK_PrivilegeRequests_AspNetUsers" Association="Self.FK_PrivilegeRequests_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -334,6 +360,11 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="GolfCours" EntitySet="GolfCourses" />
           </AssociationSet>
+          <EntitySet Name="GolfCourseVideos" EntityType="AirCaddyDataModel.GolfCourseVideo" />
+          <AssociationSet Name="FK_GolfCourseVideos_GolfCourses" Association="AirCaddyDataModel.FK_GolfCourseVideos_GolfCourses">
+            <End Role="GolfCourse" EntitySet="GolfCourses" />
+            <End Role="GolfCourseVideo" EntitySet="GolfCourseVideos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PrivilegeRequest">
           <Key>
@@ -373,6 +404,7 @@
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUser" Relationship="AirCaddyDataModel.FK_GolfCourses_AspNetUsers" FromRole="GolfCours" ToRole="AspNetUser" />
           <Property Name="YelpApiCourseId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GolfCourseVideos" Relationship="AirCaddyDataModel.FK_GolfCourseVideos_GolfCourses" FromRole="GolfCourse" ToRole="GolfCourseVideo" />
         </EntityType>
         <Association Name="FK_GolfCourses_AspNetUsers">
           <End Type="AirCaddyDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -383,6 +415,28 @@
             </Principal>
             <Dependent Role="GolfCours">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GolfCourseVideo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoleNumber" Type="Int32" Nullable="false" />
+          <Property Name="YoutubeHoleVideoId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="GolfCourseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GolfCours" Relationship="AirCaddyDataModel.FK_GolfCourseVideos_GolfCourses" FromRole="GolfCourseVideo" ToRole="GolfCourse" />
+        </EntityType>
+        <Association Name="FK_GolfCourseVideos_GolfCourses">
+          <End Type="AirCaddyDataModel.GolfCourse" Role="GolfCourse" Multiplicity="1" />
+          <End Type="AirCaddyDataModel.GolfCourseVideo" Role="GolfCourseVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GolfCourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GolfCourseVideo">
+              <PropertyRef Name="GolfCourseId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -480,6 +534,16 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GolfCourseVideos">
+            <EntityTypeMapping TypeName="AirCaddyDataModel.GolfCourseVideo">
+              <MappingFragment StoreEntitySet="GolfCourseVideos">
+                <ScalarProperty Name="GolfCourseId" ColumnName="GolfCourseId" />
+                <ScalarProperty Name="YoutubeHoleVideoId" ColumnName="YoutubeHoleVideoId" />
+                <ScalarProperty Name="HoleNumber" ColumnName="HoleNumber" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

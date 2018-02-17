@@ -108,6 +108,9 @@
     <Compile Include="GolfCourse.cs">
       <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GolfCourseVideo.cs">
+      <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="PrivilegeRequest.cs">
       <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>

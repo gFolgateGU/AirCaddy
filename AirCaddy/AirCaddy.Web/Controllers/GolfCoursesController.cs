@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AirCaddy.Domain.Services;
 using AirCaddy.Domain.Services.GolfCourses;
 
 namespace AirCaddy.Controllers
@@ -12,15 +13,35 @@ namespace AirCaddy.Controllers
     {
         private readonly IYelpGolfCourseReviewService _yelpGolfCourseReviewservice;
         private readonly IGolfCourseService _golfCourseService;
+        private readonly ISessionMapperService _sessionMapperService;
 
-        public GolfCoursesController(IYelpGolfCourseReviewService yelpGolfCourseReviewservice, IGolfCourseService golfCourseService)
+        public GolfCoursesController(IYelpGolfCourseReviewService yelpGolfCourseReviewservice, IGolfCourseService golfCourseService,
+            ISessionMapperService sessionMapperService)
         {
             _yelpGolfCourseReviewservice = yelpGolfCourseReviewservice;
             _golfCourseService = golfCourseService;
+            _sessionMapperService = sessionMapperService;
         }
         // GET: GolfCourses
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> MyCourses()
+        {
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+            var myCoursesVm = await _golfCourseService.GetMyCourses(userId);
+            return View(myCoursesVm);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> ManageMyCourse(string courseId)
+        {
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             return View();
         }
 

@@ -17,6 +17,8 @@
         <AssociationConnector Association="AirCaddyDataModel.FK_PrivilegeRequests_AspNetUsers" />
         <EntityTypeShape EntityType="AirCaddyDataModel.GolfCourse" Width="1.75" PointX="5.25" PointY="10.5" />
         <AssociationConnector Association="AirCaddyDataModel.FK_GolfCourses_AspNetUsers" />
+        <EntityTypeShape EntityType="AirCaddyDataModel.GolfCourseVideo" Width="1.5" PointX="7.75" PointY="10.875" />
+        <AssociationConnector Association="AirCaddyDataModel.FK_GolfCourseVideos_GolfCourses" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

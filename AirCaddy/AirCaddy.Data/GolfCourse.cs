@@ -14,6 +14,12 @@ namespace AirCaddy.Data
     
     public partial class GolfCourse
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public GolfCourse()
+        {
+            this.GolfCourseVideos = new HashSet<GolfCourseVideo>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -23,5 +29,7 @@ namespace AirCaddy.Data
         public string YelpApiCourseId { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GolfCourseVideo> GolfCourseVideos { get; set; }
     }
 }

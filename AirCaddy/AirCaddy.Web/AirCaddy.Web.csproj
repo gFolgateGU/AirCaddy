@@ -229,6 +229,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\accordion.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.explore.viewmodel.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.course.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.yelpreview.js" />
     <Content Include="Scripts\App\Home\home.course.js" />
     <Content Include="Scripts\App\Home\home.coursegallery.viewmodel.js" />
@@ -291,6 +293,8 @@
     <Content Include="Views\Privileges\Index.cshtml" />
     <Content Include="Views\Privileges\ManageRequests.cshtml" />
     <Content Include="Views\GolfCourses\Explore.cshtml" />
+    <Content Include="Views\GolfCourses\MyCourses.cshtml" />
+    <Content Include="Views\GolfCourses\ManageMyCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
