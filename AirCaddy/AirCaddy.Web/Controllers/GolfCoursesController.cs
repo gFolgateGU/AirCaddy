@@ -42,7 +42,15 @@ namespace AirCaddy.Controllers
         public async Task<ActionResult> ManageMyCourse(string courseId)
         {
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
-            return View();
+            var myCourse = await _golfCourseService.RequestCourseOwnedByUser(courseId, userId);
+            if (myCourse == null)
+            {
+                return RedirectToAction("MyCourses");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // GET Explore

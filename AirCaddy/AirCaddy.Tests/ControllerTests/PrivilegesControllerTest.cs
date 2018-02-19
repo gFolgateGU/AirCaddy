@@ -11,13 +11,14 @@ using AirCaddy.Domain.Services.Privileges;
 using AirCaddy.Controllers;
 using AirCaddy.Domain.Services.GolfCourses;
 using AirCaddy.Domain.Special;
+using AirCaddy.Domain.ViewModels.GolfCourses;
 
 namespace AirCaddy.Tests.ControllerTests
 {
     [TestFixture]
     public class PrivilegesControllerTest
     {
-        private Mock<ISessionMapperService> _mockSessionMapperService;
+        /*private Mock<ISessionMapperService> _mockSessionMapperService;
         private Mock<IPrivilegeRequestHandlerService> _mockPrivilegeRequestHandlerService;
         private Mock<IGolfCourseService> _mockGolfCourseService;
         private Mock<ICourseBuilder> _mockCourseBuilder;
@@ -42,6 +43,20 @@ namespace AirCaddy.Tests.ControllerTests
         {
             var result = _privilegesController.MakeRequest();
             Assert.AreNotEqual(result, null);
+        }*/
+
+        [Test]
+        public async Task YoutubeTest()
+        {
+            var testObj = new YoutubeGolfService();
+            var testUpload = new UploadCourseViewModel
+            {
+                CourseId = "1",
+                CourseName = "Elk Valley Golf Course",
+                HoleNumber = 3,
+                HoleVideoPath = @"C:\Users\gfolg\Desktop\SampleGolfCourseHole.mp4"
+            };
+            await testObj.UploadCourseFootageAsync(testUpload);
         }
     }
 }

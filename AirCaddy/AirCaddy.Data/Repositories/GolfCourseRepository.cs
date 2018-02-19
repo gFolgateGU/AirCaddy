@@ -20,6 +20,8 @@ namespace AirCaddy.Data.Repositories
         string GetGolfCourseName(int courseId);
 
         string GetExistingGolfCourseYelpApiKey(int courseId);
+
+        Task<GolfCourse> GetCourseOwnedByUser(string courseId, string userId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -62,6 +64,12 @@ namespace AirCaddy.Data.Repositories
         {
             var golfCourse = _dataEntities.GolfCourses.FirstOrDefault(gc => gc.Id.Equals(courseId));
             return golfCourse.YelpApiCourseId;
+        }
+
+        public async Task<GolfCourse> GetCourseOwnedByUser(string courseId, string userId)
+        {
+            var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(courseId)).FirstOrDefaultAsync();
+            return golfCourse.UserId == userId ? golfCourse : null;
         }
     }
 }

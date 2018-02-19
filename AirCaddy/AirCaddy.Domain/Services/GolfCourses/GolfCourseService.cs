@@ -20,6 +20,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
 
         Task<IEnumerable<GolfCourseViewModel>> GetMyCourses(string userId);
 
+        Task<GolfCourse> RequestCourseOwnedByUser(string courseId, string userId);
+
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -31,6 +33,11 @@ namespace AirCaddy.Domain.Services.GolfCourses
         {
             _golfCourseRepository = golfCourseRepository;
             _yelpGolfCourseReviewservice = yelpGolfCourseReviewservice;
+        }
+
+        public async Task<GolfCourse> RequestCourseOwnedByUser(string courseId, string userId)
+        {
+            return await _golfCourseRepository.GetCourseOwnedByUser(courseId, userId);
         }
 
         public async Task<IEnumerable<GolfCourseViewModel>> GetMyCourses(string userId)

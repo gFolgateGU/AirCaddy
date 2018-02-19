@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AirCaddy.Domain.Services.GolfCourses;
-
+using AirCaddy.Domain.ViewModels.GolfCourses;
 using Newtonsoft.Json.Linq;
 
 namespace AirCaddy.Controllers
@@ -26,21 +26,23 @@ namespace AirCaddy.Controllers
             return View(golfCourseViewModel);
         }
 
-        [Authorize(Roles="User")]
-        public ActionResult About()
+        public async Task<ActionResult> About()
         {
-            ViewBag.Message = "Your application description page.";
+            var testObj = new YoutubeGolfService();
+            var testUpload = new UploadCourseViewModel
+            {
+                CourseId = "1",
+                CourseName = "Elk Valley Golf Course",
+                HoleNumber = 17,
+                HoleVideoPath = @"C:\Users\gfolg\Desktop\SampleGolfCourseHole.mp4"
+            };
+            await testObj.UploadCourseFootageAsync(testUpload);
 
             return View();
         }
 
-        public async Task<ActionResult> Contact()
+        public ActionResult Contact()
         {
-            //ViewBag.Message = "Your contact page.";
-            var obj = new YelpGolfCourseReviewservice("yqCRRvNvxvLQi1f_EBTlaHXC7LURwVTt80PXTUxabfYPxvmsfQJXw6lFxyizBwCdaYsFxTkiy9fPGzdv_2C2Li6MfCAv1LFBL-HwrZTQjR1KUwZu1_GEgwO6LvUFWnYx");
-            var x = await obj.GetGolfCourseReviewData("elk-valley-golf-course-girard");
-            var y = x;
-
             return View();
         }
     }
