@@ -234,6 +234,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\GolfCourses\golfcourses.explore.css" />
+    <Content Include="Content\GolfCourses\golfcourses.managemycourse.css" />
     <Content Include="Content\Home\home.coursegallery.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="favicon.ico" />

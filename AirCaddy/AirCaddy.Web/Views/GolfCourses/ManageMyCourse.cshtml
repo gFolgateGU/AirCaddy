@@ -4,6 +4,30 @@
     ViewBag.Title = "ManageMyCourse";
 }
 
+<link href="~/Content/GolfCourses/golfcourses.managemycourse.css" rel="stylesheet" />
+
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Select Hole <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+            <ul id="submenu-1" class="collapse">
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 1</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 2</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 3</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 4</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 5</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 6</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 7</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 8</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 9</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 10</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /.navbar-collapse -->
+
 <h2>Manage My Course</h2>
 
 <input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file" />
