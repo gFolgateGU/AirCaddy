@@ -73,7 +73,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 videosInsertRequest.ProgressChanged += videosInsertRequest_ProgressChanged;
                 videosInsertRequest.ResponseReceived += videosInsertRequest_ResponseReceived;
 
-                await videosInsertRequest.UploadAsync();
+                videosInsertRequest.Upload();
 
                 return _receivedVideoProperties != null;
             }
@@ -84,10 +84,12 @@ namespace AirCaddy.Domain.Services.GolfCourses
             switch (progress.Status)
             {
                 case UploadStatus.Uploading:
+                    var x = 2;
                     //Console.WriteLine("{0} bytes sent.", progress.BytesSent);
                     break;
 
                 case UploadStatus.Failed:
+                    var y = 3;
                     //Console.WriteLine("An error prevented the upload from completing.\n{0}", progress.Exception);
                     break;
             }

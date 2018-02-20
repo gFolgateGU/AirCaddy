@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using AirCaddy.Domain.Services;
 using AirCaddy.Domain.Services.GolfCourses;
+using System.IO;
+using System.Net;
+using AirCaddy.Domain.ViewModels.GolfCourses;
 
 namespace AirCaddy.Controllers
 {
@@ -39,7 +42,7 @@ namespace AirCaddy.Controllers
 
         [HttpGet]
         [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
-        public async Task<ActionResult> ManageMyCourse(string courseId)
+        public async Task<ActionResult> ManageMyCourse(int courseId)
         {
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             var myCourse = await _golfCourseService.RequestCourseOwnedByUser(courseId, userId);
@@ -51,6 +54,47 @@ namespace AirCaddy.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> UploadCourseFootage()
+        {
+            try
+            {
+                var content = Request.Files[0];
+                if (content != null && content.ContentLength > 0)
+                {
+                    var stream = content.InputStream;
+                    var fileName = Path.GetFileName(Request.Files[0].FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/TempFootageUploads"), fileName);
+                    using (var fileStream = System.IO.File.Create(path))
+                    {
+                        stream.CopyTo(fileStream);
+                    }
+                    var xy = new UploadCourseViewModel
+                    {
+                        CourseId = "12",
+                        CourseName = "Elk Valley Golf Course",
+                        HoleNumber = 17,
+                        HoleVideoPath = path
+                    };
+                    var xyz = new YoutubeGolfService();
+                    var x2 = await xyz.UploadCourseFootageAsync(xy);
+                    if (x2 == true)
+                    {
+                        return Json("Hell yeah bae bae!");
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Upload failed");
+            }
+
+            return Json("File uploaded successfully");
         }
 
         // GET Explore

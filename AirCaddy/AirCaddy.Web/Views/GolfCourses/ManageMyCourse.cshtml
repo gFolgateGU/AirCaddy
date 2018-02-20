@@ -6,5 +6,13 @@
 
 <h2>Manage My Course</h2>
 
+<input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file" />
 
-
+<script src="~/Scripts/App/GolfCourses/golfcourses.managecourse.viewmodel.js"></script>
+<script>
+    $(document).ready(function() {
+        var model = @Html.Raw(Json.Encode(Model));
+        var viewModel = new manageCourseViewModel(model);
+        ko.applyBindings(viewModel);
+    })
+</script>
