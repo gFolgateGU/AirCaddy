@@ -5,4 +5,126 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+<link href="~/Content/GolfCourses/golfcourses.virtualtour.css" rel="stylesheet"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large"
+          onclick="w3_close()">Close &times;</button>
+  <a href="#" class="w3-bar-item w3-button">Hole 1</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 2</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 3</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 4</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 5</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 6</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 7</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 8</a>
+  <a href="#" class="w3-bar-item w3-button">Hole 9</a>
+</div>
+
+<div id="main">
+
+  <div class="w3-black">
+    <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button>
+    <div class="w3-container">
+      <h1>
+        Elk Valley Golf Course - Hole 1
+      </h1>
+    </div>
+  </div>
+
+  <div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <center><iframe max-width="560" width="100%" height="315" src="https://www.youtube.com/embed/cnyGx9SALm8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>   
+      </div>
+    </div>
+  
+  <div data-bind="foreach: courseYelpReviews" class="container col-xs-12">
+    <center><button data-bind="click: toggleReview" class="accordion"><strong><span data-bind="text: user"></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span data-bind="text: rating"></span> / 5)</button></center>
+    <div data-bind="visible: reviewVisibleFlag" class="container panel col-xs-12">
+      <div class="row panel-cover">
+        <div class="col-xs-1">
+        </div>
+      </div>  
+    </div>
+
+    <h3>Comments:</h3>
+  
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well">
+          <p>John</p>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="well">
+          <p>Well shit. Here's a pretty neat looking course to wack some balls on</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well">
+          <p>Bo</p>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="well">
+          <p>This page really sucks</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well">
+          <p>Jane</p>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="well">
+          <p>.DSStore files haunt me in my sleep</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well">
+          <p>Anja</p>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="well">
+          <p>Fuck</p>
+        </div>
+      </div>
+    </div>     
+  </div>
+  
+<label> Comment: <br> <textarea></textarea>
+  <input data-bind="click: submit" class="btn btn-lg btn-success" type="submit" name="Submit"/>
+</label>
+
+
+<script>
+  function w3_open() {
+    document.getElementById("main").style.marginLeft = "25%";
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("openNav").style.display = 'none';
+  }
+  function w3_close() {
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("openNav").style.display = "inline-block";
+  }
+</script>

@@ -121,6 +121,7 @@
           <e p="bootstrap.min.css" t="Include" />
           <e p="GolfCourses" t="Include">
             <e p="golfcourses.explore.css" t="Include" />
+            <e p="golfcourses.virtualtour.css" t="Include" />
           </e>
           <e p="Home" t="Include">
             <e p="home.coursegallery.css" t="Include" />
