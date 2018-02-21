@@ -14,13 +14,15 @@ namespace AirCaddy.Domain.Services.GolfCourses
     {
         Task<IEnumerable<GolfCourseViewModel>> GetExistingGolfCoursesViewModelAsync();
 
-        void RequestAddGolfCourseToSystem(GolfCourse golfCourse);
+        void RequestAddGolfCourseToSystem(Tuple<GolfCourse, List<GolfCourseVideo>> golfCourseWithDefaultVideos);
 
         Task<CourseOverviewViewModel> GetCourseOverviewViewModel(int courseId);
 
         Task<IEnumerable<GolfCourseViewModel>> GetMyCourses(string userId);
 
         Task<GolfCourse> RequestCourseOwnedByUser(int courseId, string userId);
+
+        ManageCourseViewModel GetManageCourseViewModel(GolfCourse golfCourse);
 
     }
 
@@ -38,6 +40,11 @@ namespace AirCaddy.Domain.Services.GolfCourses
         public async Task<GolfCourse> RequestCourseOwnedByUser(int courseId, string userId)
         {
             return await _golfCourseRepository.GetCourseOwnedByUser(courseId, userId);
+        }
+
+        public ManageCourseViewModel GetManageCourseViewModel(GolfCourse golfCourse)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<GolfCourseViewModel>> GetMyCourses(string userId)
@@ -82,12 +89,13 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 })
                 .ToList();
 
+
             return golfCoursesVm;
         }
 
-        public void RequestAddGolfCourseToSystem(GolfCourse golfCourse)
+        public void RequestAddGolfCourseToSystem(Tuple<GolfCourse, List<GolfCourseVideo>> golfCourseWithDefaultVideos)
         {
-            _golfCourseRepository.AddNewGolfCourse(golfCourse);
+            _golfCourseRepository.AddNewGolfCourseWithDefaultVideos(golfCourseWithDefaultVideos);
         }
     }
 }

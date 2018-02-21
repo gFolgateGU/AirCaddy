@@ -60,6 +60,9 @@ namespace AirCaddy.Controllers
         [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
         public async Task<ActionResult> UploadCourseFootage()
         {
+            var path = "";
+            var badResponseStatusCode = 200;
+
             try
             {
                 var content = Request.Files[0];
@@ -67,7 +70,7 @@ namespace AirCaddy.Controllers
                 {
                     var stream = content.InputStream;
                     var fileName = Path.GetFileName(Request.Files[0].FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/TempFootageUploads"), fileName);
+                    path = Path.Combine(Server.MapPath("~/App_Data/TempFootageUploads"), fileName);
                     using (var fileStream = System.IO.File.Create(path))
                     {
                         stream.CopyTo(fileStream);
@@ -81,20 +84,26 @@ namespace AirCaddy.Controllers
                     };
                     var xyz = new YoutubeGolfService();
                     var x2 = await xyz.UploadCourseFootageAsync(xy);
+                    System.IO.File.Delete(path);
                     if (x2 == true)
                     {
+
                         return Json("Hell yeah bae bae!");
                     }
-                    System.IO.File.Delete(path);
+                    else
+                    {
+                        return Json("There was an error uploading the video file");
+                    }
                 }
             }
             catch (Exception)
             {
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return Json("Upload failed");
+                badResponseStatusCode = Response.StatusCode;
             }
+            System.IO.File.Delete(path);
+            return badResponseStatusCode == 400 ? Json("Upload failed with + " + badResponseStatusCode.ToString()) : Json("Please try again and verify your internet connection has not been interrupted");
 
-            return Json("File uploaded successfully");
         }
 
         // GET Explore

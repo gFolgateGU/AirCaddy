@@ -13,7 +13,7 @@ namespace AirCaddy.Data.Repositories
 
         Task<IEnumerable<GolfCourse>> GetGolfCoursesOwnedByUserAsync(string userId);
 
-        Task AddNewGolfCourse(GolfCourse golfCourse);
+        Task AddNewGolfCourseWithDefaultVideos(Tuple<GolfCourse, List<GolfCourseVideo>> golfCourseWithDefaultVideos);
 
         Task<IEnumerable<GolfCourse>> GetVerifiedGolfCoursesAsync();
 
@@ -42,9 +42,12 @@ namespace AirCaddy.Data.Repositories
             return userGolfCourses;
         }
 
-        public async Task AddNewGolfCourse(GolfCourse golfCourse)
+        public async Task AddNewGolfCourseWithDefaultVideos(Tuple<GolfCourse, List<GolfCourseVideo>> golfCourseWithDefaultVideos)
         {
+            var golfCourse = golfCourseWithDefaultVideos.Item1;
+            var golfCourseDefaultVideos = golfCourseWithDefaultVideos.Item2;
             _dataEntities.GolfCourses.Add(golfCourse);
+            _dataEntities.GolfCourseVideos.AddRange(golfCourseDefaultVideos);
             await _dataEntities.SaveChangesAsync();
         }
 

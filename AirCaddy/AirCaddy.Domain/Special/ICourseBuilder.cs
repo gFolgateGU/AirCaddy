@@ -12,5 +12,7 @@ namespace AirCaddy.Domain.Special
         Task BuildCourse(int requestId);
 
         GolfCourse GetCourse();
+
+        Tuple<GolfCourse, List<GolfCourseVideo>> GetCourseAndDefaultVideos();
     }
 }

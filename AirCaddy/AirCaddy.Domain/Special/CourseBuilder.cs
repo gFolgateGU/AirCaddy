@@ -24,5 +24,24 @@ namespace AirCaddy.Domain.Special
         {
             return GolfCourse;
         }
+
+        public Tuple<GolfCourse, List<GolfCourseVideo>> GetCourseAndDefaultVideos()
+        {
+            var golfCourseVideos = new List<GolfCourseVideo>();
+            const int holesInGolfCourse = 18;
+
+            for (var i = 1; i <= holesInGolfCourse; i++)
+            {
+                golfCourseVideos.Add(new GolfCourseVideo
+                {
+                    GolfCourseId = GolfCourse.Id,
+                    HoleNumber = i,
+                    YoutubeHoleVideoId = ""
+                });
+            }
+
+            var golfCourseAndVideos = new Tuple<GolfCourse, List<GolfCourseVideo>>(GolfCourse, golfCourseVideos);
+            return golfCourseAndVideos;
+        }
     }
 }

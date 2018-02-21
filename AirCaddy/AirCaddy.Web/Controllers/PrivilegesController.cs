@@ -81,8 +81,8 @@ namespace AirCaddy.Controllers
         public async Task<ActionResult> AcceptRequest(int id)
         {
             await _courseBuilder.BuildCourse(id);
-            var golfCourse = _courseBuilder.GetCourse();
-            _golfCourseService.RequestAddGolfCourseToSystem(golfCourse);
+            var golfCourseWithDefaultVideos = _courseBuilder.GetCourseAndDefaultVideos();
+            _golfCourseService.RequestAddGolfCourseToSystem(golfCourseWithDefaultVideos);
             await _privilegeRequestHandlerService.RequestAcceptAsync(id);
             
             return Json(1);
