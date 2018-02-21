@@ -6,31 +6,39 @@
 
 <link href="~/Content/GolfCourses/golfcourses.managemycourse.css" rel="stylesheet" />
 
-<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-<div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
-        <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Select Hole <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-            <ul id="submenu-1" class="collapse">
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 1</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 2</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 3</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 4</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 5</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 6</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 7</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 8</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 9</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hole 10</a></li>
-            </ul>
-        </li>
-    </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 pull-left" id="sidebar" role="navigation">
+            <div class="">
+                <ul class="nav">
+                    <li class="active" data-bind="click: changeHoleInFocus.bind($data, 1)"><a href="#">Hole 1</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 2)"><a href="#">Hole 2</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 3)"><a href="#">Hole 3</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 4)"><a href="#">Hole 4</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 5)"><a href="#">Hole 5</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 6)"><a href="#">Hole 6</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 7)"><a href="#">Hole 7</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 8)"><a href="#">Hole 8</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 9)"><a href="#">Hole 9</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 10)"><a href="#">Hole 10</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 11)"><a href="#">Hole 11</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 12)"><a href="#">Hole 12</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 13)"><a href="#">Hole 13</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 14)"><a href="#">Hole 14</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 15)"><a href="#">Hole 15</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 16)"><a href="#">Hole 16</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 17)"><a href="#">Hole 17</a></li>
+                    <li data-bind="click: changeHoleInFocus.bind($data, 18)"><a href="#">Hole 18</a></li>
+                </ul>   
+            </div>
+        </div>
+        <div class="col-xs-10 col-sm-10 pull-right">
+            <h2>Manage My Course</h2>
+            <h2>Current Hole - <span data-bind="text: holeInFocus"></span></h2>
+            <input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file" />
+        </div>
+    </div>
 </div>
-<!-- /.navbar-collapse -->
-
-<h2>Manage My Course</h2>
-
-<input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file" />
 
 <script src="~/Scripts/App/GolfCourses/golfcourses.managecourse.viewmodel.js"></script>
 <script>

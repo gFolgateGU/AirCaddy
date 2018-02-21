@@ -4,9 +4,13 @@
 
     vm.video = ko.observable(null);
 
-    vm.uploadVideo = function(file) {
-        console.log("weird dude here!");
+    vm.holeInFocus = ko.observable(1);
 
+    vm.changeHoleInFocus = function(newHoleNumber) {
+        vm.holeInFocus(newHoleNumber);
+    }
+
+    vm.uploadVideo = function(file) {
         var fd = new FormData();
         fd.append("file", file);
 

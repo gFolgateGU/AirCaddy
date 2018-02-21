@@ -85,7 +85,7 @@ namespace AirCaddy.Controllers
                     {
                         return Json("Hell yeah bae bae!");
                     }
-
+                    System.IO.File.Delete(path);
                 }
             }
             catch (Exception)
