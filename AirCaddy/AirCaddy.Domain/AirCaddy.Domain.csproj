@@ -92,9 +92,10 @@
     <Compile Include="Special\ICourseBuilder.cs" />
     <Compile Include="Utilities\WebApiBaseUtilities.cs" />
     <Compile Include="ViewModels\GolfCourses\CourseOverviewViewModel.cs" />
+    <Compile Include="ViewModels\GolfCourses\CourseVideoViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\GolfCourseViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\ManageCourseViewModel.cs" />
-    <Compile Include="ViewModels\GolfCourses\UploadCourseViewModel.cs" />
+    <Compile Include="ViewModels\GolfCourses\UploadCourseVideoViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\YelpGolfCourseReview.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegeRequestViewModel.cs" />
     <Compile Include="ViewModels\Privileges\PrivilegesSummaryViewModel.cs" />

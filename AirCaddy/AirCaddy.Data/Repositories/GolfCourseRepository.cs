@@ -22,6 +22,10 @@ namespace AirCaddy.Data.Repositories
         string GetExistingGolfCourseYelpApiKey(int courseId);
 
         Task<GolfCourse> GetCourseOwnedByUser(int courseId, string userId);
+
+        Task<Tuple<GolfCourse, List<GolfCourseVideo>>> GetGolfCourseAndCourseVideoInfo(int golfCourseId);
+
+        Task AddCourseFootageForHole(int courseId, int holeNumber, string youtubeVideoId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -73,6 +77,36 @@ namespace AirCaddy.Data.Repositories
         {
             var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(courseId)).FirstOrDefaultAsync();
             return golfCourse.UserId == userId ? golfCourse : null;
+        }
+
+        public async Task<Tuple<GolfCourse, List<GolfCourseVideo>>> GetGolfCourseAndCourseVideoInfo(int golfCourseId)
+        {
+            var golfCourseInfo = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(golfCourseId))
+                .FirstOrDefaultAsync();
+            if (golfCourseInfo == null)
+            {
+                return null;
+            }
+            var golfCourseHoleVideos =
+                await _dataEntities.GolfCourseVideos.Where(gcv => gcv.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+            var golfCourseWithVideoInfo =
+                new Tuple<GolfCourse, List<GolfCourseVideo>>(golfCourseInfo, golfCourseHoleVideos);
+            return golfCourseWithVideoInfo;
+        }
+
+        public async Task AddCourseFootageForHole(int courseId, int holeNumber, string youtubeVideoId)
+        {
+            var courseFootageEntry = await _dataEntities.GolfCourseVideos.Where(
+                gcv => gcv.GolfCourseId.Equals(courseId) && gcv.HoleNumber.Equals(holeNumber)).FirstOrDefaultAsync();
+            if (courseFootageEntry != null)
+            {
+                courseFootageEntry.YoutubeHoleVideoId = youtubeVideoId;
+            }
+            else
+            {
+                return;
+            }
+            await _dataEntities.SaveChangesAsync();
         }
     }
 }

@@ -22,8 +22,11 @@ namespace AirCaddy.Domain.Services.GolfCourses
 
         Task<GolfCourse> RequestCourseOwnedByUser(int courseId, string userId);
 
-        ManageCourseViewModel GetManageCourseViewModel(GolfCourse golfCourse);
+        Task<ManageCourseViewModel> GetManageCourseViewModel(int golfCourseId);
 
+        UploadCourseVideoViewModel GetGolfCourseUploadViewModel(int courseId, int holeNumber, string videoPath);
+
+        Task StoreCourseFootageForHole(UploadCourseVideoViewModel successfulCourseFootageUpload);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -42,9 +45,27 @@ namespace AirCaddy.Domain.Services.GolfCourses
             return await _golfCourseRepository.GetCourseOwnedByUser(courseId, userId);
         }
 
-        public ManageCourseViewModel GetManageCourseViewModel(GolfCourse golfCourse)
+        public async Task<ManageCourseViewModel> GetManageCourseViewModel(int golfCourseId)
         {
-            throw new NotImplementedException();
+            var manageCourseViewModel = new ManageCourseViewModel();
+
+            var golfCourseWithVideosInfo = await _golfCourseRepository.GetGolfCourseAndCourseVideoInfo(golfCourseId);
+
+            if (golfCourseWithVideosInfo == null)
+            {
+                return null;
+            }
+
+            manageCourseViewModel.GolfCourseId = golfCourseWithVideosInfo.Item1.Id;
+            manageCourseViewModel.GolfCourseName = golfCourseWithVideosInfo.Item1.Name;
+            manageCourseViewModel.GolfCoursePhone = golfCourseWithVideosInfo.Item1.PhoneNumber;
+            manageCourseViewModel.GolfCourseAddress = golfCourseWithVideosInfo.Item1.Address;
+            manageCourseViewModel.GolfCourseType = golfCourseWithVideosInfo.Item1.Type;
+            manageCourseViewModel.GolfCourseOwnerId = golfCourseWithVideosInfo.Item1.UserId;
+            manageCourseViewModel.GolfCourseHoleVideos =
+                (List<CourseVideoViewModel>) MapVideoDataToVideoViewModelList(golfCourseWithVideosInfo.Item2);
+
+            return manageCourseViewModel;
         }
 
         public async Task<IEnumerable<GolfCourseViewModel>> GetMyCourses(string userId)
@@ -96,6 +117,38 @@ namespace AirCaddy.Domain.Services.GolfCourses
         public void RequestAddGolfCourseToSystem(Tuple<GolfCourse, List<GolfCourseVideo>> golfCourseWithDefaultVideos)
         {
             _golfCourseRepository.AddNewGolfCourseWithDefaultVideos(golfCourseWithDefaultVideos);
+        }
+
+        public UploadCourseVideoViewModel GetGolfCourseUploadViewModel(int courseId, int holeNumber, string videoPath)
+        {
+            var courseName = _golfCourseRepository.GetGolfCourseName(courseId);
+            return new UploadCourseVideoViewModel
+            {
+                CourseId = courseId,
+                CourseName = courseName,
+                HoleNumber = holeNumber,
+                HoleVideoPath = videoPath,
+                YouTubeVideoId = string.Empty
+            };
+        }
+
+        public async Task StoreCourseFootageForHole(UploadCourseVideoViewModel successfulCourseFootageUpload)
+        {
+            await _golfCourseRepository.AddCourseFootageForHole(successfulCourseFootageUpload.CourseId,
+                successfulCourseFootageUpload.HoleNumber, successfulCourseFootageUpload.YouTubeVideoId);
+        }
+
+        private IEnumerable<CourseVideoViewModel> MapVideoDataToVideoViewModelList(
+            IEnumerable<GolfCourseVideo> courseVideoData)
+        {
+            return courseVideoData.Select(courseVideo => new CourseVideoViewModel
+                {
+                    VideoId = courseVideo.Id,
+                    CourseHoleNumber = courseVideo.HoleNumber,
+                    YouTubeVideoId = courseVideo.YoutubeHoleVideoId,
+                    CourseId = courseVideo.GolfCourseId
+                })
+                .ToList();
         }
     }
 }

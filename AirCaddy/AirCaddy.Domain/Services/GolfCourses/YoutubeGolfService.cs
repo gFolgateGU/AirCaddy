@@ -20,7 +20,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
 {
     public interface IYoutubeGolfService
     {
-        Task<bool> UploadCourseFootageAsync(UploadCourseViewModel uploadedCourse);
+        Task<bool> UploadCourseFootageAsync(UploadCourseVideoViewModel uploadedCourse);
 
         string GetUploadedVideoYouTubeIdentifier();
     }
@@ -34,7 +34,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
             _receivedVideoProperties = null;
         }
 
-        public async Task<bool> UploadCourseFootageAsync(UploadCourseViewModel uploadedCourse)
+        public async Task<bool> UploadCourseFootageAsync(UploadCourseVideoViewModel uploadedCourse)
         {
             UserCredential credential = null;
             var path = HostingEnvironment.MapPath("~");

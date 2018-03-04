@@ -48,7 +48,7 @@ namespace AirCaddy.Tests.ControllerTests
         [Test]
         public async Task YoutubeTest()
         {
-            var testObj = new YoutubeGolfService();
+            /*var testObj = new YoutubeGolfService();
             var testUpload = new UploadCourseViewModel
             {
                 CourseId = "1",
@@ -56,7 +56,7 @@ namespace AirCaddy.Tests.ControllerTests
                 HoleNumber = 3,
                 HoleVideoPath = @"C:\Users\gfolg\Desktop\SampleGolfCourseHole.mp4"
             };
-            await testObj.UploadCourseFootageAsync(testUpload);
+            await testObj.UploadCourseFootageAsync(testUpload);*/
         }
     }
 }

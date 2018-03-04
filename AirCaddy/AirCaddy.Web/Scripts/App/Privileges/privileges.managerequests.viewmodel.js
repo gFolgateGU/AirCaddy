@@ -57,7 +57,7 @@
                     }
                 },
                 error: function () {
-                    alert("Yikes we fucked up man");
+                    
                     //vm.errorShow(true);
                 }
             });
@@ -79,7 +79,6 @@
                         }
                     },
                     error: function () {
-                        alert("Yikes we fucked up man");
                         //vm.errorShow(true);
                     }
                 });

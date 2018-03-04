@@ -216,6 +216,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GolfCoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -271,6 +272,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -313,9 +316,11 @@
     <Content Include="Views\GolfCourses\Explore.cshtml" />
     <Content Include="Views\GolfCourses\MyCourses.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourse.cshtml" />
+    <Content Include="Views\GolfCourses\ManageMyCourseModals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\TempFootageUploads\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

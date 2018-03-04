@@ -11,7 +11,7 @@ namespace AirCaddy.Domain.ViewModels.GolfCourses
     {
         public ManageCourseViewModel()
         {
-            GolfCourseHoleVideos = new List<GolfCourseVideo>();
+            GolfCourseHoleVideos = new List<CourseVideoViewModel>();
         }
 
         public int GolfCourseId { get; set; }
@@ -26,6 +26,6 @@ namespace AirCaddy.Domain.ViewModels.GolfCourses
 
         public string GolfCourseOwnerId { get; set; }
 
-        public List<GolfCourseVideo> GolfCourseHoleVideos { get; set; }
+        public List<CourseVideoViewModel> GolfCourseHoleVideos { get; set; }
     }
 }

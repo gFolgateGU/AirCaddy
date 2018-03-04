@@ -6,7 +6,11 @@
 
 <link href="~/Content/GolfCourses/golfcourses.managemycourse.css" rel="stylesheet" />
 
-<div class="container">
+<div id="modalSection">
+    @Html.Partial("ManageMyCourseModals")
+</div>
+
+<div id="mainArea" class="container">
     <div class="row">
         <div class="col-xs-2 col-sm-2 pull-left" id="sidebar" role="navigation">
             <div class="">
@@ -33,17 +37,76 @@
             </div>
         </div>
         <div class="col-xs-10 col-sm-10 pull-right">
-            <h2>Manage My Course</h2>
-            <h2>Current Hole - <span data-bind="text: holeInFocus"></span></h2>
-            <input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file" />
+            <div class="text-center">
+                <h1>Manage <span data-bind="text: courseName"></span></h1>
+                <h2><b>Hole : <span data-bind="text: holeInFocus"></span></b></h2>
+                <hr/>
+            </div>
+            
+            <div data-bind="visible: uploadCourseFootageAreaVisible">
+                <div style="padding-top: 5%;" class="row">
+                    <div class="col-xs-12">
+                        <h4 style="border-bottom: 1px solid;">Upload Footage: <span data-bind="text: courseName"></span> <strong>(Hole <span data-bind="text: holeInFocus"></span>)</strong></h4>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <div style="text-align: center; width: 560px; height: 315px; background-color: #696969; margin: 0 auto; float: none">
+                            <div style="padding-top: 25%">
+                                <button data-bind="click: showModal" class="btn btn-lg btn-primary"> Upload Course Footage Here </button>                            
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div data-bind="visible: uploadingAreaVisible">
+                <div style="padding-top: 5%;" class="row">
+                    <div style="padding-bottom: 10%;" class="col-xs-12 text-center">
+                        <h4>Please wait. Your course footage is uploading.</h4>
+                    </div>
+                    <div id="uploadSpinArea" class="col-xs-12"></div>
+                </div>
+            </div>
+            
+            <div data-bind="visible: manageAreaVisible">
+                <div style="padding-top: 5%;" class="row">
+                    <div class="col-xs-12">
+                        <h4 style="border-bottom: 1px solid;">Your Video: <span data-bind="text: courseName"></span> <strong>(Hole <span data-bind="text: holeInFocus"></span>)</strong></h4>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <iframe width="560" height="315" data-bind="attr: { 'src': currentHoleYoutubeApiSrc }" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-warning">MODIFY</button>
+                        <button class="btn btn-danger">DELETE</button>
+                    </div>
+                </div>                
+            </div>
+          
+            @*<div style="padding-top: 5%;" class="row">
+                <div class="col-xs-12">
+                    <h4 data-bind="text: currentHoleInFocusYouTubeVideoId"></h4>
+                    <button data-bind="click: showModal">Test</button>
+                </div>
+            </div>*@
+            
+
+            
+            @*<div style="padding-top: 5%;" class="row">
+                <div class="col-xs-12 text-center">
+                    <input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file"/>
+                    <button class="btn btn-primary">SUBMIT.</button>
+                </div>
+            </div>*@
         </div>
     </div>
 </div>
 
+<script src="~/Scripts/spin.js"></script>
 <script src="~/Scripts/App/GolfCourses/golfcourses.managecourse.viewmodel.js"></script>
 <script>
     $(document).ready(function() {
         var model = @Html.Raw(Json.Encode(Model));
+        console.log(model);
         var viewModel = new manageCourseViewModel(model);
         ko.applyBindings(viewModel);
     })

@@ -28,15 +28,6 @@ namespace AirCaddy.Controllers
 
         public async Task<ActionResult> About()
         {
-            var testObj = new YoutubeGolfService();
-            var testUpload = new UploadCourseViewModel
-            {
-                CourseId = "1",
-                CourseName = "Elk Valley Golf Course",
-                HoleNumber = 17,
-                HoleVideoPath = @"C:\Users\gfolg\Desktop\SampleGolfCourseHole.mp4"
-            };
-            await testObj.UploadCourseFootageAsync(testUpload);
 
             return View();
         }
