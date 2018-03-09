@@ -27,6 +27,10 @@ namespace AirCaddy.Domain.Services.GolfCourses
         UploadCourseVideoViewModel GetGolfCourseUploadViewModel(int courseId, int holeNumber, string videoPath);
 
         Task StoreCourseFootageForHole(UploadCourseVideoViewModel successfulCourseFootageUpload);
+
+        Task<string> RequestVideoIdAssociatedWithGolfCourseHole(int courseId, int holeNumber);
+
+        Task RequestVideoIdDeletion(string youtubeVideoId);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -136,6 +140,16 @@ namespace AirCaddy.Domain.Services.GolfCourses
         {
             await _golfCourseRepository.AddCourseFootageForHole(successfulCourseFootageUpload.CourseId,
                 successfulCourseFootageUpload.HoleNumber, successfulCourseFootageUpload.YouTubeVideoId);
+        }
+
+        public async Task<string> RequestVideoIdAssociatedWithGolfCourseHole(int courseId, int holeNumber)
+        {
+            return await _golfCourseRepository.GetCourseFootageYouTubeVideoIdForHole(courseId, holeNumber);
+        }
+
+        public async Task RequestVideoIdDeletion(string youtubeVideoId)
+        {
+            await _golfCourseRepository.DeleteCourseFootageId(youtubeVideoId);
         }
 
         private IEnumerable<CourseVideoViewModel> MapVideoDataToVideoViewModelList(

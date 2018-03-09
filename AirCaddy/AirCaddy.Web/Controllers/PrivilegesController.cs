@@ -28,7 +28,6 @@ namespace AirCaddy.Controllers
             _privilegeRequestHandlerService = privilegeRequestHandlerService;
             _courseBuilder = courseBuilder;
             _golfCourseService = golfCourseService;
-
         }
 
         // GET: Index
@@ -87,6 +86,7 @@ namespace AirCaddy.Controllers
             
             return Json(1);
         }
+
 
         [HttpPost]
         public async Task<ActionResult> DenyRequest(int id)

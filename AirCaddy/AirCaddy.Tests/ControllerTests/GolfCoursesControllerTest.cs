@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using AirCaddy.Controllers;
 using AirCaddy.Domain.Services;
 using AirCaddy.Domain.Services.GolfCourses;
-using AirCaddy.Domain.ViewModels.GolfCourses;
-using Moq;
 using NUnit.Framework;
+using Moq;
 
 namespace AirCaddy.Tests.ControllerTests
 {
@@ -18,7 +18,7 @@ namespace AirCaddy.Tests.ControllerTests
         private Mock<IYelpGolfCourseReviewService> _mockYelpGolfCourseReviewService;
         private Mock<IGolfCourseService> _mockGolfCourseService;
         private Mock<ISessionMapperService> _mockSessionMapperService;
-        private Mock<IYoutubeGolfService> _mockYoutubeGolfService;
+        private IYoutubeGolfService _youtubeGolfService;
         private GolfCoursesController _golfCoursesController;
 
         [SetUp]
@@ -27,24 +27,31 @@ namespace AirCaddy.Tests.ControllerTests
             _mockYelpGolfCourseReviewService = new Mock<IYelpGolfCourseReviewService>();
             _mockGolfCourseService = new Mock<IGolfCourseService>();
             _mockSessionMapperService = new Mock<ISessionMapperService>();
-            _mockYoutubeGolfService = new Mock<IYoutubeGolfService>();
-            _golfCoursesController = new GolfCoursesController(_mockYelpGolfCourseReviewService.Object, _mockGolfCourseService.Object,
-                _mockSessionMapperService.Object, _mockYoutubeGolfService.Object);
+            _youtubeGolfService = new YoutubeGolfService();
+
+            _golfCoursesController = new GolfCoursesController(_mockYelpGolfCourseReviewService.Object,
+                _mockGolfCourseService.Object, _mockSessionMapperService.Object, _youtubeGolfService);
+
+            var controllerContext = new Mock<ControllerContext>();
+            controllerContext.SetupGet(p => p.HttpContext.Session["Username"]).Returns("test@test.com");
+            _golfCoursesController.ControllerContext = controllerContext.Object;
         }
 
         [Test]
-        public void ShouldUploadCourseFootage()
+        public async Task ShouldDeleteCourseFootageVideoForHoleFromYouTube()
         {
-            var testObject = new YoutubeGolfService();
-            var uploadedCourse = new UploadCourseViewModel
-            {
-                CourseId = "123",
-                GolfCourseName = "Elk Valley Golf Course",
-                HoleNumber = "10",
-                VideoFilePath = @"C:\Users\gfolg\Desktop\SampleGolfCourseHole.mp4"
-            };
-            var result = testObject.UploadCourseFootage(uploadedCourse);
-            Assert.AreEqual(result, true);
+            const string fakeUserId = "fds21-dfsj32-kfdjs2-234ja-cv22j";
+            const string youtubeVideoId = "f2kuqBO-1uA";
+            _mockSessionMapperService
+                .Setup(msmr =>
+                    msmr.MapUserIdFromSessionUsername(_golfCoursesController.ControllerContext.HttpContext
+                        .Session["Username"].ToString())).Returns(fakeUserId);
+            _mockGolfCourseService
+                .Setup(mgcs => mgcs.RequestVideoIdAssociatedWithGolfCourseHole(It.IsAny<int>(), It.IsAny<int>()))
+                .ReturnsAsync(youtubeVideoId);
+
+            var response = await _golfCoursesController.Modify(10, 17);
+            Assert.AreEqual(null, response);
         }
     }
 }

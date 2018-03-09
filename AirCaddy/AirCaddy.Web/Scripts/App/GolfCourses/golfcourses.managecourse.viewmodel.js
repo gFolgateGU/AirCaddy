@@ -82,6 +82,24 @@
         }
     }
 
+    vm.submitDelete = function() {
+        $.ajax({
+            type: "POST",
+            url: '/GolfCourses/Modify?courseId=' + vm.courseId() + '&holeNumber=' + vm.holeInFocus(),
+            contentType: false,
+            processData: false,
+            data: vm.uploadedCourseFile(),
+            success: function (result) {
+                console.log("The video was modified!");
+                vm.videoUploadSpinner.stop();
+            },
+            error: function () {
+                console.log("help me");
+                vm.videoUploadSpinner.stop();
+            }
+        });
+    }
+
     vm.showModal = function () {
         $("#reasonPopUp").modal('show');
     }

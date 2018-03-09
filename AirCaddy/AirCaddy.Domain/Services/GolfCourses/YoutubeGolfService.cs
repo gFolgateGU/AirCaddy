@@ -15,12 +15,15 @@ using Google.Apis.Util.Store;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
 using System.Web.Hosting;
+using System.Web.UI.WebControls;
 
 namespace AirCaddy.Domain.Services.GolfCourses
 {
     public interface IYoutubeGolfService
     {
         Task<bool> UploadCourseFootageAsync(UploadCourseVideoViewModel uploadedCourse);
+
+        Task<string> DeleteCourseFootageAsync(string youtubeVideoId);
 
         string GetUploadedVideoYouTubeIdentifier();
     }
@@ -45,7 +48,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
                     GoogleClientSecrets.Load(stream).Secrets,
                     // This OAuth 2.0 access scope allows an application to upload files to the
                     // authenticated user's YouTube channel, but doesn't allow other types of access.
-                    new[] { YouTubeService.Scope.YoutubeUpload },
+                    new[] { YouTubeService.Scope.YoutubeUpload},
                     "user",
                     CancellationToken.None
                 );
@@ -77,6 +80,36 @@ namespace AirCaddy.Domain.Services.GolfCourses
 
                 return _receivedVideoProperties != null;
             }
+        }
+
+        public async Task<string> DeleteCourseFootageAsync(string youtubeVideoId)
+        {
+            UserCredential credential = null;
+            var path = HostingEnvironment.MapPath("~");
+            //var pathWithSecrets = path + "client_secrets.json";
+            var pathWithSecrets = @"C:\\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\client_secret.json";
+            using (var stream = new FileStream(pathWithSecrets, FileMode.Open, FileAccess.Read))
+            {
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    // This OAuth 2.0 access scope allows an application to upload files to the
+                    // authenticated user's YouTube channel, but doesn't allow other types of access.
+                    new[] {YouTubeService.Scope.Youtube},
+                    "user",
+                    CancellationToken.None
+                );
+            }
+
+            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApiKey = "AIzaSyCXhN0iyf7y3ESU3y3lYaTLT2gM8L4yroc",
+                ApplicationName = Assembly.GetExecutingAssembly().GetName().Name
+            });
+
+            var youtubeVideoDeleteRequest = youtubeService.Videos.Delete(youtubeVideoId);
+            var response = await youtubeVideoDeleteRequest.ExecuteAsync();
+            return response;
         }
 
         void videosInsertRequest_ProgressChanged(Google.Apis.Upload.IUploadProgress progress)

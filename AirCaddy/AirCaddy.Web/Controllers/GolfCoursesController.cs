@@ -116,6 +116,103 @@ namespace AirCaddy.Controllers
             return badResponseStatusCode == 400 ? Json("Upload failed with + " + badResponseStatusCode.ToString()) : Json("Please try again and verify your internet connection has not been interrupted");
         }
 
+        [HttpPost]
+        [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> ModifyCourseFootage(int courseId, int holeNumber)
+        {
+            if (!SessionTimeOutVerification(Session["Username"].ToString()))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            //grab that video id from the db
+            var youtubeVideoIdForHole =
+                await _golfCourseService.RequestVideoIdAssociatedWithGolfCourseHole(courseId, holeNumber);
+            if (youtubeVideoIdForHole == null)
+            {
+                return Json("Error: There is no YouTube Video Id associated with this hole.");
+            }
+
+            //THIS PART IS NOT WORKING. DELETE FROM YOUTUBE redirect_uri_mismatch
+            //var youtubeResponse = await _youtubeGolfService.DeleteCourseFootageAsync(youtubeVideoIdForHole);
+
+            await _golfCourseService.RequestVideoIdDeletion(youtubeVideoIdForHole);
+
+            var path = "";
+            var badResponseStatusCode = 200;
+
+            try
+            {
+                var content = Request.Files[0];
+                if (content == null || content.ContentLength <= 0) return Json("You must upload a video file (mp4).");
+
+                var stream = content.InputStream;
+                var fileName = Path.GetFileName(content.FileName);
+                path = Path.Combine(Server.MapPath("~/App_Data/TempFootageUploads"), fileName);
+                using (var fileStream = System.IO.File.Create(path))
+                {
+                    stream.CopyTo(fileStream);
+                }
+                var uploadCourseFootageViewModel =
+                    _golfCourseService.GetGolfCourseUploadViewModel(courseId, holeNumber, path);
+                var uploadSuccess = await _youtubeGolfService.UploadCourseFootageAsync(uploadCourseFootageViewModel);
+
+                if (uploadSuccess)
+                {
+                    uploadCourseFootageViewModel.YouTubeVideoId =
+                        _youtubeGolfService.GetUploadedVideoYouTubeIdentifier();
+                    await _golfCourseService.StoreCourseFootageForHole(uploadCourseFootageViewModel);
+                }
+
+                System.IO.File.Delete(path);
+
+                return Json(uploadSuccess
+                    ? "Your video file was successfully uploaded to YouTube!"
+                    : "There was an error uploading the video file to YouTube.");
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                badResponseStatusCode = Response.StatusCode;
+            }
+
+            System.IO.File.Delete(path);
+
+            return badResponseStatusCode == 400 ? Json("Upload failed with + " + badResponseStatusCode.ToString()) : Json("Please try again and verify your internet connection has not been interrupted");
+            //delete that video id from YouTube
+
+            //get uploaded video file submitted from client
+
+            //submit that video to YouTube
+
+            //modify video id in CourseVideoTable
+        }
+
+        [HttpPost]
+        [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> DeleteCourseFootage(int courseId, int holeNumber)
+        {
+            if (!SessionTimeOutVerification(Session["Username"].ToString()))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            //grab that video id from the 
+            var youtubeVideoIdForHole =
+                await _golfCourseService.RequestVideoIdAssociatedWithGolfCourseHole(courseId, holeNumber);
+            if (youtubeVideoIdForHole == null)
+            {
+                return Json("Error: There is no YouTube Video Id associated with this hole.");
+            }
+
+            //THIS PART IS NOT WORKING. DELETE FROM YOUTUBE redirect_uri_mismatch
+            //var youtubeResponse = await _youtubeGolfService.DeleteCourseFootageAsync(youtubeVideoIdForHole);
+
+            await _golfCourseService.RequestVideoIdDeletion(youtubeVideoIdForHole);
+
+            return Json("The course footage has been deleted.");
+        }
+
         // GET Explore
         [HttpGet]
         public async Task<ActionResult> Explore(int golfCourseId)

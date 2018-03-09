@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,10 @@ namespace AirCaddy.Data.Repositories
         Task<Tuple<GolfCourse, List<GolfCourseVideo>>> GetGolfCourseAndCourseVideoInfo(int golfCourseId);
 
         Task AddCourseFootageForHole(int courseId, int holeNumber, string youtubeVideoId);
+
+        Task<string> GetCourseFootageYouTubeVideoIdForHole(int courseId, int holeNumber);
+
+        Task DeleteCourseFootageId(string youtubeId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -106,6 +111,28 @@ namespace AirCaddy.Data.Repositories
             {
                 return;
             }
+            await _dataEntities.SaveChangesAsync();
+        }
+
+        public async Task<string> GetCourseFootageYouTubeVideoIdForHole(int courseId, int holeNumber)
+        {
+            var courseFootageEntry = await _dataEntities.GolfCourseVideos
+                .Where(gcv => gcv.HoleNumber.Equals(holeNumber) && gcv.GolfCourseId.Equals(courseId))
+                .FirstOrDefaultAsync();
+            return courseFootageEntry?.YoutubeHoleVideoId;
+        }
+
+        public async Task DeleteCourseFootageId(string youtubeId)
+        {
+            var courseFootage =
+                await _dataEntities.GolfCourseVideos.Where(gcv => gcv.YoutubeHoleVideoId.Equals(youtubeId))
+                    .FirstOrDefaultAsync();
+            if (courseFootage == null)
+            {
+                return;
+            }
+            courseFootage.YoutubeHoleVideoId = "";
+            _dataEntities.GolfCourseVideos.AddOrUpdate(courseFootage);
             await _dataEntities.SaveChangesAsync();
         }
     }
