@@ -12,7 +12,7 @@
     vm.courseId = ko.observable(serverModel.GolfCourseId);
     vm.courseName = ko.observable(serverModel.GolfCourseName);
     vm.uploadedCourseFile = ko.observable(null);
-    vm.currentHoleYoutubeApiSrc = ko.observable("https://www.youtube.com/embed/xdc1H9-XUrk");
+    vm.currentHoleYoutubeApiSrc = ko.observable("");
 
     //Visible Trigger Attributes
     vm.submitCourseFootageUploadAreaVisible = ko.observable(false);
@@ -58,7 +58,7 @@
         if (vm.uploadedCourseFile() === null) {
             return;
         } else {
-            $("#reasonPopUp").modal('hide');
+            $("#uploadPopUp").modal('hide');
 
             vm.uploadCourseFootageAreaVisible(false);
             vm.uploadingAreaVisible(true);
@@ -82,25 +82,75 @@
         }
     }
 
-    vm.submitDelete = function() {
+    vm.submitDelete = function () {
+        $("#deletePopUp").modal('hide');
+
         $.ajax({
             type: "POST",
-            url: '/GolfCourses/Modify?courseId=' + vm.courseId() + '&holeNumber=' + vm.holeInFocus(),
+            url: '/GolfCourses/DeleteCourseFootage?courseId=' + vm.courseId() + '&holeNumber=' + vm.holeInFocus(),
             contentType: false,
             processData: false,
             data: vm.uploadedCourseFile(),
             success: function (result) {
-                console.log("The video was modified!");
-                vm.videoUploadSpinner.stop();
+                vm.manageAreaVisible(false);
+                vm.uploadCourseFootageAreaVisible(true);
             },
             error: function () {
-                console.log("help me");
-                vm.videoUploadSpinner.stop();
+                alert("There was an error uploading the video..")
             }
         });
+        
     }
 
-    vm.showModal = function () {
-        $("#reasonPopUp").modal('show');
+    vm.submitModify = function() {
+        if (vm.uploadedCourseFile() === null) {
+            return;
+        } else {
+            $("#modifyPopUp").modal('hide');
+
+            vm.uploadCourseFootageAreaVisible(false);
+            vm.uploadingAreaVisible(true);
+            vm.videoUploadSpinner.spin(uploadAreaSpinner);
+
+            $.ajax({
+                type: "POST",
+                url: '/GolfCourses/ModifyCourseFootage?courseId=' + vm.courseId() + '&holeNumber=' + vm.holeInFocus(),
+                contentType: false,
+                processData: false,
+                data: vm.uploadedCourseFile(),
+                success: function (result) {
+                    console.log("The video was successfully uploaded!");
+                    vm.videoUploadSpinner.stop();
+                },
+                error: function () {
+                    console.log("help me");
+                    vm.videoUploadSpinner.stop();
+                }
+            });
+        }       
+    }
+
+    vm.showUploadModal = function () {
+        $("#uploadPopUp").modal('show');
+    }
+
+    vm.hideUploadModal = function() {
+        $("#uploadPopUp").modal('hide');
+    }
+
+    vm.showModifyModal = function() {
+        $("#modifyPopUp").modal('show');
+    }
+
+    vm.hideModifyModal = function() {
+        $("#modifyPopUp").modal('hide');
+    }
+
+    vm.showDeleteModal = function() {
+        $("#deletePopUp").modal('show');
+    }
+
+    vm.hideDeleteModal = function() {
+        $("#deletePopUp").modal('hide');
     }
 }

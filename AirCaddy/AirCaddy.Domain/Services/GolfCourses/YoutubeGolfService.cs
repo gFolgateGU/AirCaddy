@@ -87,14 +87,14 @@ namespace AirCaddy.Domain.Services.GolfCourses
             UserCredential credential = null;
             var path = HostingEnvironment.MapPath("~");
             //var pathWithSecrets = path + "client_secrets.json";
-            var pathWithSecrets = @"C:\\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\client_secret.json";
+            var pathWithSecrets = @"C:\\Sandbox\AirCaddy\AirCaddy\AirCaddy.Web\client_secrets.json";
             using (var stream = new FileStream(pathWithSecrets, FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
                     // This OAuth 2.0 access scope allows an application to upload files to the
                     // authenticated user's YouTube channel, but doesn't allow other types of access.
-                    new[] {YouTubeService.Scope.Youtube},
+                    new[] {YouTubeService.Scope.YoutubeForceSsl, YouTubeService.Scope.Youtube, YouTubeService.Scope.Youtubepartner},
                     "user",
                     CancellationToken.None
                 );

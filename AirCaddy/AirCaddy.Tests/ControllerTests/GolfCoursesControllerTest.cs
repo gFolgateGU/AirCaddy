@@ -41,7 +41,7 @@ namespace AirCaddy.Tests.ControllerTests
         public async Task ShouldDeleteCourseFootageVideoForHoleFromYouTube()
         {
             const string fakeUserId = "fds21-dfsj32-kfdjs2-234ja-cv22j";
-            const string youtubeVideoId = "f2kuqBO-1uA";
+            const string youtubeVideoId = "RISP8o53BZI";
             _mockSessionMapperService
                 .Setup(msmr =>
                     msmr.MapUserIdFromSessionUsername(_golfCoursesController.ControllerContext.HttpContext
@@ -50,7 +50,7 @@ namespace AirCaddy.Tests.ControllerTests
                 .Setup(mgcs => mgcs.RequestVideoIdAssociatedWithGolfCourseHole(It.IsAny<int>(), It.IsAny<int>()))
                 .ReturnsAsync(youtubeVideoId);
 
-            var response = await _golfCoursesController.Modify(10, 17);
+            var response = await _golfCoursesController.DeleteCourseFootage(10, 17);
             Assert.AreEqual(null, response);
         }
     }
