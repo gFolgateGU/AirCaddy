@@ -71,7 +71,9 @@
         </e>
         <e p="ViewModels" t="Include">
           <e p="GolfCourses" t="Include">
+            <e p="CourseOverviewViewModel.cs" t="Include" />
             <e p="GolfCourseViewModel.cs" t="Include" />
+            <e p="YelpGolfCourseReview.cs" t="Include" />
           </e>
           <e p="Privileges" t="Include">
             <e p="GolfCourseInfoViewModel.cs" t="Include" />
@@ -117,6 +119,10 @@
           <e p="aircaddy-main-overrides.css" t="Include" />
           <e p="bootstrap.css" t="Include" />
           <e p="bootstrap.min.css" t="Include" />
+          <e p="GolfCourses" t="Include">
+            <e p="golfcourses.explore.css" t="Include" />
+            <e p="golfcourses.virtualtour.css" t="Include" />
+          </e>
           <e p="Home" t="Include">
             <e p="home.coursegallery.css" t="Include" />
           </e>
@@ -152,7 +158,12 @@
           <e p="ManageViewModels.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="accordion.js" t="Include" />
           <e p="App" t="Include">
+            <e p="GolfCourses" t="Include">
+              <e p="golfcourses.explore.viewmodel.js" t="Include" />
+              <e p="golfcourses.yelpreview.js" t="Include" />
+            </e>
             <e p="Home" t="Include">
               <e p="home.course.js" t="Include" />
               <e p="home.coursegallery.viewmodel.js" t="Include" />
@@ -197,7 +208,10 @@
             <e p="SendCode.cshtml" t="Include" />
             <e p="VerifyCode.cshtml" t="Include" />
           </e>
-          <e p="GolfCourses" t="Include" />
+          <e p="GolfCourses" t="Include">
+            <e p="Explore.cshtml" t="Include" />
+            <e p="VirtualTour.cshtml" t="Include" />
+          </e>
           <e p="Home" t="Include">
             <e p="About.cshtml" t="Include" />
             <e p="Contact.cshtml" t="Include" />

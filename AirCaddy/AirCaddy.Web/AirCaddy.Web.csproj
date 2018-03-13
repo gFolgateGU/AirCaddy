@@ -236,6 +236,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\GolfCourses\golfcourses.explore.css" />
     <Content Include="Content\GolfCourses\golfcourses.managemycourse.css" />
+    <Content Include="Content\GolfCourses\golfcourses.virtualtour.css" />
     <Content Include="Content\Home\home.coursegallery.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="favicon.ico" />
@@ -272,11 +273,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\spin.js" />
-    <Content Include="Scripts\spin.min.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
