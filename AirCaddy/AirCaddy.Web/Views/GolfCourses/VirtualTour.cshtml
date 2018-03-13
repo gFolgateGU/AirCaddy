@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+<div class="w3-gray w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large"
           onclick="w3_close()">Close &times;</button>
   <a href="#" class="w3-bar-item w3-button">Hole 1</a>
@@ -25,27 +25,24 @@
   <a href="#" class="w3-bar-item w3-button">Hole 9</a>
 </div>
 
+
 <div id="main">
 
-  <div class="w3-black">
+  <div class="w3-round w3-black">
     <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button>
     <div class="w3-container">
-      <h1>
-        Elk Valley Golf Course - Hole 1
-      </h1>
+      <h2>
+        <font color="white">Elk Valley Golf Course - Hole 17</font>
+      </h2>
     </div>
   </div>
 
-  <div id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
+  <br>  </br>
+  
+  <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <center><iframe max-width="560" width="100%" height="315" src="https://www.youtube.com/embed/cnyGx9SALm8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>   
+        <center><iframe max-width="560" width="100%" height="320" src="https://www.youtube.com/embed/_ulDpOPQFlQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>   
       </div>
     </div>
   
@@ -61,56 +58,40 @@
     <h3>Comments:</h3>
   
     <div class="row">
-      <div class="col-sm-3">
-        <div class="well">
-          <p>John</p>
-        </div>
-      </div>
       <div class="col-sm-9">
         <div class="well">
-          <p>Well shit. Here's a pretty neat looking course to wack some balls on</p>
+          <p><strong>John</strong></p>
+          <p>Nice course. Very friendly and forgiving greens.</p>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3">
-        <div class="well">
-          <p>Bo</p>
-        </div>
-      </div>
       <div class="col-sm-9">
         <div class="well">
-          <p>This page really sucks</p>
+          <p><strong>Bo</strong></p>
+          <p>Fairways are pretty straight forward and match with the video footage.</p>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3">
-        <div class="well">
-          <p>Jane</p>
-        </div>
-      </div>
       <div class="col-sm-9">
         <div class="well">
-          <p>.DSStore files haunt me in my sleep</p>
+          <p><strong>Jane</strong></p>
+          <p>Fun course to play on.</p>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3">
-        <div class="well">
-          <p>Anja</p>
-        </div>
-      </div>
       <div class="col-sm-9">
         <div class="well">
-          <p>Fuck</p>
+          <p><strong>Anja</strong></p>
+          <p>Love it here!</p>
         </div>
       </div>
     </div>     
   </div>
   
-<label> Comment: <br> <textarea></textarea>
+  <label> Comment: <br> <br> <textarea></textarea>
   <input data-bind="click: submit" class="btn btn-lg btn-success" type="submit" name="Submit"/>
 </label>
 
@@ -127,4 +108,4 @@
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("openNav").style.display = "inline-block";
   }
-</script>
+</script></div>
