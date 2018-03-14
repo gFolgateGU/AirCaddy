@@ -1,0 +1,20 @@
+﻿.bg-overlay {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("AirCaddyPromo2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 880px;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.overlay-cover-main {
+    color: white;
+    font-weight: bold;
+}
+
+.overlay-cover-sub {
+    color: gold;
+    font-weight: bolder;
+}

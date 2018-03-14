@@ -2,4 +2,22 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Temporary Home Page</h2>
+<link href="~/Content/Home/home.primary.css" rel="stylesheet" />
+
+<div id="mainArea" style=""class="bg-overlay">
+    <div class="row text-center">
+        <div class="container">
+            <h1 class="overlay-cover-main">
+                <span>Yo</span>
+            </h1>
+            <hr />
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#mainArea").parent().removeClass("container");
+        $("#mainArea").parent().removeClass("body-content");
+    });
+</script>
