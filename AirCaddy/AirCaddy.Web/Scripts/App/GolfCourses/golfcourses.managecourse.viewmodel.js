@@ -1,4 +1,4 @@
-﻿var manageCourseViewModel = function (serverModel) {
+﻿var manageCourseViewModel = function(serverModel) {
 
     var vm = this;
 
@@ -19,6 +19,8 @@
     vm.uploadCourseFootageAreaVisible = ko.observable(true);
     vm.uploadingAreaVisible = ko.observable(false);
     vm.manageAreaVisible = ko.observable(false);
+    vm.successfullyUploadedVisible = ko.observable(false);
+    vm.failedUploadVisible = ko.observable(false);
 
     //Additional UI Elements
     vm.videoUploadSpinner = new Spinner();
@@ -73,10 +75,12 @@
                 success: function (result) {
                     console.log("The video was successfully uploaded!");
                     vm.videoUploadSpinner.stop();
+                    vm.uploadingAreaVisible(false);
+                    vm.successfullyUploadedVisible(true);
                 },
                 error: function () {
-                    console.log("help me");
                     vm.videoUploadSpinner.stop();
+                    vm.uploadingAreaVisible(false);
                 }
             });
         }
@@ -96,10 +100,10 @@
                 vm.uploadCourseFootageAreaVisible(true);
             },
             error: function () {
-                alert("There was an error uploading the video..")
+                alert("There was an error deleting the video..");
             }
         });
-        
+
     }
 
     vm.submitModify = function() {
@@ -120,11 +124,14 @@
                 data: vm.uploadedCourseFile(),
                 success: function (result) {
                     console.log("The video was successfully uploaded!");
+                    vm.uploadingAreaVisible(false);
+                    vm.successfullyUploadedVisible(true);
                     vm.videoUploadSpinner.stop();
                 },
                 error: function () {
                     console.log("help me");
                     vm.videoUploadSpinner.stop();
+                    vm.failedUploadVisible(true);
                 }
             });
         }       
