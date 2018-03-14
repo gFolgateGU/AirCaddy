@@ -213,6 +213,13 @@ namespace AirCaddy.Controllers
             return Json("The course footage has been deleted.");
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Browse()
+        {
+            var golfCourseViewModel = await _golfCourseService.GetExistingGolfCoursesViewModelAsync();
+            return View(golfCourseViewModel);
+        }
+
         // GET Explore
         [HttpGet]
         public async Task<ActionResult> Explore(int golfCourseId)

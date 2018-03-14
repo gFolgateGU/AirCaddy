@@ -237,7 +237,7 @@
     <Content Include="Content\GolfCourses\golfcourses.explore.css" />
     <Content Include="Content\GolfCourses\golfcourses.managemycourse.css" />
     <Content Include="Content\GolfCourses\golfcourses.virtualtour.css" />
-    <Content Include="Content\Home\home.coursegallery.css" />
+    <Content Include="Content\GolfCourses\golfcourses.coursegallery.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="Content\w3_customs.css" />
     <Content Include="favicon.ico" />
@@ -251,8 +251,8 @@
     <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.virtualtour.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.yelpreview.js" />
-    <Content Include="Scripts\App\Home\home.course.js" />
-    <Content Include="Scripts\App\Home\home.coursegallery.viewmodel.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.course.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.coursegallery.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.makerequest.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.managerequests.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.request.js" />
@@ -317,9 +317,12 @@
     <Content Include="Views\GolfCourses\ManageMyCourse.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourseModals.cshtml" />
     <Content Include="Views\GolfCourses\VirtualTour.cshtml" />
+    <Content Include="Views\GolfCourses\Browse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\TempFootageUploads\" />
+    <Folder Include="Content\Home\" />
+    <Folder Include="Scripts\App\Home\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

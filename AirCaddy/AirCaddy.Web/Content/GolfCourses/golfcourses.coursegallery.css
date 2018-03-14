@@ -1,0 +1,33 @@
+﻿.code_container {
+    width: 100%;
+    overflow: auto;
+    background-color: #efefef;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 2px solid #989898;
+    overflow: hidden;
+}   
+    
+.course_container {
+        
+}
+
+.course_container:hover .code_container {
+    background-color: #98fb98;
+    cursor: pointer;
+}
+
+.course_container:hover .header_container {
+    background-color: #98fb98;
+    cursor: pointer;     
+}
+
+.header_container {
+    width: 100%;
+    overflow: auto;
+    background-color: #efefef;
+    border-top: 2px solid #989898;
+    border-right: 2px solid #989898;
+    border-left: 2px solid #989898;
+    overflow: hidden;
+}
