@@ -221,9 +221,11 @@ namespace AirCaddy.Controllers
             return View(vm);
         }
 
-        public ActionResult VirtualTour()
+        [HttpGet]
+        public async Task<ActionResult> VirtualTour(int golfCourseId)
         {
-            return View();
+            var vm = await _golfCourseService.GetManageCourseViewModel(golfCourseId);
+            return View(vm);
         }
     }
     

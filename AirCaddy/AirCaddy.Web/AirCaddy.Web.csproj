@@ -239,6 +239,7 @@
     <Content Include="Content\GolfCourses\golfcourses.virtualtour.css" />
     <Content Include="Content\Home\home.coursegallery.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
+    <Content Include="Content\w3_customs.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -248,6 +249,7 @@
     <Content Include="Scripts\App\GolfCourses\golfcourses.managecourse.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.course.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.viewmodel.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.virtualtour.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.yelpreview.js" />
     <Content Include="Scripts\App\Home\home.course.js" />
     <Content Include="Scripts\App\Home\home.coursegallery.viewmodel.js" />
@@ -314,6 +316,7 @@
     <Content Include="Views\GolfCourses\MyCourses.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourse.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourseModals.cshtml" />
+    <Content Include="Views\GolfCourses\VirtualTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\TempFootageUploads\" />

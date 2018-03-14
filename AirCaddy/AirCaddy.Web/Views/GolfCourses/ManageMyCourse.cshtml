@@ -113,22 +113,6 @@
                     </div>
                 </div>
             </div>
-          
-            @*<div style="padding-top: 5%;" class="row">
-                <div class="col-xs-12">
-                    <h4 data-bind="text: currentHoleInFocusYouTubeVideoId"></h4>
-                    <button data-bind="click: showModal">Test</button>
-                </div>
-            </div>*@
-            
-
-            
-            @*<div style="padding-top: 5%;" class="row">
-                <div class="col-xs-12 text-center">
-                    <input data-bind="event: { change: function() { uploadVideo($element.files[0]) } }" type="file"/>
-                    <button class="btn btn-primary">SUBMIT.</button>
-                </div>
-            </div>*@
         </div>
     </div>
 </div>
@@ -138,7 +122,6 @@
 <script>
     $(document).ready(function() {
         var model = @Html.Raw(Json.Encode(Model));
-        console.log(model);
         var viewModel = new manageCourseViewModel(model);
         ko.applyBindings(viewModel);
     })
