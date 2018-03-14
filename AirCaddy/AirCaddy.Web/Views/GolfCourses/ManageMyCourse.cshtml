@@ -81,6 +81,38 @@
                     </div>
                 </div>                
             </div>
+            
+            <div data-bind="visible: successfullyUploadedVisible">
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2><strong>Success&nbsp;&nbsp;</strong><span class="glyphicon glyphicon-check"></span></h2>
+                        </div>
+                        <div class="col-xs-12">
+                            <h3><strong>Your course footage has successfully been uploaded to YouTube.</strong></h3>
+                        </div>
+                        <div class="col-xs-12 text-center">
+                            <button onclick="location.reload()" class="btn btn-primary">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-bind="visible: failedUploadVisible">
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2 class="warning-text"><strong>Error&nbsp;&nbsp;</strong><span class="glyphicon glyphicon-warning-sign"></span></h2>
+                        </div>
+                        <div class="col-xs-12">
+                            <h3 class="warning-text"><strong>There was a problem trying to upload your footage to YouTube.</strong></h3>
+                        </div>
+                        <div class="col-xs-12 text-center">
+                            <button onclick="location.reload()" class="btn btn-primary">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
           
             @*<div style="padding-top: 5%;" class="row">
                 <div class="col-xs-12">
