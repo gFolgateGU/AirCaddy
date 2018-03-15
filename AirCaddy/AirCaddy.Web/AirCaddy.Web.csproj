@@ -232,13 +232,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\aircaddy-main-overrides.css" />
-    <Content Include="Content\Home\AirCaddyPromo2.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\GolfCourses\AirCaddyLogoNoBackgroundweb.jpg" />
     <Content Include="Content\GolfCourses\golfcourses.explore.css" />
     <Content Include="Content\GolfCourses\golfcourses.managemycourse.css" />
     <Content Include="Content\GolfCourses\golfcourses.virtualtour.css" />
     <Content Include="Content\GolfCourses\golfcourses.coursegallery.css" />
+    <Content Include="Content\Home\about.primary.css" />
+    <Content Include="Content\Home\golf-1758094_12850.jpg" />
     <Content Include="Content\Home\home.primary.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="Content\w3_customs.css" />

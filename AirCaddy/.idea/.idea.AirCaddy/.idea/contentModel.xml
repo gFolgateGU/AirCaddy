@@ -23,6 +23,7 @@
           <e p="UserPrivilegeRequest.cs" t="Include" />
         </e>
         <e p="GolfCourse.cs" t="Include" />
+        <e p="GolfCourseVideo.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="PrivilegeRequest.cs" t="Include" />
@@ -38,6 +39,7 @@
       </e>
       <e p="AirCaddy.Domain" t="IncludeRecursive">
         <e p="AirCaddy.Domain.csproj" t="IncludeRecursive" />
+        <e p="App.Config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DataModels" t="Include">
           <e p="GolfCourses" t="Include">
@@ -53,6 +55,7 @@
           <e p="GolfCourses" t="Include">
             <e p="GolfCourseService.cs" t="Include" />
             <e p="YelpGolfCourseReviewService.cs" t="Include" />
+            <e p="YoutubeGolfService.cs" t="Include" />
           </e>
           <e p="Privileges" t="Include">
             <e p="PrivilegeRequestHandlerService.cs" t="Include" />
@@ -72,7 +75,10 @@
         <e p="ViewModels" t="Include">
           <e p="GolfCourses" t="Include">
             <e p="CourseOverviewViewModel.cs" t="Include" />
+            <e p="CourseVideoViewModel.cs" t="Include" />
             <e p="GolfCourseViewModel.cs" t="Include" />
+            <e p="ManageCourseViewModel.cs" t="Include" />
+            <e p="UploadCourseVideoViewModel.cs" t="Include" />
             <e p="YelpGolfCourseReview.cs" t="Include" />
           </e>
           <e p="Privileges" t="Include">
@@ -88,6 +94,7 @@
         <e p="App.Config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="ControllerTests" t="Include">
+          <e p="GolfCoursesControllerTest.cs" t="Include" />
           <e p="PrivilegesControllerTest.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
@@ -104,7 +111,9 @@
       </e>
       <e p="AirCaddy.Web" t="IncludeRecursive">
         <e p="AirCaddy.Web.csproj" t="IncludeRecursive" />
-        <e p="App_Data" t="Include" />
+        <e p="App_Data" t="Include">
+          <e p="TempFootageUploads" t="Include" />
+        </e>
         <e p="App_Start" t="Include">
           <e p="BundleConfig.cs" t="Include" />
           <e p="FilterConfig.cs" t="Include" />
@@ -115,24 +124,32 @@
         </e>
         <e p="ApplicationInsights.config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="client_secrets.json" t="Include" />
         <e p="Content" t="Include">
           <e p="aircaddy-main-overrides.css" t="Include" />
           <e p="bootstrap.css" t="Include" />
           <e p="bootstrap.min.css" t="Include" />
           <e p="GolfCourses" t="Include">
+            <e p="AirCaddyLogoNoBackgroundweb.jpg" t="Include" />
+            <e p="golfcourses.coursegallery.css" t="Include" />
             <e p="golfcourses.explore.css" t="Include" />
+            <e p="golfcourses.managemycourse.css" t="Include" />
             <e p="golfcourses.virtualtour.css" t="Include" />
           </e>
           <e p="Home" t="Include">
-            <e p="home.coursegallery.css" t="Include" />
+            <e p="about.primary.css" t="Include" />
+            <e p="golf-1758094_12850.jpg" t="Include" />
+            <e p="home.primary.css" t="Include" />
           </e>
           <e p="Privileges" t="Include">
             <e p="privileges.makerequest.css" t="Include" />
           </e>
           <e p="Site.css" t="Include" />
+          <e p="w3_customs.css" t="Include" />
         </e>
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
+          <e p="BaseController.cs" t="Include" />
           <e p="GolfCoursesController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
           <e p="ManageController.cs" t="Include" />
@@ -161,13 +178,16 @@
           <e p="accordion.js" t="Include" />
           <e p="App" t="Include">
             <e p="GolfCourses" t="Include">
+              <e p="golfcourses.course.js" t="Include" />
+              <e p="golfcourses.coursegallery.viewmodel.js" t="Include" />
               <e p="golfcourses.explore.viewmodel.js" t="Include" />
+              <e p="golfcourses.managecourse.viewmodel.js" t="Include" />
+              <e p="golfcourses.mycourses.course.js" t="Include" />
+              <e p="golfcourses.mycourses.viewmodel.js" t="Include" />
+              <e p="golfcourses.virtualtour.viewmodel.js" t="Include" />
               <e p="golfcourses.yelpreview.js" t="Include" />
             </e>
-            <e p="Home" t="Include">
-              <e p="home.course.js" t="Include" />
-              <e p="home.coursegallery.viewmodel.js" t="Include" />
-            </e>
+            <e p="Home" t="Include" />
             <e p="Privileges" t="Include">
               <e p="privileges.makerequest.viewmodel.js" t="Include" />
               <e p="privileges.managerequests.viewmodel.js" t="Include" />
@@ -208,8 +228,13 @@
             <e p="SendCode.cshtml" t="Include" />
             <e p="VerifyCode.cshtml" t="Include" />
           </e>
+          <e p="Base" t="Include" />
           <e p="GolfCourses" t="Include">
+            <e p="Browse.cshtml" t="Include" />
             <e p="Explore.cshtml" t="Include" />
+            <e p="ManageMyCourse.cshtml" t="Include" />
+            <e p="ManageMyCourseModals.cshtml" t="Include" />
+            <e p="MyCourses.cshtml" t="Include" />
             <e p="VirtualTour.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">

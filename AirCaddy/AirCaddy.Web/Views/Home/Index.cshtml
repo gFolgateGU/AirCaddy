@@ -3,19 +3,78 @@
 }
 
 <link href="~/Content/Home/home.primary.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div id="mainArea" style=""class="bg-overlay">
-    <div class="row text-center">
-        <div class="container">
-            <h1 class="overlay-cover-main">
-                <span>Yo</span>
-            </h1>
-            <hr />
+    <!-- Header with full-height image -->
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-left w3-text-black" style="padding: 48px">
+            <span class="w3-jumbo w3-hide-small">Taking golf to a whole new dimension</span><br>
+            <span class="w3-xxlarge w3-hide-large w3-hide-medium">Taking golf to a whole new dimension</span><br>
+            <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">View our available courses</a></p>
+        </div> 
+    </header>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+</div>
+<br></br>
+
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-center">ABOUT AIRCADDY</h3>
+    <p class="w3-center"><em>Who we are</em></p>
+    <p>    AirCaddy is a brand-new web application that is intended to improve course knowledge for every level of golfer. At AirCaddy, we implement state of the art drone footage to record each hole of our partnered golf courses to help the golfer can identify any slopes, sand pits, or water hazards that would not normally be seen from the tee box. With this implementation, golfers will be able to improve their course knowledge with just a few simple clicks.  </p>
+    
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+        <h3 class="w3-center">CONTACT US</h3>
+        <p class="w3-center"><em>We would love your feedback!</em></p>
+
+        <div class="w3-row w3-padding-32 w3-section">
+            <div class="w3-col m4 w3-container">
+                <!-- Add Logo -->
+                <br></br>
+                <img src="~/Content/GolfCourses/AirCaddyLogoNoBackgroundweb.jpg" class="w3-round w3-image" alt="AirCaddyLogo" width="500" height="333">
+            </div>
+            <div class="w3-col m8 w3-panel">
+                <div class="w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Erie, PA<br>
+                    <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>
+                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: AirCaddyApp@gmail.com<br>
+                </div>
+                <br></br>
+                <p>Leave us a message here</p>
+                <form action="/action_page.php" target="_blank">
+                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                        </div>
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                        </div>
+                    </div>
+                    <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                    <button class="w3-button w3-black w3-right w3-section" type="submit">
+                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
+       
 </div>
 
-<script>
+
+
+<script>   
     $(document).ready(function () {
         $("#mainArea").parent().removeClass("container");
         $("#mainArea").parent().removeClass("body-content");
