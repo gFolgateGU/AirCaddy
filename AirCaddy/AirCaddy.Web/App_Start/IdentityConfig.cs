@@ -22,25 +22,25 @@ namespace AirCaddy
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            //return Task.FromResult(0);
+            await ConfigSendGridAsync(message);
         }
 
         // Use NuGet to install SendGrid (Basic C# client lib) 
-        private async Task configSendGridasync(IdentityMessage message)
+        private async Task ConfigSendGridAsync(IdentityMessage message)
         {
-            var apiKey = "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";
+            var apiKey = ConfigurationManager.AppSettings["SendGrid_API_Key"];
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("test@example.com", "Example User");
-            var subject = "Sending with SendGrid is Fun";
-            var to = new EmailAddress("test@example.com", "Example User");
-            var plainTextContent = "and easy to do anywhere, even with C#";
-            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+            var from = new EmailAddress("aircaddyproj@gmail.com", "AirCaddy");
+            var subject = "Please Confirm your Account";
+            var to = new EmailAddress(message.Destination, "AirCaddy");
+            var plainTextContent = message.Body;
+            var htmlContent = message.Body;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
-
         }
     }
 

@@ -320,6 +320,7 @@
     <Content Include="Views\GolfCourses\ManageMyCourse.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourseModals.cshtml" />
     <Content Include="Views\GolfCourses\VirtualTour.cshtml" />
+    <Content Include="Views\Account\PleaseConfirmEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\TempFootageUploads\" />

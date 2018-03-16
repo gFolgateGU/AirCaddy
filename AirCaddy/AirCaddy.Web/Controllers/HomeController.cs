@@ -28,17 +28,8 @@ namespace AirCaddy.Controllers
             return View(golfCourseViewModel);
         }
 
-        public async Task<ActionResult> About()
+        public ActionResult About()
         {
-            var apiKey = "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";
-            var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("ejbyrd@hotmail.com", "Hey Mer - Right Dude Here");
-            var subject = "I am currently SENDING IT with C# SendGrid";
-            var to = new EmailAddress("morse005@knights.gannon.edu", "Example User");
-            var plainTextContent = "and easy to do anywhere, even with C#";
-            string htmlContent = "<strong>yeaboiwemadeit</strong>";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
 
             return View();
         }
