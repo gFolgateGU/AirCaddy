@@ -35,7 +35,7 @@ namespace AirCaddy
             var apiKey = ConfigurationManager.AppSettings["SendGrid_API_Key"];
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("aircaddyproj@gmail.com", "AirCaddy");
-            var subject = "Please Confirm your Account";
+            var subject = message.Subject;
             var to = new EmailAddress(message.Destination, "AirCaddy");
             var plainTextContent = message.Body;
             var htmlContent = message.Body;
