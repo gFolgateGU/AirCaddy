@@ -31,6 +31,10 @@ namespace AirCaddy.Data.Repositories
         Task<string> GetCourseFootageYouTubeVideoIdForHole(int courseId, int holeNumber);
 
         Task DeleteCourseFootageId(string youtubeId);
+
+        Task<IEnumerable<GolfCourseVideo>> GetGolfCourseVideos(int golfCourseId);
+
+        Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -134,6 +138,20 @@ namespace AirCaddy.Data.Repositories
             courseFootage.YoutubeHoleVideoId = "";
             _dataEntities.GolfCourseVideos.AddOrUpdate(courseFootage);
             await _dataEntities.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<GolfCourseVideo>> GetGolfCourseVideos(int golfCourseId)
+        {
+            var golfCourseVideoList = await _dataEntities.GolfCourseVideos
+                .Where(gcv => gcv.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+            return golfCourseVideoList;
+        }
+
+        public async Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId)
+        {
+            var golfCourseReviews = await _dataEntities.GolfCourseComments
+                .Where(gcc => gcc.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+            return golfCourseReviews;
         }
     }
 }

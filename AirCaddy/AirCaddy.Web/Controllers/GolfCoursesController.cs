@@ -224,7 +224,7 @@ namespace AirCaddy.Controllers
         [HttpGet]
         public async Task<ActionResult> VirtualTour(int golfCourseId)
         {
-            var vm = await _golfCourseService.GetManageCourseViewModel(golfCourseId);
+            var vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId);
             return View(vm);
         }
     }

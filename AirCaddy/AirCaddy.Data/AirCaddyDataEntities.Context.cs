@@ -33,5 +33,6 @@ namespace AirCaddy.Data
         public virtual DbSet<PrivilegeRequest> PrivilegeRequests { get; set; }
         public virtual DbSet<GolfCourse> GolfCourses { get; set; }
         public virtual DbSet<GolfCourseVideo> GolfCourseVideos { get; set; }
+        public virtual DbSet<GolfCourseComment> GolfCourseComments { get; set; }
     }
 }

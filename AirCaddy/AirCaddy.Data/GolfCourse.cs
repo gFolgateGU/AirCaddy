@@ -18,6 +18,7 @@ namespace AirCaddy.Data
         public GolfCourse()
         {
             this.GolfCourseVideos = new HashSet<GolfCourseVideo>();
+            this.GolfCourseComments = new HashSet<GolfCourseComment>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,7 @@ namespace AirCaddy.Data
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GolfCourseVideo> GolfCourseVideos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GolfCourseComment> GolfCourseComments { get; set; }
     }
 }

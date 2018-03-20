@@ -31,6 +31,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
         Task<string> RequestVideoIdAssociatedWithGolfCourseHole(int courseId, int holeNumber);
 
         Task RequestVideoIdDeletion(string youtubeVideoId);
+
+        Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -100,24 +102,6 @@ namespace AirCaddy.Domain.Services.GolfCourses
             return viewModel;
         }
 
-        private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(
-            IEnumerable<GolfCourse> golfCourseEntities)
-        {
-            var golfCoursesVm = golfCourseEntities.Select(golfCourse => new GolfCourseViewModel
-                {
-                    Id = golfCourse.Id,
-                    CourseName = golfCourse.Name,
-                    CourseAddress = golfCourse.Address,
-                    CoursePrimaryContact = golfCourse.PhoneNumber,
-                    CourseType = golfCourse.Type,
-                    CourseOwnerId = golfCourse.UserId
-                })
-                .ToList();
-
-
-            return golfCoursesVm;
-        }
-
         public void RequestAddGolfCourseToSystem(Tuple<GolfCourse, List<GolfCourseVideo>> golfCourseWithDefaultVideos)
         {
             _golfCourseRepository.AddNewGolfCourseWithDefaultVideos(golfCourseWithDefaultVideos);
@@ -152,6 +136,44 @@ namespace AirCaddy.Domain.Services.GolfCourses
             await _golfCourseRepository.DeleteCourseFootageId(youtubeVideoId);
         }
 
+        public async Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId)
+        {
+            var virtualTourViewModel = new VirtualTourViewModel();
+            var golfCourseHoleVideosAndGenInfo = await _golfCourseRepository.GetGolfCourseAndCourseVideoInfo(courseId);
+            var golfCourseHoleReviews = await _golfCourseRepository.GetGolfCourseReviews(courseId);
+
+            virtualTourViewModel.GolfCourseId = golfCourseHoleVideosAndGenInfo.Item1.Id;
+            virtualTourViewModel.GolfCourseName = golfCourseHoleVideosAndGenInfo.Item1.Name;
+            virtualTourViewModel.GolfCoursePhone = golfCourseHoleVideosAndGenInfo.Item1.PhoneNumber;
+            virtualTourViewModel.GolfCourseAddress = golfCourseHoleVideosAndGenInfo.Item1.Address;
+            virtualTourViewModel.GolfCourseType = golfCourseHoleVideosAndGenInfo.Item1.Type;
+            virtualTourViewModel.GolfCourseOwnerId = golfCourseHoleVideosAndGenInfo.Item1.UserId;
+
+            virtualTourViewModel.GolfCourseHoleVideos = (List<CourseVideoViewModel>) 
+                MapVideoDataToVideoViewModelList(golfCourseHoleVideosAndGenInfo.Item2);
+            virtualTourViewModel.GolfCourseHoleRatings = (List<GolfCourseHoleRatingViewModel>) 
+                MapCourseReviewDataToViewModelList(golfCourseHoleReviews);
+
+            return virtualTourViewModel;
+        }
+
+        private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(
+            IEnumerable<GolfCourse> golfCourseEntities)
+        {
+            var golfCoursesVm = golfCourseEntities.Select(golfCourse => new GolfCourseViewModel
+                {
+                    Id = golfCourse.Id,
+                    CourseName = golfCourse.Name,
+                    CourseAddress = golfCourse.Address,
+                    CoursePrimaryContact = golfCourse.PhoneNumber,
+                    CourseType = golfCourse.Type,
+                    CourseOwnerId = golfCourse.UserId
+                })
+                .ToList();
+
+            return golfCoursesVm;
+        }
+
         private IEnumerable<CourseVideoViewModel> MapVideoDataToVideoViewModelList(
             IEnumerable<GolfCourseVideo> courseVideoData)
         {
@@ -163,6 +185,21 @@ namespace AirCaddy.Domain.Services.GolfCourses
                     CourseId = courseVideo.GolfCourseId
                 })
                 .ToList();
+        }
+
+        private IEnumerable<GolfCourseHoleRatingViewModel> MapCourseReviewDataToViewModelList(
+            IEnumerable<GolfCourseComment> golfCourseHoleRatings)
+        {
+            return golfCourseHoleRatings.Select(golfCourseHoleRating => new GolfCourseHoleRatingViewModel
+            {
+                Id = golfCourseHoleRating.Id,
+                Comment = golfCourseHoleRating.HoleComment,
+                Difficulty = golfCourseHoleRating.DifficultyRating,
+                GolfCourseId = golfCourseHoleRating.GolfCourseId,
+                HoleNumber = golfCourseHoleRating.HoleNumber,
+                Username = golfCourseHoleRating.UserId
+            })
+            .ToList();
         }
     }
 }
