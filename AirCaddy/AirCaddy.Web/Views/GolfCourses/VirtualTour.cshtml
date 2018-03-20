@@ -9,6 +9,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<div id="modalSection">
+    @Html.Partial("VirtualTourModals")
+</div>
+
 <div class="w3-gray w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large"
             data-bind="click: hideSideBar">
@@ -27,11 +31,11 @@
 
 
 <div id="main">
-
     <div class="w3-round w3-black">
         <button id="openNav" class="w3-button w3-black w3-xlarge" data-bind="click: showSideBar">&#9776;</button>
         <div class="w3-container">
             <h2>
+                <button data-bind="click: showRatingPopUp">sup</button>
                 <font color="white">Elk Valley Golf Course - Hole 17</font>
             </h2>
         </div>
@@ -56,7 +60,7 @@
     </div>
 
     <div class="container col-xs-12">
-        <button class="accordion"><strong><span ></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span></span> / 5)</button>
+        <button class="accordion"><strong><span></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span></span> / 5)</button>
         <div class="container panel col-xs-12">
             <div class="row panel-cover">
                 <div class="col-xs-1">
@@ -65,7 +69,7 @@
         </div>
 
         <h3>Comments:</h3>
-
+        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
         <div class="row">
             <div class="col-sm-9">
                 <div class="well">
@@ -106,6 +110,7 @@
     </label>
 </div>
 
+<script src="~/Scripts/bootstrap-slider.min.js"></script>
 <script src="~/Scripts/App/GolfCourses/golfcourses.virtualtour.viewmodel.js"></script>
 <script>
     $(document).ready(function() {

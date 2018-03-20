@@ -15,10 +15,28 @@
 
     //virtual tour viewmodel specific attributes
     vm.holeInFocus = ko.observable(1);
+    vm.holeSpecificCourseRatingComment = ko.observable("");
 
     //visible trigger attributes
     vm.footageAvailableVisible = ko.observable(false);
     vm.footageUnavailableVisible = ko.observable(true);
+
+    //functionality
+    vm.showRatingPopUp = function () {
+        $("#submitRatingPopUp").modal("show");
+    }
+
+    vm.hideRatingPopUp = function () {
+        $("#submitRatingPopUp").modal("hide");
+    }
+
+    vm.cancelRatingSubmit = function () {
+        
+    }
+
+    vm.submitRating = function () {
+
+    }
 
     vm.showSideBar = function() {
         document.getElementById("main").style.marginLeft = "25%";
@@ -32,4 +50,11 @@
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("openNav").style.display = "inline-block";
     }
+
+    //slider
+    $('#ex1').slider({
+        formatter: function (value) {
+            return 'Current value: ' + value;
+        }
+    });
 }

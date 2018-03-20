@@ -1,0 +1,31 @@
+﻿<!--Upload Footage Modal-->
+<div class="modal fade" id="submitRatingPopUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Submit Rating: <span data-bind="text: courseName"></span> <strong>(Hole <span data-bind="text: holeInFocus"></span>)</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            
+
+                            <label for="comment">Comment:</label>
+                            <textarea class="form-control" rows="5" id="comment" data-bind="text: holeSpecificCourseRatingComment"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelRatingSubmit" type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
+                <button data-bind="click: submitRating" id="uploadFootageBtn" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -32,7 +32,7 @@ namespace AirCaddy
         // Use NuGet to install SendGrid (Basic C# client lib) 
         private async Task ConfigSendGridAsync(IdentityMessage message)
         {
-            var apiKey = ConfigurationManager.AppSettings["SendGrid_API_Key"];
+            var apiKey = ConfigurationManager.AppSettings["Send_Grid_Sender_API_Key"];
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("aircaddyproj@gmail.com", "AirCaddy");
             var subject = message.Subject;

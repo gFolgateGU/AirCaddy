@@ -243,6 +243,7 @@
     <Content Include="Content\Home\home.coursegallery.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="Content\w3_customs.css" />
+    <Content Include="css\bootstrap-slider.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -259,6 +260,7 @@
     <Content Include="Scripts\App\Privileges\privileges.makerequest.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.managerequests.viewmodel.js" />
     <Content Include="Scripts\App\Privileges\privileges.request.js" />
+    <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -321,6 +323,7 @@
     <Content Include="Views\GolfCourses\ManageMyCourseModals.cshtml" />
     <Content Include="Views\GolfCourses\VirtualTour.cshtml" />
     <Content Include="Views\Account\PleaseConfirmEmail.cshtml" />
+    <Content Include="Views\GolfCourses\VirtualTourModals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\TempFootageUploads\" />
