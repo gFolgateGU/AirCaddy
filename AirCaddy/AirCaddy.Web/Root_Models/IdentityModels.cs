@@ -27,7 +27,7 @@ namespace AirCaddy.Root_Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("AirCaddyMasterDBConnection", throwIfV1Schema: false)
+            : base("Abc", throwIfV1Schema: false)
         {
         }
 

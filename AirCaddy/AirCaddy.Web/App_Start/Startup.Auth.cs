@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using AirCaddy.Root_Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AirCaddy
 {
@@ -14,10 +15,27 @@ namespace AirCaddy
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+
+            var context = new ApplicationDbContext();
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            //if(!roleManager.RoleExists("User"))
+            //{
+            //    var userRole = new IdentityRole();
+            //    userRole.Name = "User";
+            //    roleManager.Create(userRole);
+            //}
+            //if(!roleManager.RoleExists("Admin"))
+            //{
+            //    var adminRole = new IdentityRole();
+            //    adminRole.Name = "Admin";
+            //    roleManager.Create(adminRole);
+            //}
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider

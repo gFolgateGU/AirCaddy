@@ -1,10 +1,13 @@
-﻿var courseGalleryViewModel = function(serverModel) {
+﻿var courseGalleryViewModel = function(serverModel, requestUrl) {
 
     var vm = this;
 
     vm.searchTerm = ko.observable("");
     vm.noResultsFound = ko.observable(false);
     vm.numberShowing = ko.observable();
+    vm.exploreUrl = requestUrl;
+
+    console.log(vm.exploreUrl);
 
     init(serverModel);
 
@@ -18,7 +21,7 @@
             serverModel.forEach(function (individualCourse) {
                 var courseNameToLower = individualCourse.CourseName.toLowerCase();
                 if (courseNameToLower.includes(vm.searchTerm().toLowerCase())) {
-                    courses.push(new course(individualCourse));
+                    courses.push(new course(individualCourse, vm.exploreUrl));
                 }
             });
             if (courses.length < 1) {
@@ -34,7 +37,7 @@
     function init(courseDataList) {
         var courses = [];
         courseDataList.forEach(function (individualCourse) {
-            courses.push(new course(individualCourse));
+            courses.push(new course(individualCourse, vm.exploreUrl));
         });
         vm.numberShowing(courses.length);
         return courses;

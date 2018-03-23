@@ -10,6 +10,7 @@ using AirCaddy.Domain.ViewModels.GolfCourses;
 using Newtonsoft.Json.Linq;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AirCaddy.Controllers
 {
@@ -30,6 +31,7 @@ namespace AirCaddy.Controllers
 
         public ActionResult About()
         {
+            var x = new IdentityRole();
 
             return View();
         }

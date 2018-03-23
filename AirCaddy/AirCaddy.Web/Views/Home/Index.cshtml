@@ -11,6 +11,7 @@
     <hr/>
 </div>
 
+<div id="loader" data-request-url="@Url.Action("Explore", "GolfCourses")"></div>
 
 <div style="padding-bottom: 3%" class="row col-xs-12">
     <form class="navbar-form" role="search">
@@ -72,7 +73,9 @@
 <script>
     $(document).ready(function() {
         var model = @Html.Raw(Json.Encode(Model));
-        var courseGalleryVm = new courseGalleryViewModel(model);
+        var requestUrl = '@Url.Action("Explore", "GolfCourses")';
+        var courseGalleryVm = new courseGalleryViewModel(model, requestUrl);
+
         ko.applyBindings(courseGalleryVm);
     });
 </script>

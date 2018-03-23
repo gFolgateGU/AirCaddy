@@ -1,4 +1,4 @@
-﻿var course = function(data) {
+﻿var course = function (data, requestUrl) {
 
     var self = this;
 
@@ -9,8 +9,13 @@
     self.type = data.CourseType;
     self.userId = data.CourseOwnerId;
 
+    self.exploreRequestUrl = requestUrl;
+
+    console.log(self.exploreRequestUrl);
+
     self.exploreCourse = function ()
     {
-        window.location.href = '/GolfCourses/Explore/?golfCourseId=' + self.id;
+        //window.location.href = '/GolfCourses/Explore/?golfCourseId=' + self.id;
+        window.location.href = self.exploreRequestUrl + "?golfCourseId=" + self.id;
     }
 }
