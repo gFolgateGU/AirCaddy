@@ -14,8 +14,9 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
-                            
-
+                            <label class="inline-location-ele">Difficulty Rating:</label>
+                            <select class="form-control"data-bind="options: difficultyRatingLevels, value: selectedDifficultyRatingLevel"></select>
+                            <br />
                             <label for="comment">Comment:</label>
                             <textarea class="form-control" rows="5" id="comment" data-bind="text: holeSpecificCourseRatingComment"></textarea>
                         </div>

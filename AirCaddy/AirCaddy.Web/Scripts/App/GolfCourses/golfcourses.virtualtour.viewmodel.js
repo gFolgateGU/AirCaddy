@@ -4,6 +4,7 @@
 
     //other constants
     var youtubeEmbeddedUrlBase = "https://www.youtube.com/embed/";
+    var difficultyLevels = ["--", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     //constant course attributes
     vm.courseId = serverModel.GolfCourseId;
@@ -16,6 +17,8 @@
     //virtual tour viewmodel specific attributes
     vm.holeInFocus = ko.observable(1);
     vm.holeSpecificCourseRatingComment = ko.observable("");
+    vm.difficultyRatingLevels = ko.observableArray(difficultyLevels);
+    vm.selectedDifficultyRatingLevel = ko.observable();
 
     //visible trigger attributes
     vm.footageAvailableVisible = ko.observable(false);
@@ -51,10 +54,4 @@
         document.getElementById("openNav").style.display = "inline-block";
     }
 
-    //slider
-    $('#ex1').slider({
-        formatter: function (value) {
-            return 'Current value: ' + value;
-        }
-    });
 }
