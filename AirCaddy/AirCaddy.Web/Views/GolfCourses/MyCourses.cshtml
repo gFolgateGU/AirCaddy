@@ -37,9 +37,10 @@
 <script src="~/Scripts/App/GolfCourses/golfcourses.mycourses.course.js"></script>
 <script src="~/Scripts/App/GolfCourses/golfcourses.mycourses.viewmodel.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         var model = @Html.Raw(Json.Encode(Model));
-        var viewModel = new myCoursesViewModel(model);
+        var requestUrl = '@Url.Action("ManageMyCourse", "GolfCourses")';
+        var viewModel = new myCoursesViewModel(model, requestUrl);
         ko.applyBindings(viewModel);
     });
 </script>
