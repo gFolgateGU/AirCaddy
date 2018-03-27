@@ -16,17 +16,14 @@ namespace AirCaddy.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IGolfCourseService _golfCourseService;
-
-        public HomeController(IGolfCourseService golfCourseService)
+        public HomeController()
         {
-            _golfCourseService = golfCourseService;
+
         }
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var golfCourseViewModel = await _golfCourseService.GetExistingGolfCoursesViewModelAsync();
-            return View(golfCourseViewModel);
+            return View();
         }
 
         public ActionResult About()
