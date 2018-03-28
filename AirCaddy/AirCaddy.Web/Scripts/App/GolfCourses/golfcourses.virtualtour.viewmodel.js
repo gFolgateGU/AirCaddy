@@ -25,6 +25,14 @@
     vm.footageUnavailableVisible = ko.observable(true);
 
     //functionality
+    vm.changeHoleInFocus = function(holeNumber)
+    {
+        vm.holeInFocus(holeNumber);
+        vm.holeSpecificCourseRatingComment("");
+        vm.selectedDifficultyRatingLevel(0);
+        vm.hideSideBar();
+    }
+
     vm.showRatingPopUp = function () {
         $("#submitRatingPopUp").modal("show");
     }

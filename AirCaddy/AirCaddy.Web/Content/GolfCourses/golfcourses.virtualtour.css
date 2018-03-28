@@ -34,3 +34,9 @@ footer {
 .no-footage-ele-inside-content {
     color: #ffffff;
 }
+
+.course-difficulty-summary-sect {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: darkgrey;
+}

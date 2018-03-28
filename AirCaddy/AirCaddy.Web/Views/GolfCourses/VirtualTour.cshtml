@@ -18,15 +18,24 @@
             data-bind="click: hideSideBar">
         Close &times;
     </button>
-    <a href="#" class="w3-bar-item w3-button">Hole 1</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 2</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 3</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 4</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 5</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 6</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 7</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 8</a>
-    <a href="#" class="w3-bar-item w3-button">Hole 9</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 1)" class="w3-bar-item w3-button">Hole 1</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 2)" class="w3-bar-item w3-button">Hole 2</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 3)" class="w3-bar-item w3-button">Hole 3</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 4)" class="w3-bar-item w3-button">Hole 4</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 5)" class="w3-bar-item w3-button">Hole 5</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 6)" class="w3-bar-item w3-button">Hole 6</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 7)" class="w3-bar-item w3-button">Hole 7</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 8)" class="w3-bar-item w3-button">Hole 8</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 9)" class="w3-bar-item w3-button">Hole 9</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 10)" class="w3-bar-item w3-button">Hole 10</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 11)" class="w3-bar-item w3-button">Hole 11</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 12)" class="w3-bar-item w3-button">Hole 12</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 13)" class="w3-bar-item w3-button">Hole 13</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 14)" class="w3-bar-item w3-button">Hole 14</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 15)" class="w3-bar-item w3-button">Hole 15</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 16)" class="w3-bar-item w3-button">Hole 16</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 17)" class="w3-bar-item w3-button">Hole 17</a>
+    <a href="#" data-bind="click: changeHoleInFocus.bind($data, 18)" class="w3-bar-item w3-button">Hole 18</a>
 </div>
 
 
@@ -58,57 +67,41 @@
             </div>
         </div>
     </div>
+    
+    <div style="padding-top: 2.5%"></div>
 
-    <div class="container col-xs-12">
-        <button class="accordion"><strong><span></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span></span> / 5)</button>
-        <div class="container panel col-xs-12">
-            <div class="row panel-cover">
-                <div class="col-xs-1">
-                </div>
-            </div>
+    <!--Overall Review Section-->
+    <div class="course-difficulty-summary-sect col-xs-12">
+        <div class="container text-center">
+            <h3>Hole <span data-bind="text: holeInFocus"></span> Difficulty Summary</h3>
+            <hr/>
         </div>
-
-        <h3>Comments:</h3>
-        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="well">
-                    <p><strong>John</strong></p>
-                    <p>Nice course. Very friendly and forgiving greens.</p>
+        <div class="container col-lg-12">
+            <div class="row col-xs-12">
+                <div class="col-lg-offset-2 col-lg-8">
+                    <div class="w3-light-grey" style="text-align: center;">
+                        <div id="difficultyBar" class="w3-red" style="height: 24px; width: 10%; font-weight: bolder; color: black">
+                        </div>
+                    </div>                 
                 </div>
-            </div>
+                <br/>
+            </div>    
+            <div class="row col-xs-12">
+                <div class="text-center">
+                    <h4>7.5 / 10</h4>
+                </div>              
+            </div> 
         </div>
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="well">
-                    <p><strong>Bo</strong></p>
-                    <p>Fairways are pretty straight forward and match with the video footage.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="well">
-                    <p><strong>Jane</strong></p>
-                    <p>Fun course to play on.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="well">
-                    <p><strong>Anja</strong></p>
-                    <p>Love it here!</p>
-                </div>
+        <div class="container text-center" style="padding-top: 2%">
+            <div class="row col-xs-12">
+                <h5><span><b>5</b></span> User Reviews</h5>
             </div>
         </div>
     </div>
-
-    <label>
-        Comment: <br> <br> <textarea></textarea>
-        <input class="btn btn-lg btn-success" type="submit" name="Submit" />
-    </label>
+    
 </div>
+        
+
 
 <script src="~/Scripts/App/GolfCourses/golfcourses.virtualtour.viewmodel.js"></script>
 <script>
