@@ -33,6 +33,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
         Task RequestVideoIdDeletion(string youtubeVideoId);
 
         Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId);
+
+        Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel difficultyRaing, string userId);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -155,6 +157,19 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 MapCourseReviewDataToViewModelList(golfCourseHoleReviews);
 
             return virtualTourViewModel;
+        }
+
+        public async Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel userDifficultyRating, string userId)
+        {
+            var golfCourseComment = new GolfCourseComment
+            {
+                DifficultyRating = userDifficultyRating.Difficulty,
+                GolfCourseId = userDifficultyRating.GolfCourseId,
+                HoleComment = userDifficultyRating.Comment,
+                HoleNumber = userDifficultyRating.HoleNumber,
+                UserId = userId
+            };
+            return await _golfCourseRepository.StoreDifficultyRating(golfCourseComment);
         }
 
         private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(

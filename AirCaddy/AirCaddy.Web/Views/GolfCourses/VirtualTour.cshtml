@@ -4,6 +4,7 @@
     ViewBag.Title = "VirtualTour";
 }
 
+<link href="~/Content/GolfCourses/golfcourses.explore.css" rel="stylesheet"/>
 <link href="~/Content/GolfCourses/golfcourses.virtualtour.css" rel="stylesheet" />
 <link href="~/Content/w3_customs.css" rel="stylesheet">
 
@@ -40,23 +41,24 @@
 
 
 <div id="main">
+    @Html.AntiForgeryToken()
+
     <div class="w3-round w3-black">
         <button id="openNav" class="w3-button w3-black w3-xlarge" data-bind="click: showSideBar">&#9776;</button>
         <div class="w3-container">
             <h2>
-                <button data-bind="click: showRatingPopUp">sup</button>
-                <font color="white">Elk Valley Golf Course - Hole 17</font>
+                <span style="color: white"><span data-bind="text: courseName"></span> - Hole <span data-bind="text: holeInFocus"></span></span>
             </h2>
         </div>
     </div>
 
-    <br />  
+    <br/>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <div data-bind="visible: footageAvailableVisible">
-                <iframe max-width="560px" width="100%" height="320" src="https://www.youtube.com/embed/_ulDpOPQFlQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>    
+                <iframe max-width="560px" width="100%" height="320" src="https://www.youtube.com/embed/_ulDpOPQFlQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div data-bind="visible: footageUnavailableVisible">
                 <div class="no-footage-ele">
@@ -67,48 +69,77 @@
             </div>
         </div>
     </div>
-    
+
     <div style="padding-top: 2.5%"></div>
+    
+    <iframe src="https://player.vimeo.com/video/262723659" max-width="560" width="100%" height="360" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
     <!--Overall Review Section-->
     <div class="course-difficulty-summary-sect col-xs-12">
         <div class="container text-center">
-            <h3>Hole <span data-bind="text: holeInFocus"></span> Difficulty Summary</h3>
+            <h3>Hole <span data-bind="text: holeInFocus"></span> Difficulty Summary
+            </h3>
             <hr/>
         </div>
         <div class="container col-lg-12">
             <div class="row col-xs-12">
                 <div class="col-lg-offset-2 col-lg-8">
                     <div class="w3-light-grey" style="text-align: center;">
-                        <div id="difficultyBar" class="w3-red" style="height: 24px; width: 10%; font-weight: bolder; color: black">
+                        <!--style="height: 24px; font-weight: bolder; color: black-->
+                        <div id="difficultyBar" class="w3-red" data-bind="style: { width: percentFilledDifficultyBar, height: '24px' }, css: difficultyBarColor">
                         </div>
-                    </div>                 
+                    </div>
                 </div>
                 <br/>
-            </div>    
+            </div>
             <div class="row col-xs-12">
                 <div class="text-center">
-                    <h4>7.5 / 10</h4>
-                </div>              
-            </div> 
+                    <h4><span data-bind="text: averageRating"></span> / 10</h4>
+                </div>
+            </div>
         </div>
         <div class="container text-center" style="padding-top: 2%">
             <div class="row col-xs-12">
-                <h5><span><b>5</b></span> User Reviews</h5>
+                <h5><b><span data-bind="text: numberOfReviews"></span></b> User Reviews</h5>
             </div>
         </div>
     </div>
-    
+
+    <!--Reviews-->
+    <div style="padding-top: 2.5%" data-bind="foreach: courseRatingsForHole">
+        <button data-bind="click: toggleReview" class="accordion"><strong><span data-bind="text: username"></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span data-bind="text: difficulty"></span> / 10)</button>
+        <div data-bind="visible: reviewVisibleFlag" class="container panel col-xs-12">
+            <div class="row panel-cover">
+                <div class="col-xs-1">
+                    <p><strong>Review: </strong>
+                    </p>
+                </div>
+                <div class="col-xs-11">
+                    <p data-bind="text: comment"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding-top: 2.5%"></div>
+
+    <div class="make-rating-sect col-xs-12">
+        <div class="text-center">
+            <button data-bind="click: showRatingPopUp" class="btn btn-lg btn-primary">Rate this Hole!</button>
+        </div>
+    </div>
+
 </div>
         
-
-
+<script src="~/Scripts/App/GolfCourses/golfcourses.userreview.js"></script>
 <script src="~/Scripts/App/GolfCourses/golfcourses.virtualtour.viewmodel.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        var tokenHeaderValue = $('[name=__RequestVerificationToken]').val();
+
         var model = @Html.Raw(Json.Encode(Model));
         console.log(model);
-        var viewModel = new virtualTourViewModel(model);
+        var viewModel = new virtualTourViewModel(model, tokenHeaderValue);
         ko.applyBindings(viewModel);
     });
 </script>

@@ -257,6 +257,7 @@
     <Content Include="Scripts\App\GolfCourses\golfcourses.managecourse.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.course.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.viewmodel.js" />
+    <Content Include="Scripts\App\GolfCourses\golfcourses.userreview.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.virtualtour.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.yelpreview.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.course.js" />
@@ -284,6 +285,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

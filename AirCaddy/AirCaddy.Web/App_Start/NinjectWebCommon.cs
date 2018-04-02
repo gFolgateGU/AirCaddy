@@ -80,6 +80,9 @@ namespace AirCaddy.App_Start
             kernel.Bind<IGolfCourseService>().To<GolfCourseService>();
             kernel.Bind<IYelpGolfCourseReviewService>().To<YelpGolfCourseReviewservice>()
                 .WithConstructorArgument("yelpApiKey", ConfigurationManager.AppSettings["Yelp_API_Key"].ToString());
+            kernel.Bind<IVimeoFootageService>().To<VimeoFootageService>()
+                .WithConstructorArgument("vimeoUploadAccessToken",
+                    ConfigurationManager.AppSettings["VimeoUploadAccessToken"].ToString());
             kernel.Bind<ICourseBuilder>().To<GolfCourseBuilder>();
             kernel.Bind<IYoutubeGolfService>().To<YoutubeGolfService>();
         }
