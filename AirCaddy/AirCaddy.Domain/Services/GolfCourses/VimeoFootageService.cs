@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using AirCaddy.Domain.ViewModels.GolfCourses;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -14,7 +15,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
 {
     public interface IVimeoFootageService
     {
-        string UploadCourseFootage(string physicalFilePath);
+        Task<string> UploadCourseFootageAsync(UploadCourseVideoViewModel courseVideoContents);
 
         Task<bool> DeleteCourseFootageAsync(string vimeoVideoId);
     }
@@ -22,30 +23,34 @@ namespace AirCaddy.Domain.Services.GolfCourses
     public class VimeoFootageService : IVimeoFootageService
     {
         private readonly string _vimeoUploadAccessToken;
+        private const string VimeoUploadEndpoint = "https://api.vimeo.com/me/video";
+        private const string VimeoDeleteEndpoint = "https://api.vimeo.com/videos/";
+
 
         public VimeoFootageService(string vimeoUploadAccessToken)
         {
-            _vimeoUploadAccessToken = vimeoUploadAccessToken;
+            _vimeoUploadAccessToken = "bearer " + vimeoUploadAccessToken;
         }
 
-        public string UploadCourseFootage(string physicalFilePath)
+        public async Task<string> UploadCourseFootageAsync(UploadCourseVideoViewModel courseVideoContents)
         {
             try
             {
                 var initialPostClient = new WebClient();
                 initialPostClient.Headers.Clear();
-                initialPostClient.Headers.Add("Authorization", "bearer fede41d7e6e65029882a5f662b20ce38");
+                initialPostClient.Headers.Add("Authorization", _vimeoUploadAccessToken);
 
                 var vimeoTicket =
                     JsonConvert.DeserializeObject<JObject>(initialPostClient.UploadString(
-                        "https://api.vimeo.com/me/videos", "POST",
+                        VimeoUploadEndpoint, "POST",
                         ""));
+
                 var uploadLink = vimeoTicket["upload"]["upload_link"].ToString();
 
-                var file = File.ReadAllBytes(physicalFilePath);
+                var file = File.ReadAllBytes(courseVideoContents.HoleVideoPath);
 
                 initialPostClient.Headers.Clear();
-                var result = initialPostClient.UploadData(uploadLink, "PUT", file);
+                var result = await initialPostClient.UploadDataTaskAsync(uploadLink, "PUT", file);
 
                 var uploaderClient = new WebClient();
                 uploaderClient.Headers.Clear();
@@ -77,9 +82,9 @@ namespace AirCaddy.Domain.Services.GolfCourses
         {
             try
             {
-                var vimeoEndpoint = "https://api.vimeo.com/videos/" + vimeoVideoId;
+                var vimeoEndpoint = VimeoDeleteEndpoint + vimeoVideoId;
                 var deleteRequestMessage = new HttpRequestMessage(HttpMethod.Delete, vimeoEndpoint);
-                deleteRequestMessage.Headers.Add("Authorization", "bearer fede41d7e6e65029882a5f662b20ce38");
+                deleteRequestMessage.Headers.Add("Authorization", _vimeoUploadAccessToken);
 
                 var httpClient = new HttpClient(new HttpClientHandler {AllowAutoRedirect = false});
                 var response = await httpClient.SendAsync(deleteRequestMessage);
@@ -95,50 +100,6 @@ namespace AirCaddy.Domain.Services.GolfCourses
             }
             return false;
         }
-
-        //public void Test()
-        //{
-        //    try
-        //    {
-        //        WebClient wc = new WebClient();
-        //        wc.Headers.Clear();
-        //        wc.Headers.Add("Authorization", "bearer fede41d7e6e65029882a5f662b20ce38");
-        //        wc.Headers.Add("type", "streaming");
-
-        //        var vimeoTicket = JsonConvert.DeserializeObject<JObject>(wc.UploadString("https://api.vimeo.com/me/videos", "POST", ""));
-
-        //        var yz = vimeoTicket["uri"].ToString();
-        //        var gz = vimeoTicket["upload"]["upload_link"].ToString();
-        //        var file = File.ReadAllBytes(@"C:\Three.mp4");
-        //        File.ReadAllBytes()
-
-        //        wc.Headers.Clear();
-
-        //        var result = wc.UploadData(gz, "PUT", file);
-
-        //        WebClient wc1 = new WebClient();
-        //        wc1.Headers.Clear();
-        //        wc1.Headers.Add("Content-Range", "bytes */*");
-
-        //        //This line will get me an execption {"The remote server returned an error: (308) Resume Incomplete."}
-        //        try
-        //        {
-        //            var ff1 = wc1.UploadData(gz, "PUT", new byte[0]);
-        //        }
-        //        catch (Exception ec)
-        //        {
-        //            ec.GetBaseException();
-        //        }
-
-        //        var x = 22;
-        //        var y = 23;
-        //    }
-        //    catch (Exception h)
-        //    {
-
-        //        throw;
-        //    }
-        //}
     }
 }
 

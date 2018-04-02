@@ -1,8 +1,11 @@
-﻿var golfCoursesExploreViewModel = function(serverModel) {
+﻿var golfCoursesExploreViewModel = function(serverModel, requestUrl) {
     var vm = this;
 
-    vm.courseName = ko.observable(serverModel.CourseName);
+    vm.courseName = serverModel.CourseName;
+    vm.courseId = serverModel.CourseId;
     vm.courseYelpReviews = ko.observableArray();
+    console.log(requestUrl);
+    vm.virtualTourUrl = requestUrl;
 
     initCourseYelpReviews(serverModel.CourseReviews);
 
@@ -20,4 +23,9 @@
         });
         return runningTotal / numberOfReviews;
     });
+
+    vm.takeVirtualTour = function() {
+        var url = vm.virtualTourUrl + "?golfCourseId=" + vm.courseId;
+        window.location.href = url;
+    }
 }

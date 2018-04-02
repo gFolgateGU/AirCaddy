@@ -16,27 +16,17 @@ namespace AirCaddy.Controllers
 {
     public class GolfCoursesController : BaseController
     {
-        private readonly IYelpGolfCourseReviewService _yelpGolfCourseReviewservice;
         private readonly IGolfCourseService _golfCourseService;
         private readonly ISessionMapperService _sessionMapperService;
-        private readonly IYoutubeGolfService _youtubeGolfService;
         private readonly IVimeoFootageService _vimeoFootageService;
 
-        public GolfCoursesController(IYelpGolfCourseReviewService yelpGolfCourseReviewservice, IGolfCourseService golfCourseService,
-            ISessionMapperService sessionMapperService, IYoutubeGolfService youtubeGolfService, IVimeoFootageService vimeoFootageService)
+        public GolfCoursesController(IGolfCourseService golfCourseService,
+            ISessionMapperService sessionMapperService, IVimeoFootageService vimeoFootageService)
         {
-            _yelpGolfCourseReviewservice = yelpGolfCourseReviewservice;
             _golfCourseService = golfCourseService;
             _sessionMapperService = sessionMapperService;
-            _youtubeGolfService = youtubeGolfService;
             _vimeoFootageService = vimeoFootageService;
         }
-
-        //// GET: GolfCourses
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
 
         [HttpGet]
         [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
@@ -60,6 +50,15 @@ namespace AirCaddy.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+
+            var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(courseId, userId);
+
+            if (courseOwnedByUser == null)
+            {
+                //That user does not own that course.
+                return RedirectToAction("Browse", "GolfCourses");
+            }
+
             var manageMyCourseViewModel = await _golfCourseService.GetManageCourseViewModel(courseId);
             if (manageMyCourseViewModel == null)
             {
@@ -77,6 +76,16 @@ namespace AirCaddy.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+
+            var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(courseId, userId);
+
+            if (courseOwnedByUser == null)
+            {
+                //That user does not own that course.
+                return RedirectToAction("Browse", "GolfCourses");
+            }
+
             var path = "";
             var badResponseStatusCode = 200;
 
@@ -84,25 +93,27 @@ namespace AirCaddy.Controllers
             {
                 var content = Request.Files[0];
 
-                if (content == null || content.ContentLength <= 0) return Json("You must upload a video file (mp4).");
+                if (content == null || content.ContentLength <= 0) return Json("You must upload a video file.");
 
                 var stream = content.InputStream;
                 var fileName = Path.GetFileName(content.FileName);
+
+                if (!_golfCourseService.IsProperVideoFileExtension(fileName))
+                {
+                    return Json("The video file supplied is not a supported type");
+                }
+
                 path = Path.Combine(Server.MapPath("~/App_Data/TempFootageUploads"), fileName);
                 using (var fileStream = System.IO.File.Create(path))
                 {
                     stream.CopyTo(fileStream);
                 }
-                var vimeoId = _vimeoFootageService.UploadCourseFootage(path);
+                var uploadedVideoModel = _golfCourseService.GetGolfCourseUploadViewModel(courseId, holeNumber, path);
+                var vimeoId = await _vimeoFootageService.UploadCourseFootageAsync(uploadedVideoModel);
                 System.IO.File.Delete(path);
                 if (vimeoId != string.Empty)
                 {
-                    var uploadedVideoModel = new UploadCourseVideoViewModel
-                    {
-                        CourseId = courseId,
-                        HoleNumber = holeNumber,
-                        YouTubeVideoId = vimeoId
-                    };
+                    uploadedVideoModel.YouTubeVideoId = vimeoId;
                     await _golfCourseService.StoreCourseFootageForHole(uploadedVideoModel);
                     return Json("Your video file was successfully uploaded to YouTube");
                 }
@@ -127,23 +138,36 @@ namespace AirCaddy.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
 
-            //grab that video id from the db
-            var youtubeVideoIdForHole =
-                await _golfCourseService.RequestVideoIdAssociatedWithGolfCourseHole(courseId, holeNumber);
-            if (youtubeVideoIdForHole == null)
+            var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(courseId, userId);
+
+            if (courseOwnedByUser == null)
             {
-                return Json("Error: There is no YouTube Video Id associated with this hole.");
+                //That user does not own that course.
+                return RedirectToAction("Browse", "GolfCourses");
             }
 
-            //THIS PART IS NOT WORKING. DELETE FROM YOUTUBE redirect_uri_mismatch
-            //var youtubeResponse = await _youtubeGolfService.DeleteCourseFootageAsync(youtubeVideoIdForHole);
+            //grab that video id from the db
+            var vimeoIdForHole =
+                await _golfCourseService.RequestVideoIdAssociatedWithGolfCourseHole(courseId, holeNumber);
+            if (vimeoIdForHole == null)
+            {
+                return Json("Error: There is no Vimeo Video Id associated with this hole.");
+            }
 
-            await _golfCourseService.RequestVideoIdDeletion(youtubeVideoIdForHole);
+            var vimeoResponse = await _vimeoFootageService.DeleteCourseFootageAsync(vimeoIdForHole);
+            if (vimeoResponse == false)
+            {
+                return Json("Error: This video could not be removed from vimeo at this time.  Please try again");
+            }
+
+            await _golfCourseService.RequestVideoIdDeletion(vimeoIdForHole);
 
             var path = "";
             var badResponseStatusCode = 200;
 
+            //upload portion
             try
             {
                 var content = Request.Files[0];
@@ -151,6 +175,12 @@ namespace AirCaddy.Controllers
 
                 var stream = content.InputStream;
                 var fileName = Path.GetFileName(content.FileName);
+
+                if (!_golfCourseService.IsProperVideoFileExtension(fileName))
+                {
+                    return Json("The video file supplied is not a supported type");
+                }
+
                 path = Path.Combine(Server.MapPath("~/App_Data/TempFootageUploads"), fileName);
                 using (var fileStream = System.IO.File.Create(path))
                 {
@@ -158,20 +188,19 @@ namespace AirCaddy.Controllers
                 }
                 var uploadCourseFootageViewModel =
                     _golfCourseService.GetGolfCourseUploadViewModel(courseId, holeNumber, path);
-                var uploadSuccess = await _youtubeGolfService.UploadCourseFootageAsync(uploadCourseFootageViewModel);
+                var uploadedVimeoId = await _vimeoFootageService.UploadCourseFootageAsync(uploadCourseFootageViewModel);
 
-                if (uploadSuccess)
+                if (uploadedVimeoId != string.Empty)
                 {
-                    uploadCourseFootageViewModel.YouTubeVideoId =
-                        _youtubeGolfService.GetUploadedVideoYouTubeIdentifier();
+                    uploadCourseFootageViewModel.YouTubeVideoId = uploadedVimeoId;
                     await _golfCourseService.StoreCourseFootageForHole(uploadCourseFootageViewModel);
                 }
 
                 System.IO.File.Delete(path);
 
-                return Json(uploadSuccess
-                    ? "Your video file was successfully uploaded to YouTube!"
-                    : "There was an error uploading the video file to YouTube.");
+                return Json((uploadedVimeoId != string.Empty)
+                    ? "Your video file was successfully uploaded to Vimeo!"
+                    : "There was an error uploading the video file to Vimeo.");
             }
             catch (Exception)
             {
@@ -182,13 +211,6 @@ namespace AirCaddy.Controllers
             System.IO.File.Delete(path);
 
             return badResponseStatusCode == 400 ? Json("Upload failed with + " + badResponseStatusCode.ToString()) : Json("Please try again and verify your internet connection has not been interrupted");
-            //delete that video id from YouTube
-
-            //get uploaded video file submitted from client
-
-            //submit that video to YouTube
-
-            //modify video id in CourseVideoTable
         }
 
         [HttpPost]
@@ -199,23 +221,31 @@ namespace AirCaddy.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
 
-            //grab that video id from the 
-            var youtubeVideoIdForHole =
-                await _golfCourseService.RequestVideoIdAssociatedWithGolfCourseHole(courseId, holeNumber);
-            if (youtubeVideoIdForHole == null)
+            var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(courseId, userId);
+
+            if (courseOwnedByUser == null)
             {
-                return Json("Error: There is no YouTube Video Id associated with this hole.");
+                //That user does not own that course.
+                return RedirectToAction("Browse", "GolfCourses");
             }
 
-            //THIS PART IS NOT WORKING. DELETE FROM YOUTUBE redirect_uri_mismatch
-            var result =  await _vimeoFootageService.DeleteCourseFootageAsync(youtubeVideoIdForHole);
+            //grab that video id from the 
+            var vimeoIdForHole =
+                await _golfCourseService.RequestVideoIdAssociatedWithGolfCourseHole(courseId, holeNumber);
+            if (vimeoIdForHole == null)
+            {
+                return Json("Error: There is no Vimeo Video Id associated with this hole.");
+            }
+
+            var result =  await _vimeoFootageService.DeleteCourseFootageAsync(vimeoIdForHole);
 
             if (result != true)
             {
-                return Json("There was a problem removing this video..");
+                return Json("There was a problem removing this video from vimeo..");
             }
-            await _golfCourseService.RequestVideoIdDeletion(youtubeVideoIdForHole);
+            await _golfCourseService.RequestVideoIdDeletion(vimeoIdForHole);
 
             return Json("The course footage has been deleted.");
         }

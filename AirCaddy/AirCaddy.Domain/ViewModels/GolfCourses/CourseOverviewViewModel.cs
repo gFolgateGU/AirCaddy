@@ -10,6 +10,8 @@ namespace AirCaddy.Domain.ViewModels.GolfCourses
     {
         public string CourseName { get; set; }
 
+        public int CourseId { get; set; }
+
         public List<YelpGolfCourseReview> CourseReviews { get; set; }
     }
 }

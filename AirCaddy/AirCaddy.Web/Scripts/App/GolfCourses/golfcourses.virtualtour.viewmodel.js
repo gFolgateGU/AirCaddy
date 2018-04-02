@@ -3,7 +3,7 @@
     var vm = this;
 
     //other constants
-    var youtubeEmbeddedUrlBase = "https://www.youtube.com/embed/";
+    var vimeoEmbeddedUrlBase = "https://player.vimeo.com/video/";
     var difficultyLevels = ["--", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     vm.tokenValue = antiForgeryRequestToken;
 
@@ -32,45 +32,13 @@
     vm.numberOfReviews = ko.observable(0);  //default of 0 will change with computed.
     vm.percentFilledDifficultyBar = ko.observable("0%");  //default without computed
     vm.difficultyBarColor = ko.observable("w3-gray");  //default without computed
-
-    vm.courseRatingsForHole = ko.computed(function () {
-        var courseRatings = [];
-        serverModel.GolfCourseHoleRatings.forEach(function (courseHoleRating) {
-            if (courseHoleRating.HoleNumber === vm.holeInFocus()) {
-                courseRatings.push(new userReview(courseHoleRating));
-            }
-        });
-
-        return courseRatings;
-    });
-
-    vm.averageRating = ko.computed(function () {
-        var runningRatingTotal = 0;
-        var numberOfReviews = 0;
-        serverModel.GolfCourseHoleRatings.forEach(function (courseHoleRating) {
-            if (courseHoleRating.HoleNumber === vm.holeInFocus()) {
-                runningRatingTotal += courseHoleRating.Difficulty;
-                numberOfReviews += 1;
-            }
-        });
-
-        if (numberOfReviews === 0) {
-            //do something here and say we don't have any reviews
-        }
-
-        var averageRating = runningRatingTotal / numberOfReviews;
-        var percentToFillNum = averageRating * 10;
-        var percentToFillCssProp = percentToFillNum + "%";
-        vm.percentFilledDifficultyBar(percentToFillCssProp);
-        vm.numberOfReviews(numberOfReviews);
-        highlightDifficultyRatingBar(averageRating);
-        return averageRating;
-    });
-
+    vm.currentHoleVimeoApiSrc = ko.observable("");
 
     //visible trigger attributes
     vm.footageAvailableVisible = ko.observable(false);
-    vm.footageUnavailableVisible = ko.observable(true);
+    vm.footageUnavailableVisible = ko.observable(false);
+    vm.ratedVisible = ko.observable(false);
+    vm.notRatedVisible = ko.observable(false);
 
     //functionality
     vm.changeHoleInFocus = function(holeNumber)
@@ -166,4 +134,71 @@
         }
     }
 
+
+    //computed functions
+    vm.uploadedVideo = ko.computed(function () {
+        var holeInFocus = vm.holeInFocus();
+        vm.footageAvailableVisible(false);
+        vm.footageUnavailableVisible(false);
+
+        serverModel.GolfCourseHoleVideos.forEach(function (courseVideo) {
+            if (courseVideo.CourseHoleNumber === holeInFocus) {
+                if (courseVideo.YouTubeVideoId === "") {
+                    //vm.currentHoleInFocusYouTubeVideoId("There is currently no uploaded video.");
+                    vm.footageUnavailableVisible(true);
+                    //vm.manageAreaVisible(false);
+                } else {
+                    vm.currentHoleVimeoApiSrc(vimeoEmbeddedUrlBase + courseVideo.YouTubeVideoId);
+                    //vm.uploadingAreaVisible(false);
+                    vm.footageAvailableVisible(true);
+                }
+            }
+        });
+    });
+
+    vm.courseRatingsForHole = ko.computed(function () {
+        vm.ratedVisible(false);
+        vm.notRatedVisible(false);
+
+        var courseRatings = [];
+        serverModel.GolfCourseHoleRatings.forEach(function (courseHoleRating) {
+            if (courseHoleRating.HoleNumber === vm.holeInFocus()) {
+                courseRatings.push(new userReview(courseHoleRating));
+            }
+        });
+
+        if (courseRatings.length === 0) {
+            vm.notRatedVisible(true);
+        } else {
+            vm.ratedVisible(true);
+        }
+
+        return courseRatings;
+    });
+
+    vm.averageRating = ko.computed(function () {
+        vm.percentFilledDifficultyBar(0);
+        vm.numberOfReviews(0);
+
+        var runningRatingTotal = 0;
+        var numberOfReviews = 0;
+        serverModel.GolfCourseHoleRatings.forEach(function (courseHoleRating) {
+            if (courseHoleRating.HoleNumber === vm.holeInFocus()) {
+                runningRatingTotal += courseHoleRating.Difficulty;
+                numberOfReviews += 1;
+            }
+        });
+
+        if (numberOfReviews === 0) {
+            //do something here and say we don't have any reviews
+        }
+
+        var averageRating = runningRatingTotal / numberOfReviews;
+        var percentToFillNum = averageRating * 10;
+        var percentToFillCssProp = percentToFillNum + "%";
+        vm.percentFilledDifficultyBar(percentToFillCssProp);
+        vm.numberOfReviews(numberOfReviews);
+        highlightDifficultyRatingBar(averageRating);
+        return averageRating;
+    });
 }

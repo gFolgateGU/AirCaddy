@@ -35,6 +35,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
         Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId);
 
         Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel difficultyRaing, string userId);
+
+        bool IsProperVideoFileExtension(string videoFileExtensionType);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -100,6 +102,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
             var yelpCourseApiKey = _golfCourseRepository.GetExistingGolfCourseYelpApiKey(courseId);
             var reviews = await _yelpGolfCourseReviewservice.GetGolfCourseReviewData(yelpCourseApiKey);
             viewModel.CourseName = courseName;
+            viewModel.CourseId = courseId;
             viewModel.CourseReviews = reviews;
             return viewModel;
         }
@@ -170,6 +173,32 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 UserId = userId
             };
             return await _golfCourseRepository.StoreDifficultyRating(golfCourseComment);
+        }
+
+        public bool IsProperVideoFileExtension(string videoFile)
+        {
+            var videoFileToLower = videoFile.ToLower();
+            if (videoFileToLower.EndsWith("mp4"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("mov"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("wmv"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("avi"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("flv"))
+            {
+                return true;
+            }
+            return false;
         }
 
         private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(

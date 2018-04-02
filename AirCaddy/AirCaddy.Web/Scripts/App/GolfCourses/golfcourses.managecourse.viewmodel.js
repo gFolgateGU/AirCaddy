@@ -4,7 +4,7 @@
 
     //constants
     var uploadAreaSpinner = document.getElementById("uploadSpinArea");
-    var youtubeEmbeddedUrlBase = "https://www.youtube.com/embed/";
+    var vimeoEmbeddedUrlBase = "https://player.vimeo.com/video/";
 
     //Main Attributes
     vm.video = ko.observable(null);
@@ -12,7 +12,7 @@
     vm.courseId = ko.observable(serverModel.GolfCourseId);
     vm.courseName = ko.observable(serverModel.GolfCourseName);
     vm.uploadedCourseFile = ko.observable(null);
-    vm.currentHoleYoutubeApiSrc = ko.observable("");
+    vm.currentHoleVimeoApiSrc = ko.observable("");
 
     //Visible Trigger Attributes
     vm.submitCourseFootageUploadAreaVisible = ko.observable(false);
@@ -29,7 +29,7 @@
         vm.holeInFocus(newHoleNumber);
     }
 
-    vm.uploadedYouTubeVideo = ko.computed(function() {
+    vm.uploadedVideo = ko.computed(function() {
         var holeInFocus = vm.holeInFocus();
         vm.uploadCourseFootageAreaVisible(false);
         vm.manageAreaVisible(false);
@@ -41,7 +41,7 @@
                     vm.uploadCourseFootageAreaVisible(true);
                     //vm.manageAreaVisible(false);
                 } else {
-                    vm.currentHoleYoutubeApiSrc(youtubeEmbeddedUrlBase + courseVideo.YouTubeVideoId);
+                    vm.currentHoleVimeoApiSrc(vimeoEmbeddedUrlBase + courseVideo.YouTubeVideoId);
                     //vm.uploadingAreaVisible(false);
                     vm.manageAreaVisible(true);
                 }
