@@ -177,7 +177,7 @@
     });
 
     vm.averageRating = ko.computed(function () {
-        vm.percentFilledDifficultyBar(0);
+        vm.percentFilledDifficultyBar("0%");
         vm.numberOfReviews(0);
 
         var runningRatingTotal = 0;

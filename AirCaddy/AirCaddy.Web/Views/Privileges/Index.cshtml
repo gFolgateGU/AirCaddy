@@ -1,51 +1,133 @@
 ﻿@model AirCaddy.Domain.ViewModels.Privileges.PrivilegesSummaryViewModel
 
 <h2>My Privileges</h2>
+<hr/>
 
-    <div class="panel">
-        <div style="background-color: #90ee90"class="panel-heading">
-            <h1 class="panel-title">Elk Valley Golf Course</h1>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-4 col-md-3">
-                    Course Address
+<div data-bind="visible: privilegesVisible">
+    <div data-bind="foreach: myPrivileges">
+        <div class="panel">
+            <div style="background-color: #90ee90"class="panel-heading">
+                <h1 class="panel-title"><span data-bind="text: courseName"></span></h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                        Course Address
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span data-bind="text: courseAddress"></span>
+                    </div>
                 </div>
-                <div class="col-xs-8 col-md-9">
-                    7085 Camp Van Rd, Girard, PA 16417
+                <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                        Course Phone
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span data-bind="text: courseContact"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                        Course Type
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span data-bind="text: type"></span>
+                    </div>                
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-4 col-md-3">
-                    Course Phone
-                </div>
-                <div class="col-xs-8 col-md-9">
-                    724-999-8686
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="#"
+                           title="Edit Product"
+                           class="btn btn-sm btn-default">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                        <a href="#"
+                           title="Delete Product"
+                           class="btn btn-sm btn-default">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-4 col-md-3">
-                    Course Type
-                </div>
-                <div class="col-xs-8 col-md-9">
-                    Public
-                </div>                
+        </div>    
+    </div>   
+</div>
+<div data-bind="visible: noPrivilegesVisible">
+    <div class="jumbotron text-center">
+        <h2>You have no privilegs.</h2>
+    </div>
+</div>
+
+<h2>My Pending Privileges</h2>
+<hr />
+
+<div data-bind="visible: pendingPrivilegesVisible">
+    <div data-bind="foreach: pendingPrivileges">
+        <div class="panel">
+            <div style="background-color: #90ee90" class="panel-heading">
+                <h1 class="panel-title"><span data-bind="text: courseName"></span></h1>
             </div>
-        </div>
-        <div class="panel-footer">
-            <div class="row">
-                <div class="col-xs-12">
-                    <a href="#"
-                       title="Edit Product"
-                       class="btn btn-sm btn-default">
-                        <i class="glyphicon glyphicon-edit"></i>
-                    </a>
-                    <a href="#"
-                       title="Delete Product"
-                       class="btn btn-sm btn-default">
-                        <i class="glyphicon glyphicon-trash"></i>
-                    </a>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                        Course Address
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span data-bind="text: courseAddress"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                        Course Phone
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span data-bind="text: courseContact"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3">
+                        Course Type
+                    </div>
+                    <div class="col-xs-8 col-md-9">
+                        <span data-bind="text: type"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="#"
+                           title="Edit Product"
+                           class="btn btn-sm btn-default">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                        <a href="#"
+                           title="Delete Product"
+                           class="btn btn-sm btn-default">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div data-bind="visible: noPendingPrivilegesVisible">
+    <div class="jumbotron text-center">
+        <h2>You have no pending privileges.</h2>
+    </div>
+</div>
+
+
+<script src="~/Scripts/App/Privileges/privileges.privilege.js"></script>
+<script src="~/Scripts/App/Privileges/privileges.summary.viewmodel.js"></script>
+<script>
+    $(document).ready(function() {
+        var model = @Html.Raw(Json.Encode(Model));
+        console.log(model);
+        var viewModel = new privilegesSummaryViewModel(model);
+        ko.applyBindings(viewModel);
+    });
+</script>

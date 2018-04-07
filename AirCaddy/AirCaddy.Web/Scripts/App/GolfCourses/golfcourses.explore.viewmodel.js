@@ -4,7 +4,6 @@
     vm.courseName = serverModel.CourseName;
     vm.courseId = serverModel.CourseId;
     vm.courseYelpReviews = ko.observableArray();
-    console.log(requestUrl);
     vm.virtualTourUrl = requestUrl;
 
     initCourseYelpReviews(serverModel.CourseReviews);
@@ -21,7 +20,9 @@
         vm.courseYelpReviews().forEach(function (review) {
             runningTotal += parseInt(review.rating);
         });
-        return runningTotal / numberOfReviews;
+        var res = runningTotal / numberOfReviews;
+        var resFixed = res.toFixed(2);
+        return resFixed;
     });
 
     vm.takeVirtualTour = function() {

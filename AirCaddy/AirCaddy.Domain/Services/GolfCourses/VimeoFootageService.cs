@@ -42,7 +42,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
 
                 var vimeoTicket =
                     JsonConvert.DeserializeObject<JObject>(initialPostClient.UploadString(
-                        VimeoUploadEndpoint, "POST",
+                        "https://api.vimeo.com/me/videos", "POST",
                         ""));
 
                 var uploadLink = vimeoTicket["upload"]["upload_link"].ToString();

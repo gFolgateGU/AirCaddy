@@ -43,8 +43,6 @@
     $(document).ready(function () {
         var model = @Html.Raw(Json.Encode(Model));
         var virtualTourLink = '@Url.Action("VirtualTour", "GolfCourses")';
-        console.log(virtualTourLink);
-        console.log("yo");
         var viewModel = new golfCoursesExploreViewModel(model, virtualTourLink);
         ko.applyBindings(viewModel);
     });

@@ -1,21 +1,13 @@
 
-.navbar {
-    background-color: #4cae4c;
-    margin-bottom: 0;
-    border-radius: 0;
-}
-
-
-/* Add a gray background color and some padding to the footer */
-footer {
-    background-color: #f2f2f2;
-    padding: 25px;
-}
 
 .carousel-inner img {
     width: 100%; /* Set width to 100% */
     margin: auto;
     min-height:200px;
+}
+
+.bg-overlay {
+
 }
 
 /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -25,14 +17,25 @@ footer {
     }
 }
 
-.no-footage-ele {
+.no-footage-ele-container {
     width: 100%;
     height: 320px;
-    background-color: #000;
+    background-color: darkgrey;
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url("golfcourses.defaultbackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    padding-top: 50px;
+}
+
+.no-footage-ele2 {
+    width: 100%;
+    background-color: darkgrey;
 }
 
 .no-footage-ele-inside-content {
-    color: #ffffff;
+    color: darkgreen;
 }
 
 .course-difficulty-summary-sect {
