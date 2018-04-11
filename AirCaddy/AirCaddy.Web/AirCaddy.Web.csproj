@@ -237,6 +237,8 @@
     <Content Include="Content\aircaddy-main-overrides.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\GolfCourses\AirCaddyLogoNoBackground.png" />
+    <Content Include="Content\GolfCourses\AirCaddyLogoNoBackgroundNEW.png" />
     <Content Include="Content\GolfCourses\AirCaddyLogoNoBackgroundweb.jpg" />
     <Content Include="Content\GolfCourses\golfcourses.explore.css" />
     <Content Include="Content\GolfCourses\golfcourses.managemycourse.css" />
@@ -244,14 +246,15 @@
     <Content Include="Content\GolfCourses\golfcourses.coursegallery.css" />
     <Content Include="Content\Home\about.primary.css" />
     <Content Include="Content\Home\golf-1758094_12850.jpg" />
+    <Content Include="Content\Home\GolfBlank.jpg" />
     <Content Include="Content\Home\home.primary.css" />
     <Content Include="Content\Privileges\privileges.makerequest.css" />
     <Content Include="Content\w3_customs.css" />
     <Content Include="css\bootstrap-slider.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
     <Content Include="Scripts\accordion.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.explore.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.managecourse.viewmodel.js" />
