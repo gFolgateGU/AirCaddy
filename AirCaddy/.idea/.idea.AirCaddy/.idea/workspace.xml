@@ -23,40 +23,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Index.cshtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index.cshtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Home/Index.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+            <state relative-caret-position="210">
+              <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
               <folding>
-                <marker date="1523413447022" expanded="true" signature="0:37" ph="@..." />
-                <marker date="1523413447022" expanded="true" signature="178:887" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="282:377" ph="&lt;header.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="384:557" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="572:659" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="899:3613" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="1577:3598" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="1768:3587" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="1826:2093" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="2106:3572" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="2155:2592" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="2682:3553" ph="&lt;form.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="2751:3225" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="2837:3004" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="3029:3198" ph="&lt;div.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="3359:3529" ph="&lt;button.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="3748:4167" ph="&lt;script.../&gt;" />
-                <marker date="1523413447022" expanded="true" signature="3791:4155" ph="{...}" />
+                <marker date="1523561290365" expanded="true" signature="0:37" ph="@..." />
+                <marker date="1523561290365" expanded="true" signature="178:898" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="282:377" ph="&lt;header.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="384:557" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="572:659" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="910:3647" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="1611:3632" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="1802:3621" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="1860:2127" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="2140:3606" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="2189:2626" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="2716:3587" ph="&lt;form.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="2785:3259" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="2871:3038" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="3063:3232" ph="&lt;div.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="3393:3563" ph="&lt;button.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="3782:4201" ph="&lt;script.../&gt;" />
+                <marker date="1523561290365" expanded="true" signature="3825:4189" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.primary.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.primary.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Content/Home/home.primary.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="255">
+              <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -114,8 +114,8 @@
         <option value="$PROJECT_DIR$/AirCaddy.Web/Content/Home/about.primary.css" />
         <option value="$PROJECT_DIR$/AirCaddy.Web/Views/Home/Contact.cshtml" />
         <option value="$PROJECT_DIR$/AirCaddy.Web/Views/Home/About.cshtml" />
-        <option value="$PROJECT_DIR$/AirCaddy.Web/Content/Home/home.primary.css" />
         <option value="$PROJECT_DIR$/AirCaddy.Web/Views/Home/Index.cshtml" />
+        <option value="$PROJECT_DIR$/AirCaddy.Web/Content/Home/home.primary.css" />
       </list>
     </option>
   </component>
@@ -126,10 +126,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-294" />
-    <option name="y" value="-1088" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
@@ -152,44 +152,6 @@
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Content" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Content" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="GolfCourses" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Content" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Home" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Content" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Privileges" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="AirCaddy (5 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="AirCaddy.Web" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Controllers" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -276,11 +238,12 @@
       <workItem from="1522182680980" duration="569000" />
       <workItem from="1523387620247" duration="5950000" />
       <workItem from="1523408617461" duration="4866000" />
+      <workItem from="1523559637472" duration="2107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78521000" />
+    <option name="totallyTimeSpent" value="80628000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,17 +255,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-294" y="-1088" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14782609" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14638157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15208334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15153733" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -651,40 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-          <folding>
-            <marker date="1522182629935" expanded="true" signature="68:107" ph="@..." />
-            <marker date="1522182629935" expanded="true" signature="319:388" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="390:1146" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="500:626" ph="&lt;button.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1149:4100" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1169:1558" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1323:1547" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1362:1532" ph="&lt;h2.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1610:2335" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1662:2324" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1700:1965" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="1978:2309" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2047:2290" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2096:2267" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2341:3941" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2503:2680" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2555:2665" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2601:2646" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2868:3137" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2898:3122" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="2937:3103" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3146:3435" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3176:3420" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3215:3401" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3444:3687" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3474:3672" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3513:3653" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3696:3930" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3726:3915" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3765:3896" ph="&lt;div.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="3947:4093" ph="&lt;label.../&gt;" />
-            <marker date="1522182629935" expanded="true" signature="4231:4411" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -693,38 +623,38 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Content/Home/home.primary.css">
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Home/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="210">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <marker date="1523561290365" expanded="true" signature="0:37" ph="@..." />
+            <marker date="1523561290365" expanded="true" signature="178:898" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="282:377" ph="&lt;header.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="384:557" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="572:659" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="910:3647" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="1611:3632" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="1802:3621" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="1860:2127" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="2140:3606" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="2189:2626" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="2716:3587" ph="&lt;form.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="2785:3259" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="2871:3038" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="3063:3232" ph="&lt;div.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="3393:3563" ph="&lt;button.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="3782:4201" ph="&lt;script.../&gt;" />
+            <marker date="1523561290365" expanded="true" signature="3825:4189" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Views/Home/Index.cshtml">
+    <entry file="file://$PROJECT_DIR$/AirCaddy.Web/Content/Home/home.primary.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-          <folding>
-            <marker date="1523413447022" expanded="true" signature="0:37" ph="@..." />
-            <marker date="1523413447022" expanded="true" signature="178:887" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="282:377" ph="&lt;header.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="384:557" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="572:659" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="899:3613" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="1577:3598" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="1768:3587" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="1826:2093" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="2106:3572" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="2155:2592" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="2682:3553" ph="&lt;form.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="2751:3225" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="2837:3004" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="3029:3198" ph="&lt;div.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="3359:3529" ph="&lt;button.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="3748:4167" ph="&lt;script.../&gt;" />
-            <marker date="1523413447022" expanded="true" signature="3791:4155" ph="{...}" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
