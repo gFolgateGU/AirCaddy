@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using AirCaddy.Domain.ViewModels.GolfCourses;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
+
 
 namespace AirCaddy.Domain.Services.GolfCourses
 {
@@ -86,7 +88,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 var deleteRequestMessage = new HttpRequestMessage(HttpMethod.Delete, vimeoEndpoint);
                 deleteRequestMessage.Headers.Add("Authorization", _vimeoUploadAccessToken);
 
-                var httpClient = new HttpClient(new HttpClientHandler {AllowAutoRedirect = false});
+                var httpClient = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false });
                 var response = await httpClient.SendAsync(deleteRequestMessage);
                 if (response.StatusCode == HttpStatusCode.NoContent)
                 {

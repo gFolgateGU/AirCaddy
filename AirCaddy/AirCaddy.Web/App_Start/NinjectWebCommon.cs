@@ -84,7 +84,6 @@ namespace AirCaddy.App_Start
                 .WithConstructorArgument("vimeoUploadAccessToken",
                     ConfigurationManager.AppSettings["VimeoUploadAccessToken"].ToString());
             kernel.Bind<ICourseBuilder>().To<GolfCourseBuilder>();
-            kernel.Bind<IYoutubeGolfService>().To<YoutubeGolfService>();
         }
 
         private static void BindDataRepositories(IKernel kernel)

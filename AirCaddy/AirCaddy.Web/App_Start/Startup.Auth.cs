@@ -24,18 +24,26 @@ namespace AirCaddy
             var context = new ApplicationDbContext();
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            //if(!roleManager.RoleExists("User"))
-            //{
-            //    var userRole = new IdentityRole();
-            //    userRole.Name = "User";
-            //    roleManager.Create(userRole);
-            //}
-            //if(!roleManager.RoleExists("Admin"))
-            //{
-            //    var adminRole = new IdentityRole();
-            //    adminRole.Name = "Admin";
-            //    roleManager.Create(adminRole);
-            //}
+            try
+            {
+                if (!roleManager.RoleExists("User"))
+                {
+                    var userRole = new IdentityRole();
+                    userRole.Name = "User";
+                    roleManager.Create(userRole);
+                }
+                if (!roleManager.RoleExists("Admin"))
+                {
+                    var adminRole = new IdentityRole();
+                    adminRole.Name = "Admin";
+                    roleManager.Create(adminRole);
+                }
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+            }
+
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
