@@ -23,6 +23,7 @@
           <e p="UserPrivilegeRequest.cs" t="Include" />
         </e>
         <e p="GolfCourse.cs" t="Include" />
+        <e p="GolfCourseComment.cs" t="Include" />
         <e p="GolfCourseVideo.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -76,9 +77,11 @@
           <e p="GolfCourses" t="Include">
             <e p="CourseOverviewViewModel.cs" t="Include" />
             <e p="CourseVideoViewModel.cs" t="Include" />
+            <e p="GolfCourseHoleRatingViewModel.cs" t="Include" />
             <e p="GolfCourseViewModel.cs" t="Include" />
             <e p="ManageCourseViewModel.cs" t="Include" />
             <e p="UploadCourseVideoViewModel.cs" t="Include" />
+            <e p="VirtualTourViewModel.cs" t="Include" />
             <e p="YelpGolfCourseReview.cs" t="Include" />
           </e>
           <e p="Privileges" t="Include">
@@ -130,6 +133,8 @@
           <e p="bootstrap.css" t="Include" />
           <e p="bootstrap.min.css" t="Include" />
           <e p="GolfCourses" t="Include">
+            <e p="AirCaddyLogoNoBackground.png" t="Include" />
+            <e p="AirCaddyLogoNoBackgroundNEW.png" t="Include" />
             <e p="AirCaddyLogoNoBackgroundweb.jpg" t="Include" />
             <e p="golfcourses.coursegallery.css" t="Include" />
             <e p="golfcourses.explore.css" t="Include" />
@@ -139,6 +144,7 @@
           <e p="Home" t="Include">
             <e p="about.primary.css" t="Include" />
             <e p="golf-1758094_12850.jpg" t="Include" />
+            <e p="GolfBlank.jpg" t="Include" />
             <e p="home.primary.css" t="Include" />
           </e>
           <e p="Privileges" t="Include">
@@ -155,6 +161,9 @@
           <e p="ManageController.cs" t="Include" />
           <e p="PrivilegesController.cs" t="Include" />
         </e>
+        <e p="css" t="Include">
+          <e p="bootstrap-slider.min.css" t="Include" />
+        </e>
         <e p="favicon.ico" t="Include" />
         <e p="fonts" t="Include">
           <e p="glyphicons-halflings-regular.eot" t="Include" />
@@ -168,6 +177,9 @@
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="FolderProfile.pubxml" t="Include" />
+          </e>
         </e>
         <e p="Root_Models" t="Include">
           <e p="AccountViewModels.cs" t="Include" />
@@ -222,6 +234,7 @@
             <e p="ForgotPassword.cshtml" t="Include" />
             <e p="ForgotPasswordConfirmation.cshtml" t="Include" />
             <e p="Login.cshtml" t="Include" />
+            <e p="PleaseConfirmEmail.cshtml" t="Include" />
             <e p="Register.cshtml" t="Include" />
             <e p="ResetPassword.cshtml" t="Include" />
             <e p="ResetPasswordConfirmation.cshtml" t="Include" />
@@ -236,6 +249,7 @@
             <e p="ManageMyCourseModals.cshtml" t="Include" />
             <e p="MyCourses.cshtml" t="Include" />
             <e p="VirtualTour.cshtml" t="Include" />
+            <e p="VirtualTourModals.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
             <e p="About.cshtml" t="Include" />
