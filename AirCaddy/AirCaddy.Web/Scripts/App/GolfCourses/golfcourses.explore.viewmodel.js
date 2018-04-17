@@ -1,8 +1,10 @@
-﻿var golfCoursesExploreViewModel = function(serverModel) {
+﻿var golfCoursesExploreViewModel = function(serverModel, requestUrl) {
     var vm = this;
 
-    vm.courseName = ko.observable(serverModel.CourseName);
+    vm.courseName = serverModel.CourseName;
+    vm.courseId = serverModel.CourseId;
     vm.courseYelpReviews = ko.observableArray();
+    vm.virtualTourUrl = requestUrl;
 
     initCourseYelpReviews(serverModel.CourseReviews);
 
@@ -18,6 +20,13 @@
         vm.courseYelpReviews().forEach(function (review) {
             runningTotal += parseInt(review.rating);
         });
-        return runningTotal / numberOfReviews;
+        var res = runningTotal / numberOfReviews;
+        var resFixed = res.toFixed(2);
+        return resFixed;
     });
+
+    vm.takeVirtualTour = function() {
+        var url = vm.virtualTourUrl + "?golfCourseId=" + vm.courseId;
+        window.location.href = url;
+    }
 }

@@ -33,6 +33,10 @@ namespace AirCaddy.Domain.Services.GolfCourses
         Task RequestVideoIdDeletion(string youtubeVideoId);
 
         Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId);
+
+        Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel difficultyRaing, string userId);
+
+        bool IsProperVideoFileExtension(string videoFileExtensionType);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -98,6 +102,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
             var yelpCourseApiKey = _golfCourseRepository.GetExistingGolfCourseYelpApiKey(courseId);
             var reviews = await _yelpGolfCourseReviewservice.GetGolfCourseReviewData(yelpCourseApiKey);
             viewModel.CourseName = courseName;
+            viewModel.CourseId = courseId;
             viewModel.CourseReviews = reviews;
             return viewModel;
         }
@@ -155,6 +160,45 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 MapCourseReviewDataToViewModelList(golfCourseHoleReviews);
 
             return virtualTourViewModel;
+        }
+
+        public async Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel userDifficultyRating, string userId)
+        {
+            var golfCourseComment = new GolfCourseComment
+            {
+                DifficultyRating = userDifficultyRating.Difficulty,
+                GolfCourseId = userDifficultyRating.GolfCourseId,
+                HoleComment = userDifficultyRating.Comment,
+                HoleNumber = userDifficultyRating.HoleNumber,
+                UserId = userId
+            };
+            return await _golfCourseRepository.StoreDifficultyRating(golfCourseComment);
+        }
+
+        public bool IsProperVideoFileExtension(string videoFile)
+        {
+            var videoFileToLower = videoFile.ToLower();
+            if (videoFileToLower.EndsWith("mp4"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("mov"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("wmv"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("avi"))
+            {
+                return true;
+            }
+            if (videoFileToLower.EndsWith("flv"))
+            {
+                return true;
+            }
+            return false;
         }
 
         private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(

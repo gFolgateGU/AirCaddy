@@ -14,7 +14,7 @@
             <hr/>           
         </div>
         <h2 class="overlay-cover-sub virt-tour">Yelp Average Score: (<span data-bind="text: averageRating"></span> / 5)</h2>
-        <button class="btn btn-lg btn-primary">Take Virtual Tour!</button>
+        <button data-bind="click: takeVirtualTour" class="btn btn-lg btn-primary">Take Virtual Tour!</button>
     </div>
 </div>
 
@@ -40,9 +40,10 @@
 <script src="~/Scripts/App/GolfCourses/golfcourses.yelpreview.js"></script>
 <script src="~/Scripts/App/GolfCourses/golfcourses.explore.viewmodel.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         var model = @Html.Raw(Json.Encode(Model));
-        var viewModel = new golfCoursesExploreViewModel(model);
+        var virtualTourLink = '@Url.Action("VirtualTour", "GolfCourses")';
+        var viewModel = new golfCoursesExploreViewModel(model, virtualTourLink);
         ko.applyBindings(viewModel);
     });
 </script>

@@ -37,6 +37,8 @@ namespace AirCaddy.Data.Repositories
         Task<IEnumerable<GolfCourseVideo>> GetGolfCourseVideos(int golfCourseId);
 
         Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId);
+
+        Task<bool> StoreDifficultyRating(GolfCourseComment difficultyRatingComment);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -154,6 +156,20 @@ namespace AirCaddy.Data.Repositories
             var golfCourseReviews = await _dataEntities.GolfCourseComments
                 .Where(gcc => gcc.GolfCourseId.Equals(golfCourseId)).ToListAsync();
             return golfCourseReviews;
+        }
+
+        public async Task<bool> StoreDifficultyRating(GolfCourseComment difficultyRatingComment)
+        {
+            try
+            {
+                _dataEntities.GolfCourseComments.Add(difficultyRatingComment);
+                await _dataEntities.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace AirCaddy.Tests.ControllerTests
         private Mock<IYelpGolfCourseReviewService> _mockYelpGolfCourseReviewService;
         private Mock<IGolfCourseService> _mockGolfCourseService;
         private Mock<ISessionMapperService> _mockSessionMapperService;
-        private IYoutubeGolfService _youtubeGolfService;
+        //private IYoutubeGolfService _youtubeGolfService;
         private GolfCoursesController _golfCoursesController;
 
         [SetUp]
@@ -27,10 +27,10 @@ namespace AirCaddy.Tests.ControllerTests
             _mockYelpGolfCourseReviewService = new Mock<IYelpGolfCourseReviewService>();
             _mockGolfCourseService = new Mock<IGolfCourseService>();
             _mockSessionMapperService = new Mock<ISessionMapperService>();
-            _youtubeGolfService = new YoutubeGolfService();
+            //_youtubeGolfService = new YoutubeGolfService();
 
-            _golfCoursesController = new GolfCoursesController(_mockYelpGolfCourseReviewService.Object,
-                _mockGolfCourseService.Object, _mockSessionMapperService.Object, _youtubeGolfService);
+            //_golfCoursesController = new GolfCoursesController(_mockYelpGolfCourseReviewService.Object,
+                //_mockGolfCourseService.Object, _mockSessionMapperService.Object, _youtubeGolfService);
 
             var controllerContext = new Mock<ControllerContext>();
             controllerContext.SetupGet(p => p.HttpContext.Session["Username"]).Returns("test@test.com");
