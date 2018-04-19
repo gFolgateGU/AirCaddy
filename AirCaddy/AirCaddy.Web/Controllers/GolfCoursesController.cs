@@ -286,5 +286,13 @@ namespace AirCaddy.Controllers
 
             return Json(resultStatus);
         }
+
+        [HttpPost]
+        [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> DeleteGolfCourse(int golfCourseId)
+        {
+            var resultStatus = false;
+            return Json(resultStatus);
+        }
     }  
 }

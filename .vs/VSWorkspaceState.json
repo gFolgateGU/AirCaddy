@@ -2,11 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\AirCaddy",
-    "\\AirCaddy\\AirCaddy.Web",
+    "\\AirCaddy\\.idea",
+    "\\AirCaddy\\.idea\\config",
     "\\AirCaddy\\AirCaddy.Web\\Content",
     "\\AirCaddy\\AirCaddy.Web\\Content\\GolfCourses",
     "\\AirCaddy\\AirCaddy.Web\\Views",
-    "\\AirCaddy\\AirCaddy.Web\\Views\\GolfCourses"
+    "\\AirCaddy\\AirCaddy.Web\\Views\\GolfCourses",
+    "\\AirCaddy\\AirCaddy.Web\\Views\\Privileges"
   ],
+  "SelectedNode": "\\AirCaddy\\AirCaddy.Web",
   "PreviewInSolutionExplorer": false
 }

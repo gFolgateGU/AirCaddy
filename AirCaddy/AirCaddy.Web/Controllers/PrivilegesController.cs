@@ -96,5 +96,11 @@ namespace AirCaddy.Controllers
             
             return Json(1);
         }
+
+        public async Task<ActionResult> DeleteExistingGolfCoursePrivilege(int id)
+        {
+
+            return Json(1);
+        }
     }
 }

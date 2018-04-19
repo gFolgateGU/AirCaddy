@@ -39,6 +39,8 @@ namespace AirCaddy.Data.Repositories
         Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId);
 
         Task<bool> StoreDifficultyRating(GolfCourseComment difficultyRatingComment);
+
+        Task<bool> DeleteGolfCourse(int golfCourseId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -170,6 +172,24 @@ namespace AirCaddy.Data.Repositories
             {
                 return false;
             }
+        }
+
+        public async Task<bool> DeleteGolfCourse(int golfCourseId)
+        {
+            try
+            {
+                /*var golfCourseCommentsToRemove = _dataEntities.GolfCourseComments
+                    .Where(gc => gc.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+                var golfCourseHolesToRemove*/
+                var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(golfCourseId)).FirstOrDefaultAsync();
+                _dataEntities.GolfCourses.Remove(golfCourse);
+                await _dataEntities.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
