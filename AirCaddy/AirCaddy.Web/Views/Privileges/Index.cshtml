@@ -1,12 +1,41 @@
 ﻿@model AirCaddy.Domain.ViewModels.Privileges.PrivilegesSummaryViewModel
 
 <h2>My Privileges</h2>
-<hr/>
+<hr />
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "__AjaxAntiForgeryForm" }))
+{
+    @Html.AntiForgeryToken()
+}
+
+<!--Deny Modal-->
+<div class="modal fade" id="denyPopUp" tabindex="-1" role="dialog" aria-labelledby="denyPopUpLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="denyPopUpLabel">
+                    <strong>Confirm Decion</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to <strong><span data-bind="text: requestType"></span></strong>&nbsp;<i><span data-bind="text: courseNameInFocus"></span></i></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button data-bind="click: denyRequest($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Deny Modal-->
 
 <div data-bind="visible: privilegesVisible">
     <div data-bind="foreach: myPrivileges">
         <div class="panel">
-            <div style="background-color: #90ee90"class="panel-heading">
+            <div style="background-color: #90ee90" class="panel-heading">
                 <h1 class="panel-title"><span data-bind="text: courseName"></span></h1>
             </div>
             <div class="panel-body">
@@ -32,7 +61,7 @@
                     </div>
                     <div class="col-xs-8 col-md-9">
                         <span data-bind="text: type"></span>
-                    </div>                
+                    </div>
                 </div>
             </div>
             <div class="panel-footer">
@@ -43,7 +72,7 @@
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
-                        <a href="#"
+                        <a data-bind="click: denyRequest($data, idInFocus)" href="#"
                            title="Delete Golf Course"
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-trash"></i>
@@ -54,8 +83,8 @@
                     </div>
                 </div>
             </div>
-        </div>    
-    </div>   
+        </div>
+    </div>
 </div>
 <div data-bind="visible: noPrivilegesVisible">
     <div class="jumbotron text-center">
@@ -127,10 +156,13 @@
 <script src="~/Scripts/App/Privileges/privileges.privilege.js"></script>
 <script src="~/Scripts/App/Privileges/privileges.summary.viewmodel.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        var form = $('#__AjaxAntiForgeryForm');
+        var tokenHeaderValue = $('input[name="__RequestVerificationToken"]', form).val();
+        console.log(tokenHeaderValue);
         var model = @Html.Raw(Json.Encode(Model));
         console.log(model);
-        var viewModel = new privilegesSummaryViewModel(model);
+        var viewModel = new privilegesSummaryViewModel(model, tokenHeaderValue);
         ko.applyBindings(viewModel);
     });
 </script>

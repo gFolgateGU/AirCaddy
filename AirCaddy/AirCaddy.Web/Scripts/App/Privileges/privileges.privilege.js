@@ -1,7 +1,8 @@
-﻿var privilege = function(priv) {
+﻿var privilege = function(priv, antiForgeryRequestToken) {
 
     var self = this;
 
+    self.antiForgeryReqToken = antiForgeryRequestToken;
     self.id = priv.CourseId;
     self.courseName = priv.CourseName;
     self.courseAddress = priv.CourseAddress;
@@ -13,8 +14,8 @@
             {
                 type: "post",
                 data: {
-                    __RequestVerificationToken: vm.requestToken,
-                    id: self.id
+                    //__RequestVerificationToken: self.antiForgeryRequestToken,
+                    idd: self.id
                 },
                 success: function (data) {
                     if (data === 1) {
