@@ -1,8 +1,5 @@
 ﻿var privilegesSummaryViewModel = function(serverModel, antiForgeryRequestToken) {
 
-    console.log("boss");
-    console.log(antiForgeryRequestToken);
-
     var vm = this;
 
     vm.myPrivileges = ko.observableArray();
@@ -12,8 +9,11 @@
     vm.noPendingPrivilegesVisible = ko.observable(false);
     vm.privilegesVisible = ko.observable(false);
     vm.pendingPrivilegesVisible = ko.observable(false);
+
     vm.courseNameInFocus = ko.observable("");
     vm.idInFocus = ko.observable("");
+    vm.courseContactInFocus = ko.observable("");
+    vm.courseTypeInFocus = ko.observable("");
 
     init(serverModel);
 
@@ -49,5 +49,42 @@
         vm.idInFocus(id);
         vm.courseNameInFocus(courseName);
         $("#deletePopUp").modal('show');
+    }
+
+    vm.showEditCourse = function (id, courseName, coursePhone, courseType) {
+        vm.idInFocus(id);
+        vm.courseNameInFocus(courseName);
+        vm.courseContactInFocus(coursePhone);
+        vm.courseTypeInFocus(courseType);
+        $("#editPopUp").modal('show');
+    }
+
+    self.deleteCourse = function () {
+        $.ajax("/Privileges/DeleteExistingGolfCoursePrivilege",
+            {
+                type: "post",
+                data: {
+                    //__RequestVerificationToken: self.antiForgeryRequestToken,
+                    id: vm.idInFocus()
+                },
+                success: function (data) {
+                    if (data === 1) {
+                        alert("You must be signed in.");
+                    }
+                    else if (data === 2) {
+                        alert("You do not own that course");
+                    }
+                    else if (data === true) {
+                        alert("The golf course has been deleted.");
+                        window.location.reload();
+                    }
+                    else if (data === false) {
+                        alert("There was an error deleting the golf course.");
+                    }
+                },
+                error: function () {
+                    //vm.errorShow(true);
+                }
+            });
     }
 }

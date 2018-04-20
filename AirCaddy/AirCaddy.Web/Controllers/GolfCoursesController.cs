@@ -278,20 +278,13 @@ namespace AirCaddy.Controllers
         {
             if (Session["Username"] == null)
             {
-                return RedirectToAction("Login", "Account");
+                //Need to handle this if the user is not logged in...
+                return Json(2);
             }
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             var resultStatus =
                 await _golfCourseService.RequestDifficultyRatingPost(difficultyRating, userId);
 
-            return Json(resultStatus);
-        }
-
-        [HttpPost]
-        [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
-        public async Task<ActionResult> DeleteGolfCourse(int golfCourseId)
-        {
-            var resultStatus = false;
             return Json(resultStatus);
         }
     }  

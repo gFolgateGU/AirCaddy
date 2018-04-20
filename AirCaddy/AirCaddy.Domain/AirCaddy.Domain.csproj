@@ -86,6 +86,7 @@
     <Compile Include="Utilities\WebApiBaseUtilities.cs" />
     <Compile Include="ViewModels\GolfCourses\CourseOverviewViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\CourseVideoViewModel.cs" />
+    <Compile Include="ViewModels\GolfCourses\EditCourseViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\GolfCourseHoleRatingViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\GolfCourseViewModel.cs" />
     <Compile Include="ViewModels\GolfCourses\ManageCourseViewModel.cs" />

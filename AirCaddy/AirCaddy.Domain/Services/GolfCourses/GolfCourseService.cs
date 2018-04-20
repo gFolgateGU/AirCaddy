@@ -37,6 +37,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
         Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel difficultyRaing, string userId);
 
         bool IsProperVideoFileExtension(string videoFileExtensionType);
+
+        Task<bool> RequestDeleteGolfCourse(int courseId);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -199,6 +201,12 @@ namespace AirCaddy.Domain.Services.GolfCourses
                 return true;
             }
             return false;
+        }
+
+        public async Task<bool> RequestDeleteGolfCourse(int courseId)
+        {
+            var result = await _golfCourseRepository.DeleteGolfCourse(courseId);
+            return result;
         }
 
         private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(
