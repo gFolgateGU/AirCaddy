@@ -2,6 +2,8 @@
 
     var vm = this;
 
+    var courseTypeOptions = ["Public", "Private", "Both"];
+
     vm.myPrivileges = ko.observableArray();
     vm.pendingPrivileges = ko.observableArray();
 
@@ -14,6 +16,7 @@
     vm.idInFocus = ko.observable("");
     vm.courseContactInFocus = ko.observable("");
     vm.courseTypeInFocus = ko.observable("");
+    vm.courseTypes = ko.observableArray(courseTypeOptions);
 
     init(serverModel);
 
@@ -57,6 +60,51 @@
         vm.courseContactInFocus(coursePhone);
         vm.courseTypeInFocus(courseType);
         $("#editPopUp").modal('show');
+    }
+
+    self.editCourse = function() {
+        var editCourseViewModelData = {
+            NewCourseName: vm.courseNameInFocus(),
+            NewCoursePhone: vm.courseContactInFocus(),
+            NewCourseType: vm.courseTypeInFocus()
+        };
+
+        /*if (editCourseViewModelData.NewCoursePhone.length() !== 10) {
+            return;
+        }
+        if (editCourseViewModelData.NewCourseName.length() < 3) {
+            return;
+        }
+        if (editCourseViewModelData.NewCourseType.length() < 10) {
+            return;
+        }*/
+
+        $.ajax("/Privileges/EditExistingGolfCoursePrivilege",
+            {
+                type: "post",
+                data: {
+                    //__RequestVerificationToken: self.antiForgeryRequestToken,
+                    editCourseViewModel: editCourseViewModelData
+                },
+                success: function (data) {
+                    if (data === 1) {
+                        alert("You must be signed in.");
+                    }
+                    else if (data === 2) {
+                        alert("You do not own that course");
+                    }
+                    else if (data === true) {
+                        alert("The golf course has been deleted.");
+                        window.location.reload();
+                    }
+                    else if (data === false) {
+                        alert("There was an error deleting the golf course.");
+                    }
+                },
+                error: function () {
+                    //vm.errorShow(true);
+                }
+            });
     }
 
     self.deleteCourse = function () {

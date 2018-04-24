@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using AirCaddy.Data;
+using AirCaddy.Data.CustomDataModels;
 using AirCaddy.Data.Repositories;
 using AirCaddy.Domain.ViewModels.GolfCourses;
 
@@ -240,16 +241,15 @@ namespace AirCaddy.Domain.Services.GolfCourses
         }
 
         private IEnumerable<GolfCourseHoleRatingViewModel> MapCourseReviewDataToViewModelList(
-            IEnumerable<GolfCourseComment> golfCourseHoleRatings)
+            IEnumerable<GolfCourseRatingCommentUsername> golfCourseHoleRatings)
         {
             return golfCourseHoleRatings.Select(golfCourseHoleRating => new GolfCourseHoleRatingViewModel
             {
-                Id = golfCourseHoleRating.Id,
                 Comment = golfCourseHoleRating.HoleComment,
                 Difficulty = golfCourseHoleRating.DifficultyRating,
                 GolfCourseId = golfCourseHoleRating.GolfCourseId,
                 HoleNumber = golfCourseHoleRating.HoleNumber,
-                Username = golfCourseHoleRating.UserId
+                Username = golfCourseHoleRating.Username
             })
             .ToList();
         }

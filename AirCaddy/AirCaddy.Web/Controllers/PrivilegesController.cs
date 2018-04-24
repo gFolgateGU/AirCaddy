@@ -138,7 +138,7 @@ namespace AirCaddy.Controllers
             {
                 return Json(1);
             }
-            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+            //var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
 
             //var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(id, userId);
 

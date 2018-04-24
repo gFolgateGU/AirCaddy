@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirCaddy.Data.CustomDataModels;
 
 namespace AirCaddy.Data.Repositories
 {
@@ -36,7 +38,7 @@ namespace AirCaddy.Data.Repositories
 
         Task<IEnumerable<GolfCourseVideo>> GetGolfCourseVideos(int golfCourseId);
 
-        Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId);
+        Task<IEnumerable<GolfCourseRatingCommentUsername>> GetGolfCourseReviews(int golfCourseId);
 
         Task<bool> StoreDifficultyRating(GolfCourseComment difficultyRatingComment);
 
@@ -153,10 +155,14 @@ namespace AirCaddy.Data.Repositories
             return golfCourseVideoList;
         }
 
-        public async Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId)
+        public async Task<IEnumerable<GolfCourseRatingCommentUsername>> GetGolfCourseReviews(int golfCourseId)
         {
-            var golfCourseReviews = await _dataEntities.GolfCourseComments
-                .Where(gcc => gcc.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+            var query =
+                "SELECT HoleNumber, DifficultyRating, HoleComment, GolfCourseId, dbo.AspNetUsers.UserName " +
+                "FROM dbo.GolfCourseComments INNER JOIN dbo.AspNetUsers ON dbo.GolfCourseComments.UserId = dbo.AspNetUsers.Id" +
+                " WHERE dbo.GolfCourseComments.GolfCourseId = " + golfCourseId.ToString();
+            var golfCourseReviews =
+                await _dataEntities.Database.SqlQuery<GolfCourseRatingCommentUsername>(query).ToListAsync();
             return golfCourseReviews;
         }
 

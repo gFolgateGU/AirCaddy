@@ -51,17 +51,17 @@
                             <input type="text" class="form-control" id="phone" data-bind="value: courseNameInFocus" />
                             <br />
                             <label for="phone" class="inline-location-ele">Course Phone</label>
-                            <input type="text" class="form-control" id="phone" data-bind="value: courseContactInFocus" />
+                            <input type="number" maxlength="10" class="form-control" id="phone" data-bind="value: courseContactInFocus" />
                             <br />
-                            <label for="type" class="inline-location-ele">Course Phone</label>
-                            <input type="text" class="form-control" rows="5" id="type" data-bind="value: courseTypeInFocus" />
+                            <label for="type" class="inline-location-ele">Course Type</label>
+                            <select class="form-control inline-location-ele" data-bind="options: courseTypes, value: courseTypeInFocus"></select>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button data-bind="click: deleteCourse($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                <button data-bind="click: editCourse($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
             </div>
         </div>
     </div>
@@ -166,7 +166,7 @@
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href=""
+                        <a data-bind="click: $parent.showEditCourse.bind($data, id, courseName, courseContact, type)" href=""
                            title="Edit Golf Course"
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-edit"></i>
