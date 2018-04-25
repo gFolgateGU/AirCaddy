@@ -14,6 +14,8 @@
     vm.coursePhone = serverModel.GolfCoursePhone;
     vm.courseType = serverModel.GolfCourseType;
     vm.courseOwner = serverModel.GolfCourseOwnerId;
+    vm.canRate = serverModel.CanRate;
+    vm.canDeleteRating = serverModel.CanDeleteRating;
     /*vm.courseRatingsForHole = ko.observableArray();
 
     initCourseRatings(serverModel.GolfCourseHoleRatings);

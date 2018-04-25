@@ -33,7 +33,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
 
         Task RequestVideoIdDeletion(string youtubeVideoId);
 
-        Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId);
+        Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId, string sessionUsername);
 
         Task<bool> RequestDifficultyRatingPost(GolfCourseHoleRatingViewModel difficultyRaing, string userId);
 
@@ -147,7 +147,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
             await _golfCourseRepository.DeleteCourseFootageId(youtubeVideoId);
         }
 
-        public async Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId)
+        public async Task<VirtualTourViewModel> GetVirtualTourViewModel(int courseId, string sessionUsername)
         {
             var virtualTourViewModel = new VirtualTourViewModel();
             var golfCourseHoleVideosAndGenInfo = await _golfCourseRepository.GetGolfCourseAndCourseVideoInfo(courseId);
@@ -160,10 +160,21 @@ namespace AirCaddy.Domain.Services.GolfCourses
             virtualTourViewModel.GolfCourseType = golfCourseHoleVideosAndGenInfo.Item1.Type;
             virtualTourViewModel.GolfCourseOwnerId = golfCourseHoleVideosAndGenInfo.Item1.UserId;
 
+            if (sessionUsername == string.Empty)
+            {
+                virtualTourViewModel.CanRate = false;
+                virtualTourViewModel.CanDeleteRating = false;
+            }
+            else
+            {
+                virtualTourViewModel.CanRate = true;
+                virtualTourViewModel.CanDeleteRating = true;
+            }
+
             virtualTourViewModel.GolfCourseHoleVideos = (List<CourseVideoViewModel>) 
                 MapVideoDataToVideoViewModelList(golfCourseHoleVideosAndGenInfo.Item2);
             virtualTourViewModel.GolfCourseHoleRatings = (List<GolfCourseHoleRatingViewModel>) 
-                MapCourseReviewDataToViewModelList(golfCourseHoleReviews);
+                MapCourseReviewDataToViewModelList(golfCourseHoleReviews, sessionUsername);
 
             return virtualTourViewModel;
         }
@@ -244,17 +255,31 @@ namespace AirCaddy.Domain.Services.GolfCourses
         }
 
         private IEnumerable<GolfCourseHoleRatingViewModel> MapCourseReviewDataToViewModelList(
-            IEnumerable<GolfCourseRatingCommentUsername> golfCourseHoleRatings)
+            IEnumerable<GolfCourseRatingCommentUsername> golfCourseHoleRatings, string sessionUsername)
         {
-            return golfCourseHoleRatings.Select(golfCourseHoleRating => new GolfCourseHoleRatingViewModel
+            var golfCourseHoleRatingsVm = new List<GolfCourseHoleRatingViewModel>();
+            foreach (var golfCourseHoleRating in golfCourseHoleRatings)
             {
-                Comment = golfCourseHoleRating.HoleComment,
-                Difficulty = golfCourseHoleRating.DifficultyRating,
-                GolfCourseId = golfCourseHoleRating.GolfCourseId,
-                HoleNumber = golfCourseHoleRating.HoleNumber,
-                Username = golfCourseHoleRating.Username
-            })
-            .ToList();
+                var golfCourseHoleRatingVm = new GolfCourseHoleRatingViewModel
+                {
+                    Comment = golfCourseHoleRating.HoleComment,
+                    Difficulty = golfCourseHoleRating.DifficultyRating,
+                    GolfCourseId = golfCourseHoleRating.GolfCourseId,
+                    HoleNumber = golfCourseHoleRating.HoleNumber,
+                    Username = golfCourseHoleRating.Username,
+                };
+                if (golfCourseHoleRating.Username == sessionUsername)
+                {
+                    golfCourseHoleRatingVm.ShowDeleteRatingOption = true;
+                }
+                else
+                {
+                    golfCourseHoleRatingVm.ShowDeleteRatingOption = false;
+                }
+                golfCourseHoleRatingsVm.Add(golfCourseHoleRatingVm);
+            }
+
+            return golfCourseHoleRatingsVm;
         }
     }
 }

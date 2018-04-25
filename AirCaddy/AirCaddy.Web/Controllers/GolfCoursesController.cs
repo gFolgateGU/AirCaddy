@@ -255,7 +255,17 @@ namespace AirCaddy.Controllers
         [HttpGet]
         public async Task<ActionResult> VirtualTour(int golfCourseId)
         {
-            var vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId);
+            VirtualTourViewModel vm = null;
+
+            if (Session["Username"] == null)
+            {
+                vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId, string.Empty);
+            }
+            else
+            {
+                vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId, Session["Username"].ToString());
+            }
+
             return View(vm);
         }
 

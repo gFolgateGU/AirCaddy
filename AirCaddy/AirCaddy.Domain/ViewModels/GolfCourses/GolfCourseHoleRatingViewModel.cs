@@ -19,5 +19,7 @@ namespace AirCaddy.Domain.ViewModels.GolfCourses
         public string Comment { get; set; }
 
         public string Username { get; set; }
+
+        public bool ShowDeleteRatingOption { get; set; }
     }
 }
