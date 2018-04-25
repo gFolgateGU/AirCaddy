@@ -29,19 +29,6 @@ namespace AirCaddy.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
-        public async Task<ActionResult> MyCourses()
-        {
-            if (Session["Username"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
-            var myCoursesVm = await _golfCourseService.GetMyCourses(userId);
-            return View(myCoursesVm); 
-        }
-
-        [HttpGet]
         [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
         public async Task<ActionResult> ManageMyCourse(int courseId)
         {

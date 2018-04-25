@@ -1,4 +1,4 @@
-﻿var privilege = function(priv, antiForgeryRequestToken) {
+﻿var privilege = function(priv, antiForgeryRequestToken, manageRequestLink) {
 
     var self = this;
 
@@ -8,4 +8,11 @@
     self.courseAddress = priv.CourseAddress;
     self.courseContact = priv.PrimaryContact;
     self.type = priv.CourseType;
+
+    self.manageRequestLinkBase = manageRequestLink;
+
+    self.manageMyCourse = function() {
+        var url = self.manageRequestLinkBase + "?courseId=" + self.id;
+        window.location.href = url;
+    }
 }

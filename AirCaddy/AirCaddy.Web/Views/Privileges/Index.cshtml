@@ -114,7 +114,7 @@
                             <i class="glyphicon glyphicon-trash"></i>
                         </a>
                         <div class="pull-right">
-                            @Html.ActionLink("Manage Footage", "ManageMyCourse", "GolfCourses")
+                            <a href="" data-bind="click: manageMyCourse">Manage Course</a>
                         </div>
                     </div>
                 </div>
@@ -193,12 +193,13 @@
 <script src="~/Scripts/App/Privileges/privileges.summary.viewmodel.js"></script>
 <script>
     $(document).ready(function () {
+        var manageRequestLink = '@Url.Action("ManageMyCourse", "GolfCourses")';
         var form = $('#__AjaxAntiForgeryForm');
         var tokenHeaderValue = $('input[name="__RequestVerificationToken"]', form).val();
         console.log(tokenHeaderValue);
         var model = @Html.Raw(Json.Encode(Model));
         console.log(model);
-        var viewModel = new privilegesSummaryViewModel(model, tokenHeaderValue);
+        var viewModel = new privilegesSummaryViewModel(model, tokenHeaderValue, manageRequestLink);
         ko.applyBindings(viewModel);
     });
 </script>

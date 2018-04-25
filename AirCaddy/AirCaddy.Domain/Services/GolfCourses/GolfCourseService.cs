@@ -103,10 +103,13 @@ namespace AirCaddy.Domain.Services.GolfCourses
             };
             var courseName = _golfCourseRepository.GetGolfCourseName(courseId);
             var yelpCourseApiKey = _golfCourseRepository.GetExistingGolfCourseYelpApiKey(courseId);
-            var reviews = await _yelpGolfCourseReviewservice.GetGolfCourseReviewData(yelpCourseApiKey);
+            if (!string.IsNullOrEmpty(yelpCourseApiKey))
+            {
+                var reviews = await _yelpGolfCourseReviewservice.GetGolfCourseReviewData(yelpCourseApiKey);
+                viewModel.CourseReviews = reviews;
+            }
             viewModel.CourseName = courseName;
             viewModel.CourseId = courseId;
-            viewModel.CourseReviews = reviews;
             return viewModel;
         }
 

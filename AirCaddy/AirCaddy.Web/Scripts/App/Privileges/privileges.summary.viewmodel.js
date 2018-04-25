@@ -1,4 +1,4 @@
-﻿var privilegesSummaryViewModel = function(serverModel, antiForgeryRequestToken) {
+﻿var privilegesSummaryViewModel = function(serverModel, antiForgeryRequestToken, manageRequestLink) {
 
     var vm = this;
 
@@ -25,7 +25,7 @@
         var myPendingPrivileges = [];
 
         serverDataModel.MyCourses.forEach(function(myPrivilege) {
-            myPrivileges.push(new privilege(myPrivilege, antiForgeryRequestToken));
+            myPrivileges.push(new privilege(myPrivilege, antiForgeryRequestToken, manageRequestLink));
         });
 
         serverDataModel.MyPendingCourses.forEach(function(pendingPrivilege) {
@@ -48,13 +48,13 @@
         vm.pendingPrivileges(myPendingPrivileges);
     }
 
-    vm.showDeleteCourse = function (id, courseName) {
+    vm.showDeleteCourse = function(id, courseName) {
         vm.idInFocus(id);
         vm.courseNameInFocus(courseName);
         $("#deletePopUp").modal('show');
     }
 
-    vm.showEditCourse = function (id, courseName, coursePhone, courseType) {
+    vm.showEditCourse = function(id, courseName, coursePhone, courseType) {
         vm.idInFocus(id);
         vm.courseNameInFocus(courseName);
         vm.courseContactInFocus(coursePhone);
@@ -86,28 +86,25 @@
                     //__RequestVerificationToken: self.antiForgeryRequestToken,
                     editCourseViewModel: editCourseViewModelData
                 },
-                success: function (data) {
+                success: function(data) {
                     if (data === 1) {
                         alert("You must be signed in.");
-                    }
-                    else if (data === 2) {
+                    } else if (data === 2) {
                         alert("You do not own that course");
-                    }
-                    else if (data === true) {
+                    } else if (data === true) {
                         alert("The golf course has been deleted.");
                         window.location.reload();
-                    }
-                    else if (data === false) {
+                    } else if (data === false) {
                         alert("There was an error deleting the golf course.");
                     }
                 },
-                error: function () {
+                error: function() {
                     //vm.errorShow(true);
                 }
             });
     }
 
-    self.deleteCourse = function () {
+    self.deleteCourse = function() {
         $.ajax("/Privileges/DeleteExistingGolfCoursePrivilege",
             {
                 type: "post",
@@ -115,22 +112,19 @@
                     //__RequestVerificationToken: self.antiForgeryRequestToken,
                     id: vm.idInFocus()
                 },
-                success: function (data) {
+                success: function(data) {
                     if (data === 1) {
                         alert("You must be signed in.");
-                    }
-                    else if (data === 2) {
+                    } else if (data === 2) {
                         alert("You do not own that course");
-                    }
-                    else if (data === true) {
+                    } else if (data === true) {
                         alert("The golf course has been deleted.");
                         window.location.reload();
-                    }
-                    else if (data === false) {
+                    } else if (data === false) {
                         alert("There was an error deleting the golf course.");
                     }
                 },
-                error: function () {
+                error: function() {
                     //vm.errorShow(true);
                 }
             });

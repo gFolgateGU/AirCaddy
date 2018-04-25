@@ -40,6 +40,12 @@ namespace AirCaddy.Domain.Services.GolfCourses
             //do some logic if the request is null...
 
             var responseData = await GetWebRequestResponse(request);
+
+            if (responseData == null)
+            {
+                return string.Empty;
+            }
+
             var businessesFound = (JArray) responseData.GetValue("businesses");
             var yelpApiId = GetGolfCourseYelpApiIdFromResponse(businessesFound, searchName);
             return yelpApiId;

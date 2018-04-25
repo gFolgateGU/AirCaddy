@@ -24,14 +24,19 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Explore Courses!", "Browse", "GolfCourses")</li>
-                <li>@Html.ActionLink("Manage My Courses", "MyCourses", "GolfCourses")</li>
+                <li>@Html.ActionLink("Explore Courses", "Browse", "GolfCourses")</li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Privileges<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Courses<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Make Privilege Request", "MakeRequest", "Privileges")</li>
+                        <li>@Html.ActionLink("Make New Course Request", "MakeRequest", "Privileges")</li>
                         <li role="separator" class="divider"></li>
-                        <li>@Html.ActionLink("Check Privileges Status", "Index", "Privileges")</li>
+                        <li>@Html.ActionLink("Manage My Courses/Requests", "Index", "Privileges")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Manage Requests", "ManageRequests", "Privileges")</li>
                     </ul>
                 </li>
                 <li class="dropdown">

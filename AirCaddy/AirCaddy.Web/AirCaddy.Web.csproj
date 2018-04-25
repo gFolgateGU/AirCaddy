@@ -264,7 +264,6 @@
     <Content Include="Scripts\App\GolfCourses\golfcourses.explore.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.managecourse.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.course.js" />
-    <Content Include="Scripts\App\GolfCourses\golfcourses.mycourses.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.userreview.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.virtualtour.viewmodel.js" />
     <Content Include="Scripts\App\GolfCourses\golfcourses.yelpreview.js" />
@@ -363,7 +362,6 @@
     <Content Include="Views\Privileges\Index.cshtml" />
     <Content Include="Views\Privileges\ManageRequests.cshtml" />
     <Content Include="Views\GolfCourses\Explore.cshtml" />
-    <Content Include="Views\GolfCourses\MyCourses.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourse.cshtml" />
     <Content Include="Views\GolfCourses\ManageMyCourseModals.cshtml" />
     <Content Include="Views\GolfCourses\VirtualTour.cshtml" />
