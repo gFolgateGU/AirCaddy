@@ -30,5 +30,9 @@ namespace AirCaddy.Domain.ViewModels.GolfCourses
         public List<CourseVideoViewModel> GolfCourseHoleVideos { get; set; }
 
         public List<GolfCourseHoleRatingViewModel> GolfCourseHoleRatings { get; set; }
+
+        public bool CanRate { get; set; }
+
+        public bool CanDeleteRating { get; set; }
     }
 }
