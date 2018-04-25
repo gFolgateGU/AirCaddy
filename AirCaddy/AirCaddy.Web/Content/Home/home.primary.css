@@ -19,10 +19,49 @@ p.AboutParagraph {
 }
 
 button.HomeBtn {
-    font-size: large;
-    height: 75px;
-    width: 300px;
-    border-radius: 10px;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 22px;
+    padding: 20px;
+    width: 450px;
+    max-width: 85%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;  
+}
+
+button.HomeBtn:hover{
+    -moz-box-shadow: 0 0 20px #000000;
+    -webkit-box-shadow: 0 0 20px #000000;
+    box-shadow: 0 0 20px #000000;
+}
+
+button.HomeBtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button.HomeBtn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+button.HomeBtn:hover span {
+    padding-right: 25px;
+}
+
+button.HomeBtn:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 img{

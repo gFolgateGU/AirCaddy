@@ -14,6 +14,10 @@
     background-color: #ccc;
 }
 
+.carousel-inner{
+    background-color: white;
+}
+
 .panel {
     background-color: #fffff0;
 }

@@ -55,6 +55,7 @@
         <e p="Services" t="Include">
           <e p="GolfCourses" t="Include">
             <e p="GolfCourseService.cs" t="Include" />
+            <e p="VimeoFootageService.cs" t="Include" />
             <e p="YelpGolfCourseReviewService.cs" t="Include" />
             <e p="YoutubeGolfService.cs" t="Include" />
           </e>
@@ -130,13 +131,18 @@
         <e p="client_secrets.json" t="Include" />
         <e p="Content" t="Include">
           <e p="aircaddy-main-overrides.css" t="Include" />
+          <e p="bootstrap-theme.css" t="Include" />
+          <e p="bootstrap-theme.css.map" t="Include" />
+          <e p="bootstrap-theme.min.css" t="Include" />
           <e p="bootstrap.css" t="Include" />
+          <e p="bootstrap.css.map" t="Include" />
           <e p="bootstrap.min.css" t="Include" />
           <e p="GolfCourses" t="Include">
-            <e p="AirCaddyLogoNoBackground.png" t="Include" />
+            <e p="AirCaddyLogoCenter1.png" t="Include" />
             <e p="AirCaddyLogoNoBackgroundNEW.png" t="Include" />
             <e p="AirCaddyLogoNoBackgroundweb.jpg" t="Include" />
             <e p="golfcourses.coursegallery.css" t="Include" />
+            <e p="golfcourses.defaultbackground.jpg" t="Include" />
             <e p="golfcourses.explore.css" t="Include" />
             <e p="golfcourses.managemycourse.css" t="Include" />
             <e p="golfcourses.virtualtour.css" t="Include" />
@@ -196,6 +202,7 @@
               <e p="golfcourses.managecourse.viewmodel.js" t="Include" />
               <e p="golfcourses.mycourses.course.js" t="Include" />
               <e p="golfcourses.mycourses.viewmodel.js" t="Include" />
+              <e p="golfcourses.userreview.js" t="Include" />
               <e p="golfcourses.virtualtour.viewmodel.js" t="Include" />
               <e p="golfcourses.yelpreview.js" t="Include" />
             </e>
@@ -203,15 +210,32 @@
             <e p="Privileges" t="Include">
               <e p="privileges.makerequest.viewmodel.js" t="Include" />
               <e p="privileges.managerequests.viewmodel.js" t="Include" />
+              <e p="privileges.privilege.js" t="Include" />
               <e p="privileges.request.js" t="Include" />
+              <e p="privileges.summary.viewmodel.js" t="Include" />
             </e>
           </e>
           <e p="bootstrap.js" t="Include" />
           <e p="bootstrap.min.js" t="Include" />
+          <e p="esm" t="Include">
+            <e p="popper-utils.js" t="Include" />
+            <e p="popper-utils.js.map" t="Include" />
+            <e p="popper-utils.min.js" t="Include" />
+            <e p="popper-utils.min.js.map" t="Include" />
+            <e p="popper.js" t="Include" />
+            <e p="popper.js.map" t="Include" />
+            <e p="popper.min.js" t="Include" />
+            <e p="popper.min.js.map" t="Include" />
+          </e>
+          <e p="index.d.ts" t="Include" />
           <e p="jquery-1.10.2.intellisense.js" t="Include" />
-          <e p="jquery-1.10.2.js" t="Include" />
-          <e p="jquery-1.10.2.min.js" t="Include" />
-          <e p="jquery-1.10.2.min.map" t="Include" />
+          <e p="jquery-3.0.0-vsdoc.js" t="Include" />
+          <e p="jquery-3.0.0.js" t="Include" />
+          <e p="jquery-3.0.0.min.js" t="Include" />
+          <e p="jquery-3.0.0.min.map" t="Include" />
+          <e p="jquery-3.0.0.slim.js" t="Include" />
+          <e p="jquery-3.0.0.slim.min.js" t="Include" />
+          <e p="jquery-3.0.0.slim.min.map" t="Include" />
           <e p="jquery.validate-vsdoc.js" t="Include" />
           <e p="jquery.validate.js" t="Include" />
           <e p="jquery.validate.min.js" t="Include" />
@@ -220,8 +244,29 @@
           <e p="knockout-3.4.2.debug.js" t="Include" />
           <e p="knockout-3.4.2.js" t="Include" />
           <e p="modernizr-2.6.2.js" t="Include" />
+          <e p="popper-utils.js" t="Include" />
+          <e p="popper-utils.js.map" t="Include" />
+          <e p="popper-utils.min.js" t="Include" />
+          <e p="popper-utils.min.js.map" t="Include" />
+          <e p="popper.js" t="Include" />
+          <e p="popper.js.map" t="Include" />
+          <e p="popper.min.js" t="Include" />
+          <e p="popper.min.js.map" t="Include" />
+          <e p="README.md" t="Include" />
           <e p="respond.js" t="Include" />
           <e p="respond.min.js" t="Include" />
+          <e p="spin.js" t="Include" />
+          <e p="spin.min.js" t="Include" />
+          <e p="umd" t="Include">
+            <e p="popper-utils.js" t="Include" />
+            <e p="popper-utils.js.map" t="Include" />
+            <e p="popper-utils.min.js" t="Include" />
+            <e p="popper-utils.min.js.map" t="Include" />
+            <e p="popper.js" t="Include" />
+            <e p="popper.js.map" t="Include" />
+            <e p="popper.min.js" t="Include" />
+            <e p="popper.min.js.map" t="Include" />
+          </e>
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
