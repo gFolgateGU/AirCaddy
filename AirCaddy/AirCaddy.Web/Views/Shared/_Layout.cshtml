@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <center><input type="image" img src="~/Content/GolfCourses/AirCaddyLogoCenter1.png"  alt="AirCaddyLogo" style="max-width:180px; margin-top:+1px" name="AirCaddyLogo" class="btTxt submit" id="homeForm" /></center>
+            <center><input onclick="navigateToHome()" type="image" img src="~/Content/GolfCourses/AirCaddyLogoCenter1.png"  alt="AirCaddyLogo" style="max-width:180px; margin-top:+1px" name="AirCaddyLogo" class="btTxt submit" id="homeForm" /></center>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -57,5 +57,12 @@
 <!--Scripts.Render("~/bundles/jquery")
 Scripts.Render("~/bundles/bootstrap")-->
 @RenderSection("scripts", required: false)
+
+<script>
+    function navigateToHome() {
+        var homeUrl = '@Url.Action("Index", "Home")';
+        window.location.href = homeUrl;
+    }
+</script>
 </body>
 </html>
