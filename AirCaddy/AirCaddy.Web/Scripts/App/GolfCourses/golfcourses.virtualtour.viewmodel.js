@@ -14,6 +14,8 @@
     vm.coursePhone = serverModel.GolfCoursePhone;
     vm.courseType = serverModel.GolfCourseType;
     vm.courseOwner = serverModel.GolfCourseOwnerId;
+    vm.canRate = serverModel.CanRate;
+    vm.canDeleteRating = serverModel.CanDeleteRating;
     /*vm.courseRatingsForHole = ko.observableArray();
 
     initCourseRatings(serverModel.GolfCourseHoleRatings);
@@ -85,7 +87,11 @@
                     difficultyRating: difficultyRatingModel
                 },
                 success: function (data) {
-                    alert(data);
+                    if (data === true) {
+                        location.reload();
+                        //refreshRatingsForHole();
+                    }
+                    //alert(data);
                     
                     vm.hideRatingPopUp();
                     //if (data === 1) {
@@ -129,7 +135,7 @@
         else if (averageRating <= 7.0) {
             vm.difficultyBarColor("w3-yellow");
         }
-        else {
+        else if (averageRating <= 10.0) {
             vm.difficultyBarColor("w3-red");
         }
     }
@@ -163,7 +169,7 @@
         var courseRatings = [];
         serverModel.GolfCourseHoleRatings.forEach(function (courseHoleRating) {
             if (courseHoleRating.HoleNumber === vm.holeInFocus()) {
-                courseRatings.push(new userReview(courseHoleRating));
+                courseRatings.push(new userReview(courseHoleRating, antiForgeryRequestToken));
             }
         });
 
@@ -175,6 +181,17 @@
 
         return courseRatings;
     });
+
+    function refreshRatingsForHole() {
+        var courseRatings = [];
+        var objData = {};
+        objData.HoleNumber = 3;
+        objData.GolfCourseId = 10;
+        objData.Difficulty = 6;
+        objData.Comment = "Success dude here!";
+        courseRatings.push(new userReview(objData));
+        return courseRatings;
+    }
 
     vm.averageRating = ko.computed(function () {
         vm.percentFilledDifficultyBar("0%");
@@ -191,14 +208,21 @@
 
         if (numberOfReviews === 0) {
             //do something here and say we don't have any reviews
+            var baseRating = 0;
+            var percentToFillCssPop = baseRating + "%";
+            vm.percentFilledDifficultyBar(baseRating);
+            vm.numberOfReviews(numberOfReviews);
+            highlightDifficultyRatingBar(baseRating);
+            return baseRating;
+        } else {
+            var averageRating = runningRatingTotal / numberOfReviews;
+            var percentToFillNum = averageRating * 10;
+            var percentToFillCssProp = percentToFillNum + "%";
+            vm.percentFilledDifficultyBar(percentToFillCssProp);
+            vm.numberOfReviews(numberOfReviews);
+            highlightDifficultyRatingBar(averageRating);
+            return averageRating;
         }
 
-        var averageRating = runningRatingTotal / numberOfReviews;
-        var percentToFillNum = averageRating * 10;
-        var percentToFillCssProp = percentToFillNum + "%";
-        vm.percentFilledDifficultyBar(percentToFillCssProp);
-        vm.numberOfReviews(numberOfReviews);
-        highlightDifficultyRatingBar(averageRating);
-        return averageRating;
     });
 }

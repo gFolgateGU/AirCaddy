@@ -115,6 +115,7 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomDataModels\GolfCourseRatingCommentUsername.cs" />
     <Compile Include="CustomDataModels\UserPrivilegeRequest.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>AirCaddyDataEntities.tt</DependentUpon>

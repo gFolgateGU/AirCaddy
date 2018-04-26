@@ -8,6 +8,8 @@ namespace AirCaddy.Domain.ViewModels.Privileges
 {
     public class GolfCourseInfoViewModel
     {
+        public int CourseId { get; set; }
+
         public string CourseName { get; set; }
 
         public string CourseAddress { get; set; }

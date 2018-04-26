@@ -1,12 +1,77 @@
 ﻿@model AirCaddy.Domain.ViewModels.Privileges.PrivilegesSummaryViewModel
 
 <h2>My Privileges</h2>
-<hr/>
+<hr />
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "__AjaxAntiForgeryForm" }))
+{
+    @Html.AntiForgeryToken()
+}
+
+<!--Delete Modal-->
+<div class="modal fade" id="deletePopUp" tabindex="-1" role="dialog" aria-labelledby="denyPopUpLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="denyPopUpLabel">
+                    <strong>Confirm Decision</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to <strong>delete</strong>&nbsp;<i><span data-bind="text: courseNameInFocus"></span></i></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button data-bind="click: deleteCourse($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Delete Modal-->
+<!--Edit Modal-->
+<div class="modal fade" id="editPopUp" tabindex="-1" role="dialog" aria-labelledby="denyPopUpLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="editPopUpLabel">
+                    <strong>Edit Course Information</strong>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="inline-location-ele">Course Name</label>
+                            <input type="text" class="form-control" id="phone" data-bind="value: courseNameInFocus" />
+                            <br />
+                            <label for="phone" class="inline-location-ele">Course Phone</label>
+                            <input type="number" maxlength="10" class="form-control" id="phone" data-bind="value: courseContactInFocus" />
+                            <br />
+                            <label for="type" class="inline-location-ele">Course Type</label>
+                            <select class="form-control inline-location-ele" data-bind="options: courseTypes, value: courseTypeInFocus"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button data-bind="click: editCourse($data, idInFocus)" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Edit Modal-->
 
 <div data-bind="visible: privilegesVisible">
     <div data-bind="foreach: myPrivileges">
         <div class="panel">
-            <div style="background-color: #90ee90"class="panel-heading">
+            <div style="background-color: #90ee90" class="panel-heading">
                 <h1 class="panel-title"><span data-bind="text: courseName"></span></h1>
             </div>
             <div class="panel-body">
@@ -32,27 +97,30 @@
                     </div>
                     <div class="col-xs-8 col-md-9">
                         <span data-bind="text: type"></span>
-                    </div>                
+                    </div>
                 </div>
             </div>
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href="#"
-                           title="Edit Product"
+                        <a data-bind="click: $parent.showEditCourse.bind($data, id, courseName, courseContact, type)" href=""
+                           title="Edit Golf Course"
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
-                        <a href="#"
-                           title="Delete Product"
+                        <a data-bind="click: $parent.showDeleteCourse.bind($data, id, courseName)" href=""
+                           title="Delete Golf Course"
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-trash"></i>
                         </a>
+                        <div class="pull-right">
+                            <a href="" data-bind="click: manageMyCourse">Manage Course</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>    
-    </div>   
+        </div>
+    </div>
 </div>
 <div data-bind="visible: noPrivilegesVisible">
     <div class="jumbotron text-center">
@@ -98,13 +166,13 @@
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href="#"
-                           title="Edit Product"
+                        <a data-bind="click: $parent.showEditCourse.bind($data, id, courseName, courseContact, type)" href=""
+                           title="Edit Golf Course"
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
-                        <a href="#"
-                           title="Delete Product"
+                        <a data-bind="click: $parent.showDeleteCourse.bind($data, id, courseName)" href=""
+                           title="Delete Golf Course"
                            class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-trash"></i>
                         </a>
@@ -124,10 +192,14 @@
 <script src="~/Scripts/App/Privileges/privileges.privilege.js"></script>
 <script src="~/Scripts/App/Privileges/privileges.summary.viewmodel.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        var manageRequestLink = '@Url.Action("ManageMyCourse", "GolfCourses")';
+        var form = $('#__AjaxAntiForgeryForm');
+        var tokenHeaderValue = $('input[name="__RequestVerificationToken"]', form).val();
+        console.log(tokenHeaderValue);
         var model = @Html.Raw(Json.Encode(Model));
         console.log(model);
-        var viewModel = new privilegesSummaryViewModel(model);
+        var viewModel = new privilegesSummaryViewModel(model, tokenHeaderValue, manageRequestLink);
         ko.applyBindings(viewModel);
     });
 </script>

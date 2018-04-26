@@ -10,6 +10,7 @@ using AirCaddy.Domain.Services.Privileges;
 using AirCaddy.Domain.Special;
 using AirCaddy.Domain.ViewModels;
 using AirCaddy.Domain.ViewModels.Privileges;
+using AirCaddy.Domain.ViewModels.GolfCourses;
 
 namespace AirCaddy.Controllers
 {
@@ -35,6 +36,10 @@ namespace AirCaddy.Controllers
         [Authorize(Roles = "User, GolfCourseOwner, Admin")]
         public async Task<ActionResult> Index()
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             var vm = await _privilegeRequestHandlerService.GetPrivilegesSummaryForUserAsync(userId);
             return View(vm);
@@ -42,6 +47,7 @@ namespace AirCaddy.Controllers
 
         // GET: ManageRequests
         [HttpGet]
+        [Authorize(Roles =("Admin"))]
         public async Task<ActionResult> ManageRequests()
         {
             var vm = await _privilegeRequestHandlerService.RetrievePendingPrivilegeRequestsAsync();
@@ -61,6 +67,10 @@ namespace AirCaddy.Controllers
         [Authorize(Roles="User, GolfCourseOwner, Admin")]
         public async Task<ActionResult> MakeRequest(PrivilegeRequestViewModel privilegeData)
         {
+            if (Session["Username"] == null)
+            {
+                return Json(false);
+            }
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             if (await _privilegeRequestHandlerService.IsDuplicateEntryAsync(privilegeData))
             {
@@ -77,6 +87,7 @@ namespace AirCaddy.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles =("Admin"))]
         public async Task<ActionResult> AcceptRequest(int id)
         {
             await _courseBuilder.BuildCourse(id);
@@ -89,12 +100,56 @@ namespace AirCaddy.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles =("Admin"))]
         public async Task<ActionResult> DenyRequest(int id)
         {
-
             await _privilegeRequestHandlerService.RequestDeleteAsync(id);
             
             return Json(1);
+        }
+
+        [HttpPost]
+        [Authorize(Roles="User, GolfCourseOwner, Admin")]
+        public async Task<ActionResult> DeleteExistingGolfCoursePrivilege(int id)
+        {
+            if (Session["Username"] == null)
+            {
+                return Json(1);
+            }
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+
+            var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(id, userId);
+
+            if (courseOwnedByUser == null)
+            {
+                //That user does not own that course.
+                return Json(2);
+            }
+
+            var result = await _golfCourseService.RequestDeleteGolfCourse(id);
+            return Json(result);
+        }
+
+        [HttpPost]
+        [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> EditExistingGolfCoursePrivilege(EditCourseViewModel editCourseViewModel)
+        {
+            if (Session["Username"] == null)
+            {
+                return Json(1);
+            }
+            //var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+
+            //var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(id, userId);
+
+            //if (courseOwnedByUser == null)
+            //{
+            //    //That user does not own that course.
+            //    return Json(2);
+            //}
+
+
+            return Json(false);
         }
     }
 }

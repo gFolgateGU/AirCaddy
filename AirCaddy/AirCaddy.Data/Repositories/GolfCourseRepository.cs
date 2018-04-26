@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirCaddy.Data.CustomDataModels;
 
 namespace AirCaddy.Data.Repositories
 {
@@ -36,9 +38,13 @@ namespace AirCaddy.Data.Repositories
 
         Task<IEnumerable<GolfCourseVideo>> GetGolfCourseVideos(int golfCourseId);
 
-        Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId);
+        Task<IEnumerable<GolfCourseRatingCommentUsername>> GetGolfCourseReviews(int golfCourseId);
 
         Task<bool> StoreDifficultyRating(GolfCourseComment difficultyRatingComment);
+
+        Task<bool> DeleteGolfCourse(int golfCourseId);
+
+        Task<bool> DeleteGolfCourseHoleRatingAsync(int reviewId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -151,10 +157,14 @@ namespace AirCaddy.Data.Repositories
             return golfCourseVideoList;
         }
 
-        public async Task<IEnumerable<GolfCourseComment>> GetGolfCourseReviews(int golfCourseId)
+        public async Task<IEnumerable<GolfCourseRatingCommentUsername>> GetGolfCourseReviews(int golfCourseId)
         {
-            var golfCourseReviews = await _dataEntities.GolfCourseComments
-                .Where(gcc => gcc.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+            var query =
+                "SELECT dbo.GolfCourseComments.Id, HoleNumber, DifficultyRating, HoleComment, GolfCourseId, dbo.AspNetUsers.UserName " +
+                "FROM dbo.GolfCourseComments INNER JOIN dbo.AspNetUsers ON dbo.GolfCourseComments.UserId = dbo.AspNetUsers.Id" +
+                " WHERE dbo.GolfCourseComments.GolfCourseId = " + golfCourseId.ToString();
+            var golfCourseReviews =
+                await _dataEntities.Database.SqlQuery<GolfCourseRatingCommentUsername>(query).ToListAsync();
             return golfCourseReviews;
         }
 
@@ -168,8 +178,44 @@ namespace AirCaddy.Data.Repositories
             }
             catch (Exception e)
             {
+                e.GetBaseException();
                 return false;
             }
+        }
+
+        public async Task<bool> DeleteGolfCourse(int golfCourseId)
+        {
+            try
+            {
+                /*var golfCourseCommentsToRemove = _dataEntities.GolfCourseComments
+                    .Where(gc => gc.GolfCourseId.Equals(golfCourseId)).ToListAsync();
+                var golfCourseHolesToRemove*/
+                var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(golfCourseId)).FirstOrDefaultAsync();
+                _dataEntities.GolfCourses.Remove(golfCourse);
+                await _dataEntities.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> DeleteGolfCourseHoleRatingAsync(int reviewId)
+        {
+            try
+            {
+                var golfCourseHoleRating = await _dataEntities.GolfCourseComments.Where(gcc => gcc.Id.Equals(reviewId)).FirstOrDefaultAsync();
+                _dataEntities.GolfCourseComments.Remove(golfCourseHoleRating);
+                await _dataEntities.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+                return false;
+            }
+            return true;
         }
     }
 }

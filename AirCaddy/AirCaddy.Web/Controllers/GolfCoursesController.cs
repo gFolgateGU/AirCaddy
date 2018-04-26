@@ -29,19 +29,6 @@ namespace AirCaddy.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles=("User, GolfCourseOwner, Admin"))]
-        public async Task<ActionResult> MyCourses()
-        {
-            if (Session["Username"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
-            var myCoursesVm = await _golfCourseService.GetMyCourses(userId);
-            return View(myCoursesVm); 
-        }
-
-        [HttpGet]
         [Authorize(Roles = ("User, GolfCourseOwner, Admin"))]
         public async Task<ActionResult> ManageMyCourse(int courseId)
         {
@@ -268,7 +255,17 @@ namespace AirCaddy.Controllers
         [HttpGet]
         public async Task<ActionResult> VirtualTour(int golfCourseId)
         {
-            var vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId);
+            VirtualTourViewModel vm = null;
+
+            if (Session["Username"] == null)
+            {
+                vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId, string.Empty);
+            }
+            else
+            {
+                vm = await _golfCourseService.GetVirtualTourViewModel(golfCourseId, Session["Username"].ToString());
+            }
+
             return View(vm);
         }
 
@@ -278,13 +275,26 @@ namespace AirCaddy.Controllers
         {
             if (Session["Username"] == null)
             {
-                return RedirectToAction("Login", "Account");
+                //Need to handle this if the user is not logged in...
+                return Json(2);
             }
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
             var resultStatus =
                 await _golfCourseService.RequestDifficultyRatingPost(difficultyRating, userId);
 
             return Json(resultStatus);
+        }
+
+        [HttpPost]
+        [Authorize(Roles =("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> DeleteDifficultyCommentRatingForHole(int reviewId)
+        {
+            var result = await _golfCourseService.RequestDeleteGolfCourseHoleRatingAsync(reviewId);
+            if (result == true)
+            {
+                return Json(true);
+            }
+            return Json(false);
         }
     }  
 }

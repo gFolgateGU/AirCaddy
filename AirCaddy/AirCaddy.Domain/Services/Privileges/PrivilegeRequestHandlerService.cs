@@ -126,6 +126,7 @@ namespace AirCaddy.Domain.Services.Privileges
             {
                 var golfCourseInfoVm = new GolfCourseInfoViewModel
                 {
+                    CourseId = userGolfCourse.Id,
                     CourseName = userGolfCourse.Name,
                     CourseAddress = userGolfCourse.Address,
                     CourseType = userGolfCourse.Type,
@@ -137,6 +138,8 @@ namespace AirCaddy.Domain.Services.Privileges
             {
                 var golfCourseInfoVm = new GolfCourseInfoViewModel
                 {
+                    //This is really the privilege idenitifer...
+                    CourseId = userPendingRequest.Id,
                     CourseName = userPendingRequest.GolfCourseName,
                     CourseAddress = userPendingRequest.GolfCourseAddress,
                     CourseType = userPendingRequest.GolfCourseType,
