@@ -284,5 +284,17 @@ namespace AirCaddy.Controllers
 
             return Json(resultStatus);
         }
+
+        [HttpPost]
+        [Authorize(Roles =("User, GolfCourseOwner, Admin"))]
+        public async Task<ActionResult> DeleteDifficultyCommentRatingForHole(int reviewId)
+        {
+            var result = await _golfCourseService.RequestDeleteGolfCourseHoleRatingAsync(reviewId);
+            if (result == true)
+            {
+                return Json(true);
+            }
+            return Json(false);
+        }
     }  
 }

@@ -169,7 +169,7 @@
         var courseRatings = [];
         serverModel.GolfCourseHoleRatings.forEach(function (courseHoleRating) {
             if (courseHoleRating.HoleNumber === vm.holeInFocus()) {
-                courseRatings.push(new userReview(courseHoleRating));
+                courseRatings.push(new userReview(courseHoleRating, antiForgeryRequestToken));
             }
         });
 

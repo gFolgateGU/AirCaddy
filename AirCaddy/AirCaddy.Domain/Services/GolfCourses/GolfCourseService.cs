@@ -40,6 +40,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
         bool IsProperVideoFileExtension(string videoFileExtensionType);
 
         Task<bool> RequestDeleteGolfCourse(int courseId);
+
+        Task<bool> RequestDeleteGolfCourseHoleRatingAsync(int reviewId);
     }
 
     public class GolfCourseService : IGolfCourseService
@@ -224,6 +226,12 @@ namespace AirCaddy.Domain.Services.GolfCourses
             return result;
         }
 
+        public async Task<bool> RequestDeleteGolfCourseHoleRatingAsync(int reviewId)
+        {
+            var result = await _golfCourseRepository.DeleteGolfCourseHoleRatingAsync(reviewId);
+            return result;
+        }
+
         private IEnumerable<GolfCourseViewModel> MapGolfEntityModelToGolfViewModel(
             IEnumerable<GolfCourse> golfCourseEntities)
         {
@@ -262,6 +270,7 @@ namespace AirCaddy.Domain.Services.GolfCourses
             {
                 var golfCourseHoleRatingVm = new GolfCourseHoleRatingViewModel
                 {
+                    Id = golfCourseHoleRating.Id,
                     Comment = golfCourseHoleRating.HoleComment,
                     Difficulty = golfCourseHoleRating.DifficultyRating,
                     GolfCourseId = golfCourseHoleRating.GolfCourseId,

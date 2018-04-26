@@ -113,18 +113,21 @@
 
     <!--Reviews-->
     <div style="padding-top: 2.5%" data-bind="foreach: courseRatingsForHole">
-        <button data-bind="click: toggleReview" class="accordion"><strong><span data-bind="text: username"></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span data-bind="text: difficulty"></span> / 10)</button>
-        <div data-bind="visible: reviewVisibleFlag" class="container panel col-xs-12">
-            <div class="row panel-cover">
-                <div class="col-xs-1">
-                    <p><strong>Review: </strong>
-                    </p>
-                </div>
-                <div class="col-xs-11">
-                    <p data-bind="text: comment"></p>
-                </div>
-                <div class="col-xs-12 text-center">
-                    <button class="btn btn-danger">Delete Comment</button>
+        <div data-bind="visible: parentContainerNonDeleteVisible">
+            <button data-bind="click: toggleReview" class="accordion"><strong><span data-bind="text: username"></span></strong>&nbsp;&nbsp;&nbsp;Rating - (<span data-bind="text: difficulty"></span> / 10)</button>
+            <div data-bind="visible: reviewVisibleFlag" class="container panel col-xs-12">
+                <div class="row panel-cover">
+                    <div class="col-xs-1">
+                        <p>
+                            <strong>Review: </strong>
+                        </p>
+                    </div>
+                    <div class="col-xs-11">
+                        <p data-bind="text: comment"></p>
+                    </div>
+                    <div data-bind="visible: showDeleteRatingOption" class="col-xs-12 text-center">
+                        <button data-bind="click: deleteUserReview" class="btn btn-danger">Delete Comment</button>
+                    </div>
                 </div>
             </div>
         </div>

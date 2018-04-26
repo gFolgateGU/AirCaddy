@@ -8,6 +8,8 @@ namespace AirCaddy.Data.CustomDataModels
 {
     public class GolfCourseRatingCommentUsername
     {
+        public int Id { get; set; }
+
         public int HoleNumber { get; set; }
 
         public int DifficultyRating { get; set; }

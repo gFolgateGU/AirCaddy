@@ -43,6 +43,8 @@ namespace AirCaddy.Data.Repositories
         Task<bool> StoreDifficultyRating(GolfCourseComment difficultyRatingComment);
 
         Task<bool> DeleteGolfCourse(int golfCourseId);
+
+        Task<bool> DeleteGolfCourseHoleRatingAsync(int reviewId);
     }
 
     public class GolfCourseRepository : BaseRepository, IGolfCourseRepository
@@ -158,7 +160,7 @@ namespace AirCaddy.Data.Repositories
         public async Task<IEnumerable<GolfCourseRatingCommentUsername>> GetGolfCourseReviews(int golfCourseId)
         {
             var query =
-                "SELECT HoleNumber, DifficultyRating, HoleComment, GolfCourseId, dbo.AspNetUsers.UserName " +
+                "SELECT dbo.GolfCourseComments.Id, HoleNumber, DifficultyRating, HoleComment, GolfCourseId, dbo.AspNetUsers.UserName " +
                 "FROM dbo.GolfCourseComments INNER JOIN dbo.AspNetUsers ON dbo.GolfCourseComments.UserId = dbo.AspNetUsers.Id" +
                 " WHERE dbo.GolfCourseComments.GolfCourseId = " + golfCourseId.ToString();
             var golfCourseReviews =
@@ -176,6 +178,7 @@ namespace AirCaddy.Data.Repositories
             }
             catch (Exception e)
             {
+                e.GetBaseException();
                 return false;
             }
         }
@@ -193,6 +196,23 @@ namespace AirCaddy.Data.Repositories
             }
             catch (Exception e)
             {
+                e.GetBaseException();
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> DeleteGolfCourseHoleRatingAsync(int reviewId)
+        {
+            try
+            {
+                var golfCourseHoleRating = await _dataEntities.GolfCourseComments.Where(gcc => gcc.Id.Equals(reviewId)).FirstOrDefaultAsync();
+                _dataEntities.GolfCourseComments.Remove(golfCourseHoleRating);
+                await _dataEntities.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
                 return false;
             }
             return true;
