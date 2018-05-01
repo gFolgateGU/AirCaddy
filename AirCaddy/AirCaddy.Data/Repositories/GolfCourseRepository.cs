@@ -96,8 +96,24 @@ namespace AirCaddy.Data.Repositories
 
         public async Task<GolfCourse> GetCourseOwnedByUser(int courseId, string userId)
         {
-            var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(courseId)).FirstOrDefaultAsync();
-            return golfCourse.UserId == userId ? golfCourse : null;
+            try
+            {
+                var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(courseId)).FirstOrDefaultAsync();
+                if (golfCourse.UserId == userId)
+                {
+                    return golfCourse;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                e.GetBaseException();
+                return null;
+            }
+        
         }
 
         public async Task<Tuple<GolfCourse, List<GolfCourseVideo>>> GetGolfCourseAndCourseVideoInfo(int golfCourseId)

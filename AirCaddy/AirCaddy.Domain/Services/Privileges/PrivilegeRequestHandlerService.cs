@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AirCaddy.Data;
 using AirCaddy.Data.CustomDataModels;
 using AirCaddy.Data.Repositories;
+using AirCaddy.Domain.ViewModels.GolfCourses;
 using AirCaddy.Domain.ViewModels.Privileges;
 using MAX.USPS;
 
@@ -26,6 +27,10 @@ namespace AirCaddy.Domain.Services.Privileges
         Task RequestDeleteAsync(int id);
 
         Task RequestAcceptAsync(int id);
+
+        Task<PrivilegeRequest> RequestUserOwnsPrivilegeRequest(int privilegeId, string userId);
+
+        Task<bool> RequestEditPrivilegeRequest(EditCourseViewModel editCourseVm, PrivilegeRequest privRequestInFocus);
     }
 
     public class PrivilegeRequestHandlerService : IPrivilegeRequestHandlerService
@@ -159,6 +164,32 @@ namespace AirCaddy.Domain.Services.Privileges
         public async Task RequestAcceptAsync(int id)
         {
             await _privilegeRepository.AcceptRequestAsync(id);
+        }
+
+        public async Task<PrivilegeRequest> RequestUserOwnsPrivilegeRequest(int privilegeId, string userId)
+        {
+            var privilegeRequest = await _privilegeRepository.CheckIfPrivilegeRequestIsOwnedByUser(privilegeId, userId);
+            return privilegeRequest;
+        }
+
+        public async Task<bool> RequestEditPrivilegeRequest(EditCourseViewModel editCourseVm, PrivilegeRequest privRequestInFocus)
+        {
+            if (privRequestInFocus.GolfCourseName != editCourseVm.NewCourseName)
+            {
+                privRequestInFocus.GolfCourseName = editCourseVm.NewCourseName;
+            }
+            if (privRequestInFocus.CoursePhoneNumber != editCourseVm.NewCoursePhone)
+            {
+                privRequestInFocus.CoursePhoneNumber = editCourseVm.NewCoursePhone;
+            }
+            if (privRequestInFocus.GolfCourseType != editCourseVm.NewCourseType)
+            {
+                privRequestInFocus.GolfCourseType = editCourseVm.NewCourseType;
+            }
+
+            var result = await _privilegeRepository.EditPrivilegeRequest(privRequestInFocus);
+
+            return result;
         }
     }
 }
