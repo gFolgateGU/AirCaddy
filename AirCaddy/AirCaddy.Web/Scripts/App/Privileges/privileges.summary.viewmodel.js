@@ -64,6 +64,7 @@
 
     self.editCourse = function() {
         var editCourseViewModelData = {
+            CourseId: vm.idInFocus(),
             NewCourseName: vm.courseNameInFocus(),
             NewCoursePhone: vm.courseContactInFocus(),
             NewCourseType: vm.courseTypeInFocus()
@@ -92,10 +93,10 @@
                     } else if (data === 2) {
                         alert("You do not own that course");
                     } else if (data === true) {
-                        alert("The golf course has been deleted.");
+                        alert("The golf course has been edited.");
                         window.location.reload();
                     } else if (data === false) {
-                        alert("There was an error deleting the golf course.");
+                        alert("There was an error updating the golf course");
                     }
                 },
                 error: function() {

@@ -138,18 +138,19 @@ namespace AirCaddy.Controllers
             {
                 return Json(1);
             }
-            //var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
+            var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
 
-            //var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(id, userId);
+            var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(editCourseViewModel.CourseId, userId);
 
-            //if (courseOwnedByUser == null)
-            //{
-            //    //That user does not own that course.
-            //    return Json(2);
-            //}
+            if (courseOwnedByUser == null)
+            {
+                //That user does not own that course.
+                return Json(2);
+            }
 
+            var result = await _golfCourseService.RequestEditGolfCourseProperties(editCourseViewModel, courseOwnedByUser);
 
-            return Json(false);
+            return Json(result);
         }
     }
 }

@@ -41,6 +41,8 @@ namespace AirCaddy.Domain.Services.GolfCourses
 
         Task<bool> RequestDeleteGolfCourse(int courseId);
 
+        Task<bool> RequestEditGolfCourseProperties(EditCourseViewModel editCourseVm, GolfCourse golfCourseInFocus);
+
         Task<bool> RequestDeleteGolfCourseHoleRatingAsync(int reviewId);
     }
 
@@ -223,6 +225,26 @@ namespace AirCaddy.Domain.Services.GolfCourses
         public async Task<bool> RequestDeleteGolfCourse(int courseId)
         {
             var result = await _golfCourseRepository.DeleteGolfCourse(courseId);
+            return result;
+        }
+
+        public async Task<bool> RequestEditGolfCourseProperties(EditCourseViewModel editCourseVm, GolfCourse golfCourseInFocus)
+        {
+            if (golfCourseInFocus.Name != editCourseVm.NewCourseName)
+            {
+                golfCourseInFocus.Name = editCourseVm.NewCourseName;
+            }
+            if (golfCourseInFocus.PhoneNumber != editCourseVm.NewCoursePhone)
+            {
+                golfCourseInFocus.PhoneNumber = editCourseVm.NewCoursePhone;
+            }
+            if (golfCourseInFocus.Type != editCourseVm.NewCourseType)
+            {
+                golfCourseInFocus.Type = editCourseVm.NewCourseType;
+            }
+
+            var result = await _golfCourseRepository.EditGolfCourseProperties(golfCourseInFocus);
+            
             return result;
         }
 

@@ -44,6 +44,8 @@ namespace AirCaddy.Data.Repositories
 
         Task<bool> DeleteGolfCourse(int golfCourseId);
 
+        Task<bool> EditGolfCourseProperties(GolfCourse editedCourse);
+
         Task<bool> DeleteGolfCourseHoleRatingAsync(int reviewId);
     }
 
@@ -195,6 +197,30 @@ namespace AirCaddy.Data.Repositories
                 await _dataEntities.SaveChangesAsync();
             }
             catch (Exception e)
+            {
+                e.GetBaseException();
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> EditGolfCourseProperties(GolfCourse editedCourse)
+        {
+            try
+            {
+                var golfCourse = await _dataEntities.GolfCourses.Where(gc => gc.Id.Equals(editedCourse.Id)).FirstOrDefaultAsync();
+                if (golfCourse != null)
+                {
+                    golfCourse = editedCourse;
+                    _dataEntities.GolfCourses.AddOrUpdate<GolfCourse>(golfCourse);
+                    await _dataEntities.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception e)
             {
                 e.GetBaseException();
                 return false;
