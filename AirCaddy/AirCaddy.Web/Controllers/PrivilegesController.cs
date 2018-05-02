@@ -122,12 +122,21 @@ namespace AirCaddy.Controllers
 
             if (courseOwnedByUser == null)
             {
-                //That user does not own that course.
-                return Json(2);
+                var privRequestOwnedByUser = await _privilegeRequestHandlerService.RequestUserOwnsPrivilegeRequest(id, userId);
+                if (privRequestOwnedByUser == null)
+                {
+                    //That user really does not own that course or request then..
+                    return Json(2);
+                }
+                else
+                {
+                    var privilegeRequestDeletedResult = await _privilegeRequestHandlerService.RequestDeletePrivilegeRequest(id);
+                    return Json(privilegeRequestDeletedResult);
+                }
             }
 
-            var result = await _golfCourseService.RequestDeleteGolfCourse(id);
-            return Json(result);
+            var golfCourseDeleteRequestResult = await _golfCourseService.RequestDeleteGolfCourse(id);
+            return Json(golfCourseDeleteRequestResult);
         }
 
         [HttpPost]

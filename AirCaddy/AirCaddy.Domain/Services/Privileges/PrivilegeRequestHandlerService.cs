@@ -31,6 +31,8 @@ namespace AirCaddy.Domain.Services.Privileges
         Task<PrivilegeRequest> RequestUserOwnsPrivilegeRequest(int privilegeId, string userId);
 
         Task<bool> RequestEditPrivilegeRequest(EditCourseViewModel editCourseVm, PrivilegeRequest privRequestInFocus);
+
+        Task<bool> RequestDeletePrivilegeRequest(int id);
     }
 
     public class PrivilegeRequestHandlerService : IPrivilegeRequestHandlerService
@@ -188,6 +190,13 @@ namespace AirCaddy.Domain.Services.Privileges
             }
 
             var result = await _privilegeRepository.EditPrivilegeRequest(privRequestInFocus);
+
+            return result;
+        }
+
+        public async Task<bool> RequestDeletePrivilegeRequest(int id)
+        {
+            var result = await _privilegeRepository.DeletePrivilegeRequest(id);
 
             return result;
         }

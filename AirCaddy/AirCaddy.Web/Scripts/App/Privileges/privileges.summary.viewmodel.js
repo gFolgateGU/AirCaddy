@@ -91,7 +91,7 @@
                     if (data === 1) {
                         alert("You must be signed in.");
                     } else if (data === 2) {
-                        alert("You do not own that course");
+                        //alert("You do not own that course");
                     } else if (data === true) {
                         alert("The golf course has been edited.");
                         window.location.reload();
@@ -117,7 +117,7 @@
                     if (data === 1) {
                         alert("You must be signed in.");
                     } else if (data === 2) {
-                        alert("You do not own that course");
+                        //alert("You do not own that course");
                     } else if (data === true) {
                         alert("The golf course has been deleted.");
                         window.location.reload();

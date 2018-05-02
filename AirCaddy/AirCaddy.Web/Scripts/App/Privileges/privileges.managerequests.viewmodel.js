@@ -51,6 +51,7 @@
                 success: function (data) {
                     if (data === 1) {
                         alert("The course has been denied.");
+                        window.location.reload();
                         //course is a duplicate entry
                         //vm.duplicateEntryShow(true);
                         //resetFields();
@@ -73,6 +74,7 @@
                     success: function (data) {
                         if (data === 1) {
                             alert("The course has been accepted.");
+                            window.location.reload();
                             //course is a duplicate entry
                             //vm.duplicateEntryShow(true);
                             //resetFields();

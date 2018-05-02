@@ -139,7 +139,28 @@ namespace AirCaddy.Data.Repositories
 
         public async Task<bool> DeletePrivilegeRequest(int id)
         {
-            return false;
+            try
+            {
+                var privRequestToBeDeleted = await _dataEntities.PrivilegeRequests.Where(pr => pr.Id.Equals(id)).FirstOrDefaultAsync();
+
+                if (privRequestToBeDeleted != null)
+                {
+                    _dataEntities.PrivilegeRequests.Remove(privRequestToBeDeleted);
+
+                    await _dataEntities.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+                return false;
+            }
+
+            return true; ;
         }
     }
 }
