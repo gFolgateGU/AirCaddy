@@ -24,6 +24,12 @@ namespace AirCaddy.Data.Repositories
         Task AcceptRequestAsync(int id);
 
         Task<PrivilegeRequest> GetPrivilegeRequest(int id);
+
+        Task<PrivilegeRequest> CheckIfPrivilegeRequestIsOwnedByUser(int id, string userId);
+
+        Task<bool> EditPrivilegeRequest(PrivilegeRequest updatedPrivilegeRequest);
+
+        Task<bool> DeletePrivilegeRequest(int id);
     }
 
     public class PrivilegeRepository : BaseRepository, IPrivilegeRepository
@@ -84,6 +90,77 @@ namespace AirCaddy.Data.Repositories
         {
             var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(id)).FirstOrDefaultAsync();
             return privRequest;
+        }
+
+        public async Task<PrivilegeRequest> CheckIfPrivilegeRequestIsOwnedByUser(int id, string userId)
+        {
+            try
+            {
+                var privRequest = await _dataEntities.PrivilegeRequests.Where(pr => pr.Id.Equals(id)).FirstOrDefaultAsync();
+                if (privRequest.UserId == userId)
+                {
+                    return privRequest;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+                e.GetBaseException();
+                return null;
+            }
+        }
+
+        public async Task<bool> EditPrivilegeRequest(PrivilegeRequest updatedPrivilegeRequest)
+        {
+            try
+            {
+                var privRequest = await _dataEntities.PrivilegeRequests.Where(gc => gc.Id.Equals(updatedPrivilegeRequest.Id)).FirstOrDefaultAsync();
+                if (privRequest != null)
+                {
+                    privRequest = updatedPrivilegeRequest;
+                    
+                    await _dataEntities.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> DeletePrivilegeRequest(int id)
+        {
+            try
+            {
+                var privRequestToBeDeleted = await _dataEntities.PrivilegeRequests.Where(pr => pr.Id.Equals(id)).FirstOrDefaultAsync();
+
+                if (privRequestToBeDeleted != null)
+                {
+                    _dataEntities.PrivilegeRequests.Remove(privRequestToBeDeleted);
+
+                    await _dataEntities.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+                return false;
+            }
+
+            return true; ;
         }
     }
 }

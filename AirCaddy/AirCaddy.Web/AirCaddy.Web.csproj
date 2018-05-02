@@ -381,6 +381,7 @@
   <ItemGroup>
     <Folder Include="App_Data\TempFootageUploads\" />
     <Folder Include="Scripts\App\Home\" />
+    <Folder Include="Scripts\App\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

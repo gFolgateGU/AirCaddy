@@ -122,12 +122,21 @@ namespace AirCaddy.Controllers
 
             if (courseOwnedByUser == null)
             {
-                //That user does not own that course.
-                return Json(2);
+                var privRequestOwnedByUser = await _privilegeRequestHandlerService.RequestUserOwnsPrivilegeRequest(id, userId);
+                if (privRequestOwnedByUser == null)
+                {
+                    //That user really does not own that course or request then..
+                    return Json(2);
+                }
+                else
+                {
+                    var privilegeRequestDeletedResult = await _privilegeRequestHandlerService.RequestDeletePrivilegeRequest(id);
+                    return Json(privilegeRequestDeletedResult);
+                }
             }
 
-            var result = await _golfCourseService.RequestDeleteGolfCourse(id);
-            return Json(result);
+            var golfCourseDeleteRequestResult = await _golfCourseService.RequestDeleteGolfCourse(id);
+            return Json(golfCourseDeleteRequestResult);
         }
 
         [HttpPost]
@@ -141,16 +150,26 @@ namespace AirCaddy.Controllers
             var userId = _sessionMapperService.MapUserIdFromSessionUsername(Session["Username"].ToString());
 
             var courseOwnedByUser = await _golfCourseService.RequestCourseOwnedByUser(editCourseViewModel.CourseId, userId);
-
             if (courseOwnedByUser == null)
             {
-                //That user does not own that course.
-                return Json(2);
+                //That user does not own that course but we are not giving up, he may have a pending privilege.
+                var privRequestOwnedByUser = await _privilegeRequestHandlerService.RequestUserOwnsPrivilegeRequest(editCourseViewModel.CourseId, userId);
+                if (privRequestOwnedByUser == null)
+                {
+                    //That user really does not own that course or request then..
+                    return Json(2);
+                }
+                else
+                {
+                    var privilegeRequestUpdatedResult = await _privilegeRequestHandlerService.RequestEditPrivilegeRequest(editCourseViewModel, privRequestOwnedByUser);
+                    return Json(privilegeRequestUpdatedResult);
+                }
+
             }
 
-            var result = await _golfCourseService.RequestEditGolfCourseProperties(editCourseViewModel, courseOwnedByUser);
+            var golfCourseUpdatedResult = await _golfCourseService.RequestEditGolfCourseProperties(editCourseViewModel, courseOwnedByUser);
 
-            return Json(result);
+            return Json(golfCourseUpdatedResult);
         }
     }
 }
